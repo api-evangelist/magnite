@@ -1,0 +1,14 @@
+{
+  "repo": "magnite",
+  "feeds": [
+    {
+      "source": "https://pypi.org/project/springserve/",
+      "feed_url": "https://pypi.org/project/springserve/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-01T23:35:02Z"
+}
