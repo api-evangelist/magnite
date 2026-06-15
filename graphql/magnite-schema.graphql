@@ -1,0 +1,1025 @@
+"""
+Magnite GraphQL Schema
+Conceptual schema derived from Magnite REST APIs covering the SpringServe ad server,
+Magnite Streaming SSP, DV+ platform, ClearLine direct buying, and OpenRTB integrations.
+"""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Scalars
+# ─────────────────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar JSON
+scalar URL
+scalar BigInt
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Enums
+# ─────────────────────────────────────────────────────────────────────────────
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  PAUSED
+  ARCHIVED
+  PENDING
+  DELETED
+}
+
+enum InventoryType {
+  DISPLAY
+  VIDEO
+  CTV
+  AUDIO
+  MOBILE_APP
+  NATIVE
+}
+
+enum AdFormat {
+  BANNER
+  VIDEO_INSTREAM
+  VIDEO_OUTSTREAM
+  INTERSTITIAL
+  REWARDED
+  NATIVE
+  AUDIO
+}
+
+enum DealType {
+  PRIVATE_MARKETPLACE
+  PROGRAMMATIC_GUARANTEED
+  PREFERRED_DEAL
+  OPEN_AUCTION
+}
+
+enum BidFloorCurrency {
+  USD
+  EUR
+  GBP
+  CAD
+  AUD
+}
+
+enum BidStatus {
+  WIN
+  LOSS
+  NO_BID
+  ERROR
+  TIMEOUT
+  FILTERED
+}
+
+enum AuctionType {
+  FIRST_PRICE
+  SECOND_PRICE
+}
+
+enum TargetingType {
+  GEO
+  DEVICE
+  AUDIENCE
+  CONTENT
+  FREQUENCY
+  TIME_OF_DAY
+  DAY_OF_WEEK
+}
+
+enum DeviceType {
+  DESKTOP
+  MOBILE
+  TABLET
+  CTV
+  GAME_CONSOLE
+  SETTOP_BOX
+  SMART_TV
+  PHONE
+}
+
+enum VideoProtocol {
+  VAST_2_0
+  VAST_3_0
+  VAST_4_0
+  VAST_4_1
+  VAST_4_2
+  VPAID_1_0
+  VPAID_2_0
+}
+
+enum ContentCategory {
+  ARTS_ENTERTAINMENT
+  AUTOMOTIVE
+  BUSINESS
+  CAREERS
+  EDUCATION
+  FAMILY_PARENTING
+  FOOD_DRINK
+  HEALTH_FITNESS
+  HOBBIES_INTERESTS
+  HOME_GARDEN
+  LAW_GOVERNMENT
+  NEWS
+  PERSONAL_FINANCE
+  PETS
+  REAL_ESTATE
+  RELIGION_SPIRITUALITY
+  SCIENCE
+  SHOPPING
+  SPORTS
+  STYLE_FASHION
+  TECHNOLOGY_COMPUTING
+  TRAVEL
+  UNCATEGORIZED
+}
+
+enum ReportingMetric {
+  IMPRESSIONS
+  CLICKS
+  REVENUE
+  FILL_RATE
+  WIN_RATE
+  ECPM
+  AD_REQUESTS
+  BID_REQUESTS
+  BIDS
+  WINS
+  VIEWABILITY
+  COMPLETION_RATE
+}
+
+enum ReportingDimension {
+  DATE
+  HOUR
+  PUBLISHER
+  SITE
+  AD_UNIT
+  AD_FORMAT
+  DEAL
+  BUYER
+  DSP
+  GEO_COUNTRY
+  GEO_REGION
+  DEVICE_TYPE
+  OS
+  BROWSER
+  INVENTORY_TYPE
+  CONTENT_CATEGORY
+}
+
+enum VideoPlacement {
+  INSTREAM_PRE_ROLL
+  INSTREAM_MID_ROLL
+  INSTREAM_POST_ROLL
+  OUTSTREAM
+  IN_BANNER
+  IN_ARTICLE
+  IN_FEED
+  INTERSTITIAL
+}
+
+enum PlayerSize {
+  SMALL
+  MEDIUM
+  LARGE
+  EXTRA_LARGE
+}
+
+enum SupplyChainStatus {
+  VALID
+  INVALID
+  INCOMPLETE
+  PENDING_VERIFICATION
+}
+
+enum DataType {
+  FIRST_PARTY
+  THIRD_PARTY
+  CONTEXTUAL
+}
+
+enum BudgetType {
+  DAILY
+  LIFETIME
+  UNCAPPED
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Core Resource Types
+# ─────────────────────────────────────────────────────────────────────────────
+
+type Publisher {
+  id: ID!
+  name: String!
+  domain: String
+  status: Status!
+  sites: [Site!]!
+  adUnits: [AdUnit!]!
+  deals: [Deal!]!
+  supplyChain: SupplyChain
+  contactEmail: String
+  revSharePercent: Float
+  floorPrice: Float
+  floorCurrency: BidFloorCurrency
+  segments: [AudienceSegment!]!
+  reporting: ReportingResult
+  tags: [String!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Site {
+  id: ID!
+  publisher: Publisher!
+  name: String!
+  domain: String!
+  status: Status!
+  categories: [ContentCategory!]!
+  adUnits: [AdUnit!]!
+  pageViews: BigInt
+  uniqueVisitors: BigInt
+  trafficQuality: TrafficQuality
+  brandSafety: BrandSafety
+  viewabilityScore: Float
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AdUnit {
+  id: ID!
+  site: Site!
+  name: String!
+  status: Status!
+  inventoryType: InventoryType!
+  adFormats: [AdFormat!]!
+  sizes: [AdSize!]!
+  floorPrice: Float
+  floorCurrency: BidFloorCurrency
+  videoConfig: VideoConfig
+  audioConfig: AudioConfig
+  nativeConfig: NativeConfig
+  targetingRules: [TargetingRule!]!
+  deals: [Deal!]!
+  impressions: BigInt
+  fillRate: Float
+  eCPM: Float
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AdSize {
+  width: Int!
+  height: Int!
+  label: String
+}
+
+type VideoConfig {
+  minDuration: Int
+  maxDuration: Int
+  protocols: [VideoProtocol!]!
+  placement: VideoPlacement!
+  playerSize: PlayerSize
+  skipEnabled: Boolean
+  skipOffset: Int
+  mimes: [String!]!
+  maxBitrate: Int
+  minBitrate: Int
+  startDelay: Int
+  linearity: Int
+}
+
+type AudioConfig {
+  minDuration: Int
+  maxDuration: Int
+  mimes: [String!]!
+  maxBitrate: Int
+  minBitrate: Int
+}
+
+type NativeConfig {
+  titleMaxLength: Int
+  descMaxLength: Int
+  imageRequired: Boolean
+  iconRequired: Boolean
+  ctaText: String
+}
+
+type Deal {
+  id: ID!
+  dealId: String!
+  name: String!
+  status: Status!
+  dealType: DealType!
+  publisher: Publisher!
+  adUnit: AdUnit
+  buyers: [Buyer!]!
+  floorPrice: Float!
+  floorCurrency: BidFloorCurrency!
+  auctionType: AuctionType!
+  startDate: DateTime
+  endDate: DateTime
+  budgetType: BudgetType
+  budgetAmount: Float
+  impressionGoal: BigInt
+  targetingRules: [TargetingRule!]!
+  adFormats: [AdFormat!]!
+  inventoryTypes: [InventoryType!]!
+  reporting: ReportingResult
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Buyer {
+  id: ID!
+  name: String!
+  seatId: String!
+  dsp: DSP!
+  deals: [Deal!]!
+  status: Status!
+  bidRequests: BigInt
+  bids: BigInt
+  wins: BigInt
+  spend: Float
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type DSP {
+  id: ID!
+  name: String!
+  status: Status!
+  endpointUrl: URL
+  buyers: [Buyer!]!
+  bidTimeout: Int
+  winRatePercent: Float
+  avgBidPrice: Float
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SupplyChain {
+  complete: Boolean!
+  version: String!
+  nodes: [SupplyChainNode!]!
+  status: SupplyChainStatus!
+}
+
+type SupplyChainNode {
+  asi: String!
+  sid: String!
+  rid: String
+  name: String
+  domain: String
+  hp: Int!
+}
+
+type TrafficQuality {
+  score: Float
+  ivtRate: Float
+  botTrafficPercent: Float
+  suspiciousActivityFlags: [String!]!
+  lastAuditDate: DateTime
+}
+
+type BrandSafety {
+  categories: [ContentCategory!]!
+  blockedCategories: [ContentCategory!]!
+  safetyScore: Float
+  certifiedBrandSafe: Boolean!
+}
+
+type TargetingRule {
+  id: ID!
+  type: TargetingType!
+  include: Boolean!
+  values: [String!]!
+  label: String
+}
+
+type AudienceSegment {
+  id: ID!
+  name: String!
+  description: String
+  dataType: DataType!
+  size: BigInt
+  publisher: Publisher
+  cpm: Float
+  categories: [ContentCategory!]!
+  status: Status!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type BidRequest {
+  id: ID!
+  auctionId: String!
+  adUnit: AdUnit!
+  site: Site
+  app: App
+  device: Device!
+  user: UserInfo
+  imp: [Impression!]!
+  at: AuctionType!
+  tmax: Int
+  bcat: [ContentCategory!]!
+  timestamp: DateTime!
+}
+
+type BidResponse {
+  id: ID!
+  bidRequest: BidRequest!
+  seatBids: [SeatBid!]!
+  status: BidStatus!
+  nbr: Int
+  timestamp: DateTime!
+}
+
+type SeatBid {
+  seat: String!
+  bids: [Bid!]!
+}
+
+type Bid {
+  id: ID!
+  impId: String!
+  price: Float!
+  adId: String
+  adMarkup: String
+  adomain: [String!]!
+  cat: [ContentCategory!]!
+  crid: String
+  status: BidStatus
+  dealId: String
+}
+
+type Impression {
+  id: ID!
+  bidFloor: Float
+  bidFloorCur: BidFloorCurrency
+  banner: BannerSpec
+  video: VideoSpec
+  audio: AudioSpec
+  native: NativeSpec
+  instl: Boolean
+  secure: Boolean
+}
+
+type BannerSpec {
+  w: Int
+  h: Int
+  format: [AdSize!]!
+  btype: [Int!]!
+  battr: [Int!]!
+  pos: Int
+}
+
+type VideoSpec {
+  mimes: [String!]!
+  minduration: Int
+  maxduration: Int
+  protocols: [VideoProtocol!]!
+  w: Int
+  h: Int
+  startdelay: Int
+  linearity: Int
+  skip: Boolean
+  skipmin: Int
+  battr: [Int!]!
+  pos: Int
+  placement: Int
+}
+
+type AudioSpec {
+  mimes: [String!]!
+  minduration: Int
+  maxduration: Int
+  protocols: [Int!]!
+  maxbitrate: Int
+}
+
+type NativeSpec {
+  request: String!
+  ver: String
+}
+
+type App {
+  id: ID!
+  name: String!
+  bundle: String!
+  domain: String
+  storeUrl: URL
+  cat: [ContentCategory!]!
+  publisher: Publisher
+  ver: String
+  paid: Boolean
+}
+
+type Device {
+  ua: String
+  ip: String
+  devicetype: DeviceType
+  make: String
+  model: String
+  os: String
+  osv: String
+  hwv: String
+  language: String
+  carrier: String
+  connectiontype: Int
+  ifa: String
+  dnt: Boolean
+  lmt: Boolean
+  geo: Geo
+}
+
+type UserInfo {
+  id: String
+  buyeruid: String
+  gender: String
+  yob: Int
+  keywords: String
+  consent: String
+  geo: Geo
+}
+
+type Geo {
+  lat: Float
+  lon: Float
+  country: String
+  region: String
+  city: String
+  zip: String
+  metro: String
+  type: Int
+}
+
+type ReportingResult {
+  dimensions: [ReportingDimension!]!
+  metrics: [ReportingMetric!]!
+  rows: [ReportingRow!]!
+  totals: ReportingTotals!
+  startDate: DateTime!
+  endDate: DateTime!
+  currency: BidFloorCurrency!
+  generatedAt: DateTime!
+}
+
+type ReportingRow {
+  dimensions: JSON!
+  impressions: BigInt
+  clicks: BigInt
+  revenue: Float
+  fillRate: Float
+  winRate: Float
+  eCPM: Float
+  adRequests: BigInt
+  bids: BigInt
+  wins: BigInt
+  viewability: Float
+  completionRate: Float
+}
+
+type ReportingTotals {
+  impressions: BigInt
+  clicks: BigInt
+  revenue: Float
+  adRequests: BigInt
+  bids: BigInt
+  wins: BigInt
+}
+
+type SupplyPath {
+  id: ID!
+  publisherId: String!
+  publisherName: String!
+  sspNodes: [SSPNode!]!
+  bidRequests: BigInt
+  impressions: BigInt
+  spend: Float
+  efficiency: Float
+}
+
+type SSPNode {
+  asi: String!
+  sid: String!
+  name: String
+  reachPercent: Float
+}
+
+type PricingFloor {
+  id: ID!
+  adUnit: AdUnit!
+  dealId: String
+  buyerId: String
+  floorPrice: Float!
+  currency: BidFloorCurrency!
+  startDate: DateTime
+  endDate: DateTime
+  active: Boolean!
+}
+
+type Tag {
+  id: ID!
+  name: String!
+  adUnit: AdUnit!
+  type: String!
+  tagUrl: URL
+  code: String
+  format: AdFormat!
+  createdAt: DateTime!
+}
+
+type CreativeReview {
+  id: ID!
+  creativeId: String!
+  adomain: String!
+  status: String!
+  reviewedAt: DateTime
+  rejectionReasons: [String!]!
+}
+
+type WebhookEndpoint {
+  id: ID!
+  url: URL!
+  events: [String!]!
+  active: Boolean!
+  secret: String
+  createdAt: DateTime!
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Connection / Pagination Types
+# ─────────────────────────────────────────────────────────────────────────────
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+  totalCount: Int!
+}
+
+type PublisherConnection {
+  nodes: [Publisher!]!
+  pageInfo: PageInfo!
+}
+
+type SiteConnection {
+  nodes: [Site!]!
+  pageInfo: PageInfo!
+}
+
+type AdUnitConnection {
+  nodes: [AdUnit!]!
+  pageInfo: PageInfo!
+}
+
+type DealConnection {
+  nodes: [Deal!]!
+  pageInfo: PageInfo!
+}
+
+type BuyerConnection {
+  nodes: [Buyer!]!
+  pageInfo: PageInfo!
+}
+
+type BidRequestConnection {
+  nodes: [BidRequest!]!
+  pageInfo: PageInfo!
+}
+
+type AudienceSegmentConnection {
+  nodes: [AudienceSegment!]!
+  pageInfo: PageInfo!
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Input Types
+# ─────────────────────────────────────────────────────────────────────────────
+
+input PublisherInput {
+  name: String!
+  domain: String
+  contactEmail: String
+  revSharePercent: Float
+  floorPrice: Float
+  floorCurrency: BidFloorCurrency
+  tags: [String!]
+}
+
+input PublisherUpdateInput {
+  name: String
+  domain: String
+  contactEmail: String
+  revSharePercent: Float
+  floorPrice: Float
+  floorCurrency: BidFloorCurrency
+  status: Status
+  tags: [String!]
+}
+
+input SiteInput {
+  publisherId: ID!
+  name: String!
+  domain: String!
+  categories: [ContentCategory!]!
+}
+
+input SiteUpdateInput {
+  name: String
+  domain: String
+  categories: [ContentCategory!]
+  status: Status
+}
+
+input AdUnitInput {
+  siteId: ID!
+  name: String!
+  inventoryType: InventoryType!
+  adFormats: [AdFormat!]!
+  sizes: [AdSizeInput!]
+  floorPrice: Float
+  floorCurrency: BidFloorCurrency
+  videoConfig: VideoConfigInput
+}
+
+input AdUnitUpdateInput {
+  name: String
+  adFormats: [AdFormat!]
+  sizes: [AdSizeInput!]
+  floorPrice: Float
+  floorCurrency: BidFloorCurrency
+  status: Status
+  videoConfig: VideoConfigInput
+}
+
+input AdSizeInput {
+  width: Int!
+  height: Int!
+  label: String
+}
+
+input VideoConfigInput {
+  minDuration: Int
+  maxDuration: Int
+  protocols: [VideoProtocol!]
+  placement: VideoPlacement
+  skipEnabled: Boolean
+  skipOffset: Int
+  mimes: [String!]
+  maxBitrate: Int
+  minBitrate: Int
+}
+
+input DealInput {
+  name: String!
+  dealId: String!
+  dealType: DealType!
+  publisherId: ID!
+  adUnitId: ID
+  buyerIds: [ID!]!
+  floorPrice: Float!
+  floorCurrency: BidFloorCurrency!
+  auctionType: AuctionType!
+  startDate: DateTime
+  endDate: DateTime
+  budgetType: BudgetType
+  budgetAmount: Float
+  impressionGoal: BigInt
+  adFormats: [AdFormat!]
+  inventoryTypes: [InventoryType!]
+}
+
+input DealUpdateInput {
+  name: String
+  status: Status
+  buyerIds: [ID!]
+  floorPrice: Float
+  startDate: DateTime
+  endDate: DateTime
+  budgetAmount: Float
+  impressionGoal: BigInt
+}
+
+input TargetingRuleInput {
+  type: TargetingType!
+  include: Boolean!
+  values: [String!]!
+  label: String
+}
+
+input AudienceSegmentInput {
+  name: String!
+  description: String
+  dataType: DataType!
+  publisherId: ID
+  cpm: Float
+  categories: [ContentCategory!]
+}
+
+input PricingFloorInput {
+  adUnitId: ID!
+  dealId: String
+  buyerId: String
+  floorPrice: Float!
+  currency: BidFloorCurrency!
+  startDate: DateTime
+  endDate: DateTime
+}
+
+input ReportingQueryInput {
+  startDate: DateTime!
+  endDate: DateTime!
+  dimensions: [ReportingDimension!]!
+  metrics: [ReportingMetric!]!
+  publisherIds: [ID!]
+  siteIds: [ID!]
+  adUnitIds: [ID!]
+  dealIds: [ID!]
+  buyerIds: [ID!]
+  inventoryTypes: [InventoryType!]
+  currency: BidFloorCurrency
+}
+
+input WebhookEndpointInput {
+  url: URL!
+  events: [String!]!
+  secret: String
+}
+
+input PaginationInput {
+  first: Int
+  after: String
+  last: Int
+  before: String
+}
+
+input FilterInput {
+  status: Status
+  inventoryType: InventoryType
+  dealType: DealType
+  search: String
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Mutation Result Types
+# ─────────────────────────────────────────────────────────────────────────────
+
+type PublisherPayload {
+  publisher: Publisher
+  errors: [UserError!]!
+}
+
+type SitePayload {
+  site: Site
+  errors: [UserError!]!
+}
+
+type AdUnitPayload {
+  adUnit: AdUnit
+  errors: [UserError!]!
+}
+
+type DealPayload {
+  deal: Deal
+  errors: [UserError!]!
+}
+
+type AudienceSegmentPayload {
+  segment: AudienceSegment
+  errors: [UserError!]!
+}
+
+type PricingFloorPayload {
+  pricingFloor: PricingFloor
+  errors: [UserError!]!
+}
+
+type WebhookEndpointPayload {
+  endpoint: WebhookEndpoint
+  errors: [UserError!]!
+}
+
+type DeletePayload {
+  deletedId: ID
+  success: Boolean!
+  errors: [UserError!]!
+}
+
+type UserError {
+  field: String
+  message: String!
+  code: String
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Query Root
+# ─────────────────────────────────────────────────────────────────────────────
+
+type Query {
+  # Publisher queries
+  publisher(id: ID!): Publisher
+  publishers(pagination: PaginationInput, filter: FilterInput): PublisherConnection!
+
+  # Site queries
+  site(id: ID!): Site
+  sites(publisherId: ID, pagination: PaginationInput, filter: FilterInput): SiteConnection!
+
+  # AdUnit queries
+  adUnit(id: ID!): AdUnit
+  adUnits(siteId: ID, publisherId: ID, pagination: PaginationInput, filter: FilterInput): AdUnitConnection!
+
+  # Deal queries
+  deal(id: ID!): Deal
+  dealByDealId(dealId: String!): Deal
+  deals(publisherId: ID, buyerId: ID, pagination: PaginationInput, filter: FilterInput): DealConnection!
+
+  # Buyer/DSP queries
+  buyer(id: ID!): Buyer
+  buyers(dspId: ID, pagination: PaginationInput): BuyerConnection!
+  dsp(id: ID!): DSP
+  dsps: [DSP!]!
+
+  # Audience segment queries
+  audienceSegment(id: ID!): AudienceSegment
+  audienceSegments(publisherId: ID, pagination: PaginationInput): AudienceSegmentConnection!
+
+  # Pricing floor queries
+  pricingFloor(id: ID!): PricingFloor
+  pricingFloors(adUnitId: ID, publisherId: ID): [PricingFloor!]!
+
+  # Bid queries
+  bidRequest(id: ID!): BidRequest
+  bidRequests(adUnitId: ID, dealId: ID, pagination: PaginationInput): BidRequestConnection!
+  bidResponse(id: ID!): BidResponse
+
+  # Reporting
+  report(query: ReportingQueryInput!): ReportingResult!
+
+  # Supply path
+  supplyPaths(publisherId: ID): [SupplyPath!]!
+  supplyChain(publisherId: ID!): SupplyChain
+
+  # Creative review
+  creativeReview(id: ID!): CreativeReview
+  creativeReviews(adomain: String, status: String): [CreativeReview!]!
+
+  # Webhooks
+  webhookEndpoint(id: ID!): WebhookEndpoint
+  webhookEndpoints: [WebhookEndpoint!]!
+
+  # Tags
+  tag(id: ID!): Tag
+  tags(adUnitId: ID!): [Tag!]!
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Mutation Root
+# ─────────────────────────────────────────────────────────────────────────────
+
+type Mutation {
+  # Publisher mutations
+  createPublisher(input: PublisherInput!): PublisherPayload!
+  updatePublisher(id: ID!, input: PublisherUpdateInput!): PublisherPayload!
+  deletePublisher(id: ID!): DeletePayload!
+  activatePublisher(id: ID!): PublisherPayload!
+  pausePublisher(id: ID!): PublisherPayload!
+
+  # Site mutations
+  createSite(input: SiteInput!): SitePayload!
+  updateSite(id: ID!, input: SiteUpdateInput!): SitePayload!
+  deleteSite(id: ID!): DeletePayload!
+
+  # AdUnit mutations
+  createAdUnit(input: AdUnitInput!): AdUnitPayload!
+  updateAdUnit(id: ID!, input: AdUnitUpdateInput!): AdUnitPayload!
+  deleteAdUnit(id: ID!): DeletePayload!
+  activateAdUnit(id: ID!): AdUnitPayload!
+  pauseAdUnit(id: ID!): AdUnitPayload!
+  addTargetingRule(adUnitId: ID!, rule: TargetingRuleInput!): AdUnitPayload!
+  removeTargetingRule(adUnitId: ID!, ruleId: ID!): AdUnitPayload!
+
+  # Deal mutations
+  createDeal(input: DealInput!): DealPayload!
+  updateDeal(id: ID!, input: DealUpdateInput!): DealPayload!
+  deleteDeal(id: ID!): DeletePayload!
+  activateDeal(id: ID!): DealPayload!
+  pauseDeal(id: ID!): DealPayload!
+  addBuyerToDeal(dealId: ID!, buyerId: ID!): DealPayload!
+  removeBuyerFromDeal(dealId: ID!, buyerId: ID!): DealPayload!
+
+  # Audience segment mutations
+  createAudienceSegment(input: AudienceSegmentInput!): AudienceSegmentPayload!
+  updateAudienceSegment(id: ID!, input: AudienceSegmentInput!): AudienceSegmentPayload!
+  deleteAudienceSegment(id: ID!): DeletePayload!
+
+  # Pricing floor mutations
+  createPricingFloor(input: PricingFloorInput!): PricingFloorPayload!
+  updatePricingFloor(id: ID!, input: PricingFloorInput!): PricingFloorPayload!
+  deletePricingFloor(id: ID!): DeletePayload!
+
+  # Webhook mutations
+  createWebhookEndpoint(input: WebhookEndpointInput!): WebhookEndpointPayload!
+  updateWebhookEndpoint(id: ID!, input: WebhookEndpointInput!): WebhookEndpointPayload!
+  deleteWebhookEndpoint(id: ID!): DeletePayload!
+  testWebhookEndpoint(id: ID!): WebhookEndpointPayload!
+}
