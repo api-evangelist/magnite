@@ -63,7 +63,7 @@ common:
   url: https://www.magnite.com/solutions/dv/
 - type: HelpCenter
   url: https://help.magnite.com/help
-- type: DeveloperDocumentation
+- type: Documentation
   url: https://help.magnite.com/help/developer-documentation
 - type: StreamingPublicAPI
   url: https://help.magnite.com/help/api-documentation-test
