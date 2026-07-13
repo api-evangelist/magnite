@@ -2,11 +2,13 @@
   "repo": "magnite",
   "feeds": [
     {
-      "source": "https://www.magnite.com/blog/",
+      "source": "https://pypi.org/project/springserve/",
+      "feed_url": "https://pypi.org/project/springserve/",
+      "title": "",
       "saved": 0,
-      "error": "HTTP 403 Forbidden"
+      "method": "none"
     }
   ],
   "post_count": 2,
-  "fetched": "2026-06-27T12:53:30Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
