@@ -20,9 +20,20 @@ description: 'Magnite, Inc. (NASDAQ: MGNI) is the world''s largest independent s
   published. In Q1 2026 Magnite reported $164.4M revenue with CTV crossing 51% of
   contribution ex-TAC for the first time.'
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/magnite.png
 tags:
 - Advertising
 - Programmatic Advertising
