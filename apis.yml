@@ -1,36 +1,37 @@
 aid: magnite
 name: Magnite
-description: 'Magnite, Inc. (NASDAQ: MGNI) is the world''s largest independent sell-side
-  advertising platform, headquartered in New York with major operations in Los Angeles.
-  Formed in 2020 from the merger of Rubicon Project and Telaria, and expanded through
-  the acquisitions of SpotX (2021), SpringServe (2021), and Streamr.ai (2025), Magnite
-  operates an omnichannel SSP spanning Connected TV (CTV), online video, display,
-  audio, and mobile in-app. Its flagship offering is the Magnite Streaming platform
-  — a next-generation CTV/OTT solution that unifies the SpringServe ad server with
-  Magnite''s Streaming SSP — alongside DV+ for display/video web and mobile, ClearLine
-  for agency self-service direct buying of premium video, and Magnite Access for first-
-  and third-party data activation. Magnite connects publishers including Disney Advertising,
-  Paramount, Roku, Samsung, LG Ad Solutions, and Warner Bros. Discovery to virtually
-  all major DSPs, and Jounce Media''s March 2025 Supply Path Benchmarking Report verified
-  Magnite reaches 99% of US streaming supply on a dollar-weighted basis. The company
-  exposes developer surfaces through the SpringServe REST API, the Magnite Streaming
-  Public API, the Magnite Seller Platform / CTV Platform Public APIs, an OpenRTB v2.5
-  bidder integration, and iOS/Android in-app SDKs. Most API reference material is
-  gated behind authenticated partner accounts; no canonical OpenAPI document is publicly
-  published. In Q1 2026 Magnite reported $164.4M revenue with CTV crossing 51% of
-  contribution ex-TAC for the first time.'
+description: 'Magnite, Inc. (NASDAQ: MGNI) is the world''s largest independent sell-side advertising platform,
+  headquartered in New York with major operations in Los Angeles. Formed in 2020 from the merger of Rubicon
+  Project and Telaria, and expanded through the acquisitions of SpotX (2021), SpringServe (2021), and
+  Streamr.ai (2025), Magnite operates an omnichannel SSP spanning Connected TV (CTV), online video, display,
+  audio, and mobile in-app. Its flagship offering is the Magnite Streaming platform — a next-generation
+  CTV/OTT solution that unifies the SpringServe ad server with Magnite''s Streaming SSP — alongside DV+
+  for display/video web and mobile, ClearLine for agency self-service direct buying of premium video,
+  and Magnite Access for first- and third-party data activation. Magnite connects publishers including
+  Disney Advertising, Paramount, Roku, Samsung, LG Ad Solutions, and Warner Bros. Discovery to virtually
+  all major DSPs, and Jounce Media''s March 2025 Supply Path Benchmarking Report verified Magnite reaches
+  99% of US streaming supply on a dollar-weighted basis. The company exposes developer surfaces through
+  the SpringServe REST API, the Magnite Streaming Public API, the Magnite Seller Platform / CTV Platform
+  Public APIs, an OpenRTB v2.5 bidder integration, and iOS/Android in-app SDKs. The SpringServe UI API
+  publishes a real, anonymously reachable OpenAPI 3.1.2 contract in two concurrent versions (v0, 289 operations;
+  v1, 379 operations) from the Swagger UI at https://api.springserve.com/api-docs, with the callable base
+  at https://console.springserve.com. The Magnite Streaming and Seller Platform reference material on
+  help.magnite.com remains gated behind an authenticated partner login. In Q1 2026 Magnite reported $164.4M
+  revenue with CTV crossing 51% of contribution ex-TAC for the first time.'
 type: Index
 accessModel:
-  pricing: unknown
-  onboarding: unknown
+  pricing: negotiated
+  onboarding: contact-sales
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  label: Enterprise contract
+  confidence: high
+  source:
+  - https://www.magnite.com/contact-us/
+  - plans/magnite-plans-pricing.yml
+  generated: '2026-08-13'
+  method: searched
 position: Provider
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/magnite.png
@@ -50,12 +51,74 @@ tags:
 - Ad Tech
 - Publisher Monetization
 - Demand-Side Integration
+- Ad Server
+- Deal Curation
+- Reporting API
+- Agent Readiness
+- OpenAPI
 url: https://raw.githubusercontent.com/api-evangelist/magnite/refs/heads/main/apis.yml
 created: '2026-05-25'
-modified: '2026-05-25'
+modified: '2026-08-13'
 specificationVersion: '0.20'
-apis: []
+apis:
+- name: SpringServe UI API
+  description: 'The SpringServe ad server REST API — the machine-readable core of Magnite Streaming. Two
+    versions run concurrently: v0 (289 operations, 173 paths) and v1 (379 operations, 295 paths, 139 component
+    schemas). Covers supply tags and supply routers (publisher inventory), demand tags (buyer demand),
+    creatives across video/audio/tile/tag formats, deal lists and curated marketplaces, partner segments
+    and audiences, targeting lists (geo, domain, app bundle, IP, postal code, ISP), forecasting, dashboards,
+    a synchronous and asynchronous reporting engine with saved templates and schedules, and a first-class
+    object-change audit log. Authentication is a token or JWT bearer minted at POST /api/v{0,1}/auth;
+    there is no OAuth and no scope surface. Both OpenAPI 3.1.2 documents are served anonymously from the
+    Swagger UI at https://api.springserve.com/api-docs.'
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/magnite.png
+  tags:
+  - Ad Server
+  - Programmatic Advertising
+  - Connected TV
+  - Reporting
+  - Deal Curation
+  - SSP
+  - OpenAPI
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-springserve-v1-openapi.yml
+    name: SpringServe UI API v1 (OpenAPI 3.1.2, 379 operations)
+  - type: OpenAPI
+    url: openapi/magnite-springserve-v0-openapi.yml
+    name: SpringServe UI API v0 (OpenAPI 3.1.2, 289 operations)
+  - type: Overlay
+    url: overlays/magnite-springserve-v1-overlay.yaml
+  - type: Overlay
+    url: overlays/magnite-springserve-v0-overlay.yaml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+    name: springserve (Python)
 common:
+- type: AgenticAccess
+  url: agentic-access/magnite-agentic-access.yml
+- type: Authentication
+  url: authentication/magnite-authentication.yml
 - type: DomainSecurity
   url: security/magnite-domain-security.yml
 - type: Website
@@ -104,8 +167,6 @@ common:
   url: https://investor.magnite.com
 - type: Careers
   url: https://www.magnite.com/careers/
-- type: GitHub
-  url: https://github.com/magnite
 - type: SpringServeGitHub
   url: https://github.com/SpringServe
 - type: LinkedIn
@@ -116,8 +177,88 @@ common:
   url: https://www.nasdaq.com/market-activity/stocks/mgni
 - type: Wikipedia
   url: https://en.wikipedia.org/wiki/Magnite_Inc
-- url: graphql/magnite-graphql.md
-  type: GraphQL
+- type: OpenAPI
+  url: openapi/magnite-springserve-v1-openapi.yml
+  name: SpringServe UI API v1
+- type: OpenAPI
+  url: openapi/magnite-springserve-v0-openapi.yml
+  name: SpringServe UI API v0
+- type: Overlay
+  url: overlays/magnite-springserve-v1-overlay.yaml
+- type: Overlay
+  url: overlays/magnite-springserve-v0-overlay.yaml
+- type: Packages
+  url: packages/magnite-packages.yml
+- type: SDKs
+  url: packages/magnite-packages.yml
+  name: 'First-party SDKs: springserve (PyPI), com.magnite.sdk:ads-sdk (Maven), MagniteSDK (CocoaPods)'
+- type: Conventions
+  url: conventions/magnite-conventions.yml
+- type: ErrorCatalog
+  url: errors/magnite-problem-types.yml
+- type: DataModel
+  url: data-model/magnite-data-model.yml
+- type: Lifecycle
+  url: lifecycle/magnite-lifecycle.yml
+- type: Conformance
+  url: conformance/magnite-conformance.yml
+- type: Compliance
+  url: https://www.magnite.com/trust-center/
+  name: SOC 2 Type I, JICDAQ, GDPR/CCPA, IAB TCF 2.0
+- type: TrustCenter
+  url: security/magnite-trust-center.yml
+- type: RateLimits
+  url: rate-limits/magnite-rate-limits.yml
+- type: Plans
+  url: plans/magnite-plans-pricing.yml
+- type: MCPCandidate
+  url: mcp/magnite-mcp.yml
+  name: 'Candidate tool set DERIVED from the SpringServe OpenAPI. Magnite ships no MCP server (mode: none),
+    so no canonical MCPServer pointer is emitted — the pointer would assert an agent surface that does
+    not exist.'
+- type: AgentSkill
+  url: skills/_index.yml
+  name: 5 packaged Agent Skills for the SpringServe UI API
+- type: LLMsTxt
+  url: llms/magnite-llms.txt
+- type: WellKnownProbe
+  url: well-known/magnite-well-known.yml
+  name: 'Probe record: every /.well-known/ path missed. NOT a WellKnown pointer.'
+- type: APIReference
+  url: https://api.springserve.com/api-docs
+  name: SpringServe UI API Swagger UI (v0 + v1)
+- type: GettingStarted
+  url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+- type: DeveloperPortal
+  url: https://help.magnite.com/help/developer-documentation
+- type: Support
+  url: https://www.magnite.com/contact-us/
+- type: Pricing
+  url: https://www.magnite.com/contact-us/
+  name: No published pricing; enterprise contract only (plan_count 0)
+- type: SignUp
+  url: https://www.magnite.com/contact-us/
+  name: No self-serve sign-up; platform access is contracted
+- type: Login
+  url: https://console.springserve.com
+- type: PrivacyPolicy
+  url: https://www.magnite.com/legal/magnite-website-privacy-policy/
+- type: TermsOfService
+  url: https://www.magnite.com/legal/purchase-requisition-terms-and-conditions/
+- type: GitHubOrganization
+  url: https://github.com/magniteinc
+  name: Magnite Inc. (verified organization; 0 public repositories)
+- type: GitHubOrganization
+  url: https://github.com/SpringServe
+  name: SpringServe (springserve-python lives here)
+- type: GitHubOrganization
+  url: https://github.com/rubicon-project
+  name: Legacy Rubicon Project organization; Prebid work
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 31
+  pass: local-v1
