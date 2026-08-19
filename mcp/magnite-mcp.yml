@@ -1,0 +1,55 @@
+generated: '2026-08-13'
+method: derived
+status: candidate
+source: openapi/magnite-springserve-v1-openapi.yml
+note: >-
+  MAGNITE SHIPS NO MCP SERVER. Searched the Magnite Help Center, the SpringServe Confluence
+  space, the Magnite and SpringServe GitHub organizations, npm (@magnite/*, @springserve/*,
+  magnite-sdk — all 404) and PyPI; nothing hosted, nothing stdio. Magnite announced "Magnite
+  Orchestration" (2026) as "a coordination layer that enables buyers to connect their buyer
+  agents to Magnite's seller agent", but that announcement discloses no endpoint, no protocol
+  and no developer documentation — it is a product-marketing claim of an agent surface with
+  no callable artifact behind it, and it is deliberately NOT recorded as an MCP or A2A
+  surface here. The tools below are a CANDIDATE set derived from real operationIds in the
+  SpringServe UI API v1 spec, offered as a design starting point. No endpoint URL is asserted.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: derived
+server:
+  name: springserve
+  transport: null
+  url: null
+tool_count: 22
+tools:
+  - {name: authenticate, description: Exchange email and password for a SpringServe API token, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#auth_post'}
+  - {name: get_session, description: Read the current authenticated user session, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#session_get'}
+  - {name: get_current_account, description: Read the currently active account the request runs under, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#accounts_current_get'}
+  - {name: list_selectable_accounts, description: List accounts the current user may make active, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#accounts_displayable_get'}
+  - {name: set_current_account, description: Switch the active account context for subsequent calls, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#accounts_id_set_current_post'}
+  - {name: list_supply_tags, description: List supply tags (publisher inventory), source_operation: 'openapi/magnite-springserve-v1-openapi.yml#supply_tags_get'}
+  - {name: get_supply_tag, description: Read one supply tag, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#supply_tags_id_get'}
+  - {name: get_demand_tag_priorities, description: Read the demand tag priority stack for a supply tag, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#supply_tags_id_demand_tag_priorities_get'}
+  - {name: list_demand_tags, description: List demand tags (buyer demand sources), source_operation: 'openapi/magnite-springserve-v1-openapi.yml#demand_tags_get'}
+  - {name: get_demand_tag, description: Read one demand tag, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#demand_tags_id_get'}
+  - {name: create_demand_tag, description: Create a demand tag, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#demand_tags_post'}
+  - {name: update_demand_tag, description: Update a demand tag, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#demand_tags_id_patch'}
+  - {name: bulk_update_demand_tags, description: Apply the same attribute change to many demand tags, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#demand_tags_bulk_update_same_attributes_post'}
+  - {name: list_deal_lists, description: List deal lists, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#deal_lists_get'}
+  - {name: list_deals_in_list, description: List the deals inside a deal list, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#deal_lists_deal_list_id_deals_get'}
+  - {name: add_deals_to_list, description: Bulk-add deals to a deal list, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#deal_lists_deal_list_id_deals_bulk_create_post'}
+  - {name: list_curated_marketplaces, description: List curated marketplaces, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#curated_marketplaces_get'}
+  - {name: run_report, description: Run a performance report, synchronously or async, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#reports_post'}
+  - {name: get_report, description: Fetch the rows of a completed report, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#reports_id_get'}
+  - {name: download_report, description: Download a completed report as a file, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#reports_download_id_get'}
+  - {name: account_summary, description: Read the account performance summary dashboard, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#dashboards_account_summary_get'}
+  - {name: search_changelog, description: Query the object-change audit log, source_operation: 'openapi/magnite-springserve-v1-openapi.yml#changelogs_get'}
+searched:
+  - {surface: 'https://help.magnite.com/help/developer-documentation', result: 'no MCP server documented'}
+  - {surface: 'https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK', result: 'no MCP server documented'}
+  - {surface: 'npm registry', probed: ['@magnite/sdk', '@springserve/sdk', 'magnite-sdk', 'magnite', 'springserve'], result: '404'}
+  - {surface: 'https://github.com/SpringServe', result: '3 public repos, none MCP'}
+  - {surface: 'https://github.com/magniteinc', result: '0 public repos'}

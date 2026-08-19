@@ -1,0 +1,70 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/magnite-springserve-v0-openapi.yml, openapi/magnite-springserve-v1-openapi.yml,
+  https://www.magnite.com/trust-center/, https://www.magnite.com/legal/
+note: >-
+  Standards posture for the SpringServe UI API plus the ad-tech industry standards Magnite
+  states it implements. The API side is deliberately plain: bearer/token auth over HTTPS with
+  a vendor JSON error envelope and no OAuth, no OIDC, no RFC 9457, no idempotency. The
+  ad-tech side is where Magnite's real standards surface lives (OpenRTB, ads.txt/sellers.json,
+  supply-chain object, IAB TCF) — those govern the bidstream, not this REST API, and are
+  recorded here as documented claims rather than as properties derived from a spec.
+standards:
+  - id: openapi-3.1
+    conforms: true
+    evidence: 'Both published documents declare openapi: 3.1.2 (v0 289 ops, v1 379 ops, all with unique operationIds).'
+  - id: https-tls
+    conforms: true
+    evidence: 'TLS 1.3 on api.springserve.com and console.springserve.com; strict-transport-security max-age=63072000; includeSubDomains observed on API responses.'
+  - id: bearer-token-rfc6750
+    conforms: true
+    evidence: 'components.securitySchemes.bearer_token type http scheme bearer bearerFormat JWT; Authorization: Bearer <token>.'
+  - id: oauth2
+    conforms: false
+    evidence: 'No oauth2 securityScheme in either document. Token is minted by POST /api/v{0,1}/auth with credentials, not by an OAuth flow.'
+  - id: oidc
+    conforms: false
+    evidence: No openIdConnect scheme; /.well-known/openid-configuration 404/403 on all hosts.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: 'Zero application/problem+json responses. Errors are {"error": "<message>"} as application/json.'
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: No Sunset or Deprecation headers declared; no deprecation policy published.
+  - id: idempotency
+    conforms: false
+    evidence: No Idempotency-Key header or parameter across 668 operations.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: '/.well-known/security.txt 404 on magnite.com and www.magnite.com, 403 on api.springserve.com.'
+  - id: pagination
+    conforms: true
+    evidence: 'Documented page/per query parameters, 50-object default. No total-count or Link header.'
+  - id: json-api
+    conforms: false
+    evidence: Plain resource JSON; no JSON:API document structure.
+  - id: openrtb
+    conforms: true
+    evidence: 'Magnite operates an OpenRTB v2.5 bidder integration for demand partners; the SSP transacts on OpenRTB. Documented product claim, not derived from this REST spec.'
+  - id: ads-txt-sellers-json
+    conforms: true
+    evidence: 'SpringServe documents ads.txt participation (SpringServe in ads.txt) and Magnite publishes sellers.json as an IAB Tech Lab authorized digital seller.'
+  - id: iab-tcf-2.0
+    conforms: true
+    evidence: 'Trust center states Magnite is a registered vendor under the IAB Transparency and Consent Framework 2.0.'
+  - id: supply-chain-object
+    conforms: true
+    evidence: 'SpringServe documents schain and pchain support (Schain and Pchain in SpringServe).'
+  - id: soc2-type-i
+    conforms: true
+    evidence: 'Trust center offers SOC 2 Type I reports on request. See security/magnite-trust-center.yml.'
+  - id: iso-27001
+    conforms: false
+    evidence: 'Trust center states Magnite does not currently maintain formal ISMS certifications such as ISO 27001.'
+  - id: gdpr
+    conforms: true
+    evidence: 'Privacy program aligned to GDPR; advertising platform privacy policy and user choice portal published.'
+  - id: ccpa
+    conforms: true
+    evidence: Privacy program aligned to CCPA.

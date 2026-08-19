@@ -1,0 +1,59 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  openapi/magnite-springserve-v0-openapi.yml, openapi/magnite-springserve-v1-openapi.yml
+  (info.description), https://api.springserve.com/api-docs
+note: >-
+  SpringServe runs v0 and v1 concurrently and says so in both specs, but publishes NO
+  deprecation policy, NO sunset date for v0, NO SLA and NO public status page. That is the
+  finding. v0 is not marked deprecated anywhere — zero operations in either document carry
+  `deprecated: true` — so a consumer has no machine-readable or documented signal about when
+  the older version goes away, only the statement that v1 coverage is still being built out.
+  status.magnite.com and status.springserve.com do not resolve; magnite.statuspage.io and
+  springserve.statuspage.io return the generic Statuspage.io marketing page (identical
+  127,719-byte body for both), which is not a Magnite status page and is recorded as a miss.
+versioning:
+  scheme: uri-path
+  versions:
+    - {version: v0, title: SpringServe UI API (V0), info_version: 0.1.0, operations: 289, spec: openapi/magnite-springserve-v0-openapi.yml, status: supported}
+    - {version: v1, title: SpringServe UI API, info_version: 1.0.0, operations: 379, spec: openapi/magnite-springserve-v1-openapi.yml, status: current}
+  current: v1
+  docs: https://api.springserve.com/api-docs
+  note: >-
+    Quoted from the specs: "we are in the process of creating V1 endpoints for all existing V0
+    endpoints, but while that work is in progress not all endpoints will be supported on V1.
+    We advise reviewing both swagger pages to determine what is supported in each version."
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No deprecation policy page, no Sunset or Deprecation response headers declared in either
+    spec, and no dated end-of-life for v0.
+deprecated_operations: []
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA. Availability commitments are negotiated per platform contract.
+status_page:
+  url: null
+  found: false
+  probes:
+    - {url: 'https://status.magnite.com', status: 'DNS does not resolve'}
+    - {url: 'https://status.springserve.com', status: 'DNS does not resolve'}
+    - {url: 'https://magnite.statuspage.io', status: 200, finding: 'generic Statuspage.io landing page, not a Magnite status page'}
+    - {url: 'https://springserve.statuspage.io', status: 200, finding: 'generic Statuspage.io landing page, identical body to the above'}
+change_tracking:
+  product_release_notes:
+    url: https://help.magnite.com/help/release-notes
+    status: 200
+    readable: false
+    note: >-
+      Returns the Magnite Help Center login wall — the identical 122,137-byte "Log In To
+      Magnite Help Center" body served for every gated help path. No release notes are
+      publicly readable, so no ChangeLog artifact is emitted.
+  object_audit_log:
+    endpoint: GET /api/v1/changelogs
+    note: An in-API audit trail of object changes, not a product changelog. See conventions/.

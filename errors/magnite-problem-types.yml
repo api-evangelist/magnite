@@ -1,0 +1,231 @@
+generated: '2026-08-13'
+method: derived
+source: openapi/magnite-springserve-v0-openapi.yml, openapi/magnite-springserve-v1-openapi.yml
+note: 'Derived from the SpringServe UI API v0/v1 OpenAPI 3.1.2 documents published at https://api.springserve.com/api-docs.
+  SpringServe does NOT use RFC 9457 application/problem+json; errors are a plain JSON envelope. Every
+  4xx/5xx response in the spec is declared as application/json with either {"error": "<message>"} or {"status":
+  <int>, "error": "<message>", "errors": {<field>: [<message>]}} for validation failures. The live unauthenticated
+  401 observed on 2026-08-13 at https://console.springserve.com/api/v1/accounts returned exactly {"error":"user
+  not authorized"}.'
+format: vendor-json
+envelope:
+  shape: '{"error": "<human readable message>"}'
+  validation_shape: '{"status": <int>, "error": "<summary>", "errors": {"<field>": ["<message>"]}}'
+  field: error
+  rfc9457: false
+  problem_json: false
+problems:
+- status: 400
+  title: null
+  media_types: null
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#reports_templates_id_patch
+- status: 400
+  title: Bad Request - No demand tag IDs provided
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#demand_tags_download_get
+- status: 400
+  title: Bad Request - No router IDs provided
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#supply_routers_download_get
+- status: 400
+  title: Bad Request - No supply tag IDs provided
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#supply_tags_download_get
+- status: 400
+  title: Bad request - invalid request body
+  media_types:
+  - application/json
+  example:
+    status: 400
+    error: Bad Request
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#demand_tags_bulk_update_same_attributes_post
+- status: 400
+  title: Bad request - no objects provided
+  media_types:
+  - application/json
+  example:
+    error: No objects provided
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#accounts_bulk_update_many_post
+  - openapi/magnite-springserve-v1-openapi.yml#creatives_bulk_update_many_post
+  - openapi/magnite-springserve-v1-openapi.yml#demand_tags_bulk_update_many_post
+- status: 400
+  title: bad request
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#magnite_programmatic_contentMetadata_search_get
+- status: 400
+  title: bad request - invalid credentials
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v0-openapi.yml#auth_post
+  - openapi/magnite-springserve-v0-openapi.yml#auth0_login_post
+  - openapi/magnite-springserve-v0-openapi.yml#auth0_users_email_get
+  - openapi/magnite-springserve-v1-openapi.yml#auth_post
+  - openapi/magnite-springserve-v1-openapi.yml#auth0_login_post
+  - openapi/magnite-springserve-v1-openapi.yml#auth0_users_email_get
+- status: 401
+  title: Not authorized
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#session_get
+  - openapi/magnite-springserve-v1-openapi.yml#session_delete
+- status: 401
+  title: Unauthorized
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#demand_tags_download_get
+  - openapi/magnite-springserve-v1-openapi.yml#supply_routers_download_get
+  - openapi/magnite-springserve-v1-openapi.yml#supply_tags_download_get
+- status: 403
+  title: Not authorized to run as this user
+  media_types:
+  - application/json
+  example:
+    error: You are not authorized to access this page.
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#run_as_start_post
+- status: 404
+  title: null
+  media_types: null
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#demand_tags_id_get
+  - openapi/magnite-springserve-v1-openapi.yml#scheduled_reports_id_get
+  - openapi/magnite-springserve-v1-openapi.yml#demand_tags_id_duplicate_get
+  - openapi/magnite-springserve-v1-openapi.yml#domain_lists_id_duplicate_get
+  - openapi/magnite-springserve-v1-openapi.yml#domain_lists_id_duplicate_post
+  - openapi/magnite-springserve-v1-openapi.yml#reports_templates_id_get
+- status: 404
+  title: Not found. It indicates that the requested resource or required parameter was not found.
+  media_types:
+  - application/json
+  example:
+    error: Object not found
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#creatives_bulk_update_same_attributes_post
+- status: 404
+  title: Requested user not found
+  media_types:
+  - application/json
+  example:
+    error: Object not found
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#run_as_start_post
+- status: 422
+  title: null
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#demand_tags_post
+  - openapi/magnite-springserve-v1-openapi.yml#hb_bid_maps_post
+  - openapi/magnite-springserve-v1-openapi.yml#scheduled_reports_post
+  - openapi/magnite-springserve-v1-openapi.yml#supply_labels_post
+  - openapi/magnite-springserve-v1-openapi.yml#audio_creatives_id_delete
+  - openapi/magnite-springserve-v1-openapi.yml#deal_lists_deal_list_id_delete
+- status: 422
+  title: All updates failed - no objects were updated successfully
+  media_types:
+  - application/json
+  example:
+    errors:
+      '1':
+      - Name cannot be blank
+      '2':
+      - Rate must be greater than 0
+      other:
+      - Object at index 3 is missing an ID
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#accounts_bulk_update_many_post
+  - openapi/magnite-springserve-v1-openapi.yml#creatives_bulk_update_many_post
+  - openapi/magnite-springserve-v1-openapi.yml#demand_tags_bulk_update_many_post
+- status: 422
+  title: Unprocessable Content
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#city_lists_post
+  - openapi/magnite-springserve-v1-openapi.yml#country_lists_post
+  - openapi/magnite-springserve-v1-openapi.yml#metro_area_lists_post
+  - openapi/magnite-springserve-v1-openapi.yml#postal_code_lists_post
+  - openapi/magnite-springserve-v1-openapi.yml#state_lists_post
+  - openapi/magnite-springserve-v1-openapi.yml#city_lists_id_patch
+- status: 422
+  title: Unprocessable Entity
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#global_fcap_pixels_post
+  - openapi/magnite-springserve-v1-openapi.yml#global_fcap_pixels_id_patch
+- status: 422
+  title: Unprocessable request
+  media_types:
+  - application/json
+  example:
+    error: Name can't be blank
+    errors:
+      name:
+      - can't be blank
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#bills_post
+  - openapi/magnite-springserve-v1-openapi.yml#demand_labels_post
+  - openapi/magnite-springserve-v1-openapi.yml#bills_id_patch
+  - openapi/magnite-springserve-v1-openapi.yml#demand_labels_id_patch
+- status: 422
+  title: Validation error
+  media_types:
+  - application/json
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#domain_lists_id_duplicate_post
+- status: 500
+  title: null
+  media_types: null
+  example: null
+  occurrences_in_spec: null
+  source_operations:
+  - openapi/magnite-springserve-v1-openapi.yml#reports_templates_id_get
+  - openapi/magnite-springserve-v1-openapi.yml#reports_templates_id_patch

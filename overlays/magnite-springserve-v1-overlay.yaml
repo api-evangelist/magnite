@@ -1,0 +1,56 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the SpringServe UI API (v1)
+  version: 1.0.0
+extends: openapi/magnite-springserve-v1-openapi.yml
+x-provenance:
+  generated: '2026-08-13'
+  method: generated
+  source: >-
+    Enhancements over the verbatim spec harvested from
+    https://api.springserve.com/api-docs/swagger/v1/swagger.yaml on 2026-08-13. The harvested
+    document is never mutated; everything API Evangelist adds lives here.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: magnite
+      x-apievangelist-source: https://api.springserve.com/api-docs/swagger/v1/swagger.yaml
+      x-apievangelist-harvested: '2026-08-13'
+      x-apievangelist-brand: SpringServe (Magnite, Inc.)
+  - target: $
+    update:
+      servers:
+        - url: https://console.springserve.com
+          description: >-
+            Production. Named as the API endpoint by the SpringServe developer documentation
+            and corroborated by the PyPI summary of the first-party springserve library
+            ("API Library for console.springserve.com"). The published document declares no
+            servers[] block at all; this is the repair, not an override.
+        - url: https://api.springserve.com
+          description: >-
+            Same application, also hosts the Swagger UI at /api-docs. Verified 2026-08-13 to
+            return the identical 401 envelope and header set as console.springserve.com.
+  - target: $.components.securitySchemes.api_key
+    update:
+      x-token-endpoint: /api/v1/auth
+      x-header-form: 'Authorization: <token>'
+  - target: $.components.securitySchemes.bearer_token
+    update:
+      x-token-endpoint: /api/v1/auth
+      x-header-form: 'Authorization: Bearer <token>'
+  - target: $.info
+    update:
+      x-apievangelist-conventions:
+        pagination: {style: page-number, params: [page, per], default_page_size: 50}
+        idempotency: {supported: false}
+        error_envelope: '{"error": "<message>"}'
+        rfc9457: false
+        request_id_header: x-request-id
+        rate_limits: {per_account_per_minute: 240, reporting_per_minute: 10, reporting_by_domain_or_bundle_per_minute: 3}
+      x-apievangelist-artifacts:
+        conventions: conventions/magnite-conventions.yml
+        errors: errors/magnite-problem-types.yml
+        authentication: authentication/magnite-authentication.yml
+        rate_limits: rate-limits/magnite-rate-limits.yml
+        lifecycle: lifecycle/magnite-lifecycle.yml
+        data_model: data-model/magnite-data-model.yml

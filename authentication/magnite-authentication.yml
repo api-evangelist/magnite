@@ -1,0 +1,57 @@
+generated: '2026-08-13'
+method: searched
+source: https://api.springserve.com/api-docs/swagger/v1/swagger.yaml (info.description Authentication
+  section), openapi/magnite-springserve-v0-openapi.yml, openapi/magnite-springserve-v1-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: api_key
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: SpringServe authorization token based authentication.
+  sources:
+  - openapi/magnite-springserve-v0-openapi.yml
+  - openapi/magnite-springserve-v1-openapi.yml
+- name: bearer_token
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: SpringServe authorization bearer token based authentication.  This key is included in the
+    response from the /api/v0/auth and /api/v1/auth endpoints.  This key will be automatically set if
+    you run the example for /api/v0/auth or /api/v1/auth
+  sources:
+  - openapi/magnite-springserve-v0-openapi.yml
+  - openapi/magnite-springserve-v1-openapi.yml
+docs: https://api.springserve.com/api-docs
+note: 'SpringServe mints its own tokens rather than using OAuth. POST /api/v0/auth or POST /api/v1/auth
+  takes an application/x-www-form-urlencoded body of email + password and returns a token usable two ways:
+  as a raw token in "Authorization: <token>" (scheme api_key) or as a JWT in "Authorization: Bearer <token>"
+  (scheme bearer_token). There is no oauth2 or openIdConnect scheme in either document, so there is no
+  scope surface and no scopes/ artifact — permissions are account- and role-based instead, readable at
+  GET /api/v1/accounts/permissions and per-collection ..._permissions_get operations. The hosted Swagger
+  UI at api.springserve.com/api-docs additionally falls back to the browser SpringServe session cookie,
+  but that is a docs-console convenience, not an API auth mode. Every request also runs against a server-side
+  ACTIVE ACCOUNT (GET /api/v1/accounts/current, POST /api/v1/accounts/{id}/set_current), which is effectively
+  a second half of the credential: the same token returns different data depending on the active account.'
+token_endpoints:
+- POST /api/v0/auth
+- POST /api/v1/auth
+credential_grant: email + password exchanged for a token (application/x-www-form-urlencoded)
+oauth2: false
+openid_connect: false
+mutual_tls: false
+scopes:
+  supported: false
+  model: account + role based permissions
+  read_at:
+  - GET /api/v1/accounts/permissions
+  - GET /api/v1/<collection>/permissions
+authorization_context:
+  active_account_required: true
+  read: GET /api/v1/accounts/current
+  set: POST /api/v1/accounts/{id}/set_current

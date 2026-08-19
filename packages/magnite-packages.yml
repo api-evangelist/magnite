@@ -1,0 +1,66 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  PyPI (pypi.org/pypi/springserve/json), Maven Central
+  (repo1.maven.org/maven2/com/magnite/sdk/ads-sdk/maven-metadata.xml), CocoaPods trunk
+  (trunk.cocoapods.org/api/v1/pods/MagniteSDK), plus the Magnite Help Center in-app SDK
+  integration guides. Registry metadata read unauthenticated on 2026-08-13.
+note: >-
+  Magnite ships first-party client libraries under two brands. The SpringServe Python
+  library wraps the SpringServe UI API (v0/v1) at console.springserve.com and is the only
+  server-side SDK; its PyPI summary is literally "API Library for console.springserve.com",
+  which independently corroborates the API base host. The in-app advertising SDK is a mobile
+  ad-rendering SDK (Android via Maven Central, iOS via CocoaPods) — it is not a client for the
+  SpringServe REST API. No npm, RubyGems, NuGet, Go, Packagist or crates.io package exists for
+  either brand (all probed, 404).
+packages:
+  - language: python
+    registry: pypi
+    name: springserve
+    url: https://pypi.org/project/springserve/
+    install: pip install springserve
+    official: true
+    version: 0.8.14
+    published: '2026-03-17'
+    license: Apache 2.0
+    source_code: https://github.com/SpringServe/springserve-python
+    covers: openapi/magnite-springserve-v0-openapi.yml, openapi/magnite-springserve-v1-openapi.yml
+    note: >-
+      First-party (published from the SpringServe GitHub organization). 49 releases; the
+      latest is current relative to the v1 API. Bundles pagination (get calls return the full
+      list) and a reporting helper that converts results to a Pandas dataframe via the
+      optional "reporting" extra.
+  - language: kotlin
+    registry: maven
+    name: com.magnite.sdk:ads-sdk
+    url: https://repo1.maven.org/maven2/com/magnite/sdk/ads-sdk/
+    install: implementation("com.magnite.sdk:ads-sdk:1.0.+")
+    official: true
+    version: 1.0.1
+    published: '2026-07-13'
+    docs: https://help.magnite.com/help/in-app-sdk-integration-guide-android
+    note: >-
+      Magnite In-App SDK for Android (DV+ mobile in-app demand). Ad-rendering SDK, not a REST
+      client. The integration guide pins the floating range 1.0.+; latest concrete release is
+      1.0.1. published is the maven-metadata.xml lastUpdated timestamp (20260713212718).
+  - language: swift
+    registry: cocoapods
+    name: MagniteSDK
+    url: https://cocoapods.org/pods/MagniteSDK
+    install: pod 'MagniteSDK'
+    official: true
+    version: 1.0.0
+    published: '2026-05-05'
+    docs: https://help.magnite.com/help/in-app-sdk-integration-guide-ios
+    note: >-
+      Magnite In-App SDK for iOS, owned on CocoaPods trunk by "Magnite SDK". 6 published
+      versions. Also distributed as MagniteSDK.xcframework from
+      https://github.com/MagniteEngineering/ios-sdk-pod. No Swift Package Manager
+      distribution is documented.
+absent:
+  - registry: npm
+    probed: ['springserve', '@springserve/sdk', 'magnite', '@magnite/sdk', 'magnite-sdk']
+    result: 404
+  - registry: rubygems
+    probed: ['springserve', 'magnite']
+    result: 404

@@ -1,0 +1,56 @@
+generated: '2026-08-13'
+method: probed
+source: live GET probes on 2026-08-13
+note: >-
+  NO HIT. Every /.well-known/ path returned a miss on every Magnite/SpringServe host, so no
+  WellKnown or SecurityTxt pointer is emitted in apis.yml — this file records a verified
+  absence, not a presence. Two distinct false-positive shapes were rejected:
+  springserve.com answers HTTP 200 with the same 171,880-byte WordPress SPA shell for every
+  /.well-known/* path (an HTML catch-all, not a document), and api.springserve.com answers
+  403 Forbidden for the whole /.well-known/ prefix at the nginx layer.
+hosts:
+  - host: https://www.magnite.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+  - host: https://magnite.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+  - host: https://api.springserve.com
+    documents:
+      - {path: /.well-known/security.txt, status: 403}
+      - {path: /.well-known/openid-configuration, status: 403}
+      - {path: /.well-known/oauth-authorization-server, status: 403}
+      - {path: /.well-known/api-catalog, status: 403}
+      - {path: /.well-known/ai-plugin.json, status: 403}
+      - {path: /.well-known/agent-card.json, status: 403}
+      - {path: /.well-known/agent.json, status: 403}
+  - host: https://springserve.com
+    note: >-
+      All 200s here are the WordPress single-page shell (identical 171880-byte HTML body for
+      every path, including /openapi.json). Recorded as misses.
+    documents:
+      - {path: /.well-known/security.txt, status: 200, body: html-spa-shell, document: false}
+      - {path: /.well-known/openid-configuration, status: 200, body: html-spa-shell, document: false}
+      - {path: /.well-known/oauth-authorization-server, status: 200, body: html-spa-shell, document: false}
+      - {path: /.well-known/api-catalog, status: 200, body: html-spa-shell, document: false}
+      - {path: /.well-known/ai-plugin.json, status: 200, body: html-spa-shell, document: false}
+      - {path: /.well-known/agent-card.json, status: 200, body: html-spa-shell, document: false}
+      - {path: /.well-known/agent.json, status: 200, body: html-spa-shell, document: false}
+  - host: https://help.magnite.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+documents_found: 0

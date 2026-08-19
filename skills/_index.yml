@@ -1,0 +1,36 @@
+generated: '2026-08-13'
+method: generated
+source: >-
+  openapi/magnite-springserve-v1-openapi.yml (every operationId verified verbatim against the
+  spec), plus conventions/magnite-conventions.yml, errors/magnite-problem-types.yml and
+  rate-limits/magnite-rate-limits.yml for the cross-cutting rules each skill carries.
+note: >-
+  Packaged Agent Skills for the SpringServe UI API — the only Magnite API with a public
+  machine-readable contract. Scoped to v1; where v1 has no equivalent operation the skill says
+  to check the v0 spec rather than inventing one. Magnite publishes no sandbox and no test
+  credentials, so every skill warns that writes land in production and that this API has no
+  idempotency key.
+api: openapi/magnite-springserve-v1-openapi.yml
+base_url: https://console.springserve.com
+skills:
+  - file: magnite-authenticate-and-set-account.md
+    name: Authenticate to SpringServe and select the working account
+    api: openapi/magnite-springserve-v1-openapi.yml
+    operations: [auth_post, session_get, accounts_current_get, accounts_displayable_get, accounts_id_set_current_post, accounts_permissions_get]
+    prerequisite_for: all
+  - file: magnite-run-a-performance-report.md
+    name: Run a SpringServe performance report
+    api: openapi/magnite-springserve-v1-openapi.yml
+    operations: [reports_post, reports_id_get, reports_download_id_get, reports_templates_get, reports_templates_post, scheduled_reports_post]
+  - file: magnite-manage-demand-tags.md
+    name: Create and maintain SpringServe demand tags
+    api: openapi/magnite-springserve-v1-openapi.yml
+    operations: [demand_tags_get, demand_tags_new_get, demand_tags_post, demand_tags_id_patch, demand_tags_id_duplicate_get, demand_tags_bulk_update_same_attributes_post, demand_tags_macro_suggester_post]
+  - file: magnite-curate-deal-lists.md
+    name: Curate SpringServe deal lists and marketplaces
+    api: openapi/magnite-springserve-v1-openapi.yml
+    operations: [deal_lists_get, deal_lists_post, deal_lists_deal_list_id_deals_bulk_create_post, deal_lists_deal_list_id_deals_bulk_replace_post, curated_marketplaces_get, curated_marketplaces_post]
+  - file: magnite-audit-springserve-changes.md
+    name: Audit who changed what in SpringServe
+    api: openapi/magnite-springserve-v1-openapi.yml
+    operations: [changelogs_get, changelogs_versioned_types_for_current_account_get, changelogs_versioned_type_versioned_type_versioned_id_get, changelogs_user_emails_get]

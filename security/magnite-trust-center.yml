@@ -1,0 +1,32 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.magnite.com/trust-center/
+note: >-
+  Magnite publishes a "Magnite Security Trust Center" page describing its security, privacy
+  and compliance program, and links from it to an UpGuard Trust Exchange portal where clients
+  request audit documentation. Certifications are recorded EXACTLY as Magnite states them,
+  including the negative: the page explicitly says Magnite does NOT hold ISO 27001. The
+  UpGuard portal itself is a JavaScript single-page app (1,083-byte shell over HTTP 200), so
+  the certification list below is read from Magnite's own page, not from UpGuard.
+url: https://www.magnite.com/trust-center/
+portal: https://trust.upguard.com/814dc01d-f7d2-461e-b40e-96432cd70c45
+certifications:
+  - {name: SOC 2 Type I, status: held, note: 'Report available on request via the trust portal, alongside recent penetration test reports.'}
+  - {name: JICDAQ, status: held, scope: 'Brand safety and invalid traffic prevention, Japan', source: 'https://www.magnite.com/press/magnite-achieves-jicdaq-certification/'}
+  - {name: ISO 27001, status: not-held, note: 'Stated verbatim on the trust center: Magnite "does not currently maintain formal ISMS certifications such as ISO 27001".'}
+compliance_frameworks:
+  - {name: GDPR, note: Privacy program aligned to GDPR.}
+  - {name: CCPA, note: Privacy program aligned to CCPA.}
+  - {name: IAB TCF 2.0, note: Registered vendor under the IAB Transparency and Consent Framework 2.0.}
+  - {name: SOX, note: 'Sarbanes-Oxley controls apply as a NASDAQ-listed issuer (MGNI); privileged access monitoring on in-scope systems.'}
+program:
+  ciso: true
+  board_oversight: 'CISO reports quarterly to the Audit Committee of the Board of Directors.'
+  penetration_testing: 'Annual third-party penetration testing.'
+  vulnerability_scanning: 'Weekly vulnerability scans.'
+  monitoring: 'Centralized SIEM, real-time monitoring.'
+  encryption: {in_transit: TLS, at_rest: AES-256}
+  access_control: [SSO, MFA, RBAC, quarterly access reviews]
+evidence:
+  - {source: 'https://www.magnite.com/trust-center/', status: 200, keywords: [SOC 2 Type I, penetration test, GDPR, CCPA, IAB TCF 2.0, CISO, AES-256]}
+  - {source: 'https://trust.upguard.com/814dc01d-f7d2-461e-b40e-96432cd70c45', status: 200, note: 'UpGuard Trust Exchange portal, JS-rendered shell'}

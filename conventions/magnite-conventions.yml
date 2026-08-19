@@ -1,0 +1,116 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started,
+  https://springserve.atlassian.net/wiki/spaces/SSD/pages/1623818239/Pagination+API,
+  openapi/magnite-springserve-v0-openapi.yml, openapi/magnite-springserve-v1-openapi.yml,
+  live header probe of https://console.springserve.com/api/v1/accounts (2026-08-13)
+note: >-
+  Cross-cutting request/response semantics for the SpringServe UI API — the only Magnite API
+  with a public machine-readable contract. Two versions run side by side (/api/v0 and
+  /api/v1) and SpringServe states plainly that v1 does not yet cover every v0 endpoint, so a
+  client must read both specs to know where a resource lives. IMPORTANT NEGATIVE: this API
+  has NO idempotency contract — there is no Idempotency-Key header or equivalent parameter
+  anywhere in either spec (668 operations, zero matches for /idempoten/i) and none is
+  documented — so no Idempotency pointer is emitted in apis.yml. A retried POST creates a
+  duplicate object.
+api: SpringServe UI API
+base_url: https://console.springserve.com
+alternate_host:
+  host: https://api.springserve.com
+  note: >-
+    Serves the same Rails application (identical x-request-id/x-runtime header set and the
+    same {"error":"user not authorized"} 401 body) and additionally hosts the Swagger UI at
+    /api-docs. The developer docs name console.springserve.com as the endpoint.
+authentication:
+  style: token-or-bearer
+  header: Authorization
+  token_endpoint: [POST /api/v0/auth, POST /api/v1/auth]
+  schemes:
+    - {name: api_key, type: apiKey, in: header, parameter: Authorization, form: 'Authorization: <token>'}
+    - {name: bearer_token, type: http, scheme: bearer, bearerFormat: JWT, form: 'Authorization: Bearer <token>'}
+  cookie_session: >-
+    The hosted Swagger UI at api.springserve.com/api-docs authenticates with the browser's
+    SpringServe session cookie by default; token or bearer auth takes precedence when supplied.
+  detail: authentication/magnite-authentication.yml
+account_context:
+  note: >-
+    Every request executes in the context of the authenticated user's CURRENTLY ACTIVE
+    account — a piece of server-side session state, not a request parameter. An agent holding
+    one token can therefore get different results for the identical request depending on
+    prior calls. Read it before acting.
+  read: GET /api/v1/accounts/current
+  set: POST /api/v1/accounts/{id}/set_current
+idempotency:
+  supported: false
+  header: null
+  evidence: >-
+    Zero occurrences of "Idempotency", "idempotency-key" or any /idempoten/i match across
+    both OpenAPI documents and the published SpringServe API docs.
+pagination:
+  style: page-number
+  params:
+    - {name: per, in: query, type: integer, description: 'Objects per page. Documented example: GET /api/v0/supply_tags?per=100'}
+    - {name: page, in: query, type: integer, description: 'Page number, 1-based. Documented example: GET /api/v0/supply_tags?per=100&page=2'}
+  default_page_size: 50
+  max_page_size: null
+  response_fields: []
+  headers: []
+  note: >-
+    SpringServe documents that "any GET call for the SpringServe API will limit the response
+    to 50 objects" by default. No total-count field, no Link header and no next-cursor is
+    returned, so a client cannot tell it has reached the last page except by receiving a
+    short/empty page. The Python SDK hides this: its get calls return the whole list, and
+    get_next_page() returns False at the end.
+filtering_and_sorting:
+  params:
+    - {name: sort, in: query, type: 'array[string]'}
+    - {name: search, in: query, type: string}
+    - {name: ids, in: query, type: array}
+  note: sort/search/ids appear on the v1 index endpoints; coverage is per-endpoint, not global.
+versioning:
+  scheme: uri-path
+  versions: [v0, v1]
+  current: v1
+  concurrent: true
+  note: >-
+    v0 (289 operations) and v1 (379 operations) are both live and both documented. SpringServe
+    states V1 endpoints are still being created for existing V0 endpoints and advises
+    reviewing both Swagger pages to determine what is supported in each version.
+  detail: lifecycle/magnite-lifecycle.yml
+error_envelope:
+  format: vendor-json
+  rfc9457: false
+  shape: '{"error": "<message>"}'
+  validation_shape: '{"status": <int>, "error": "<summary>", "errors": {"<field>": ["<message>"]}}'
+  media_type: application/json
+  detail: errors/magnite-problem-types.yml
+request_tracing:
+  header: x-request-id
+  observed: true
+  note: >-
+    Observed live on an unauthenticated 401 from https://console.springserve.com/api/v1/accounts
+    on 2026-08-13 (value ee76dbd1-42ab-4649-9c6a-85997ba166d2). Not documented, but present on
+    every response. An x-runtime header is also returned. Neither is declared in the OpenAPI.
+rate_limiting:
+  documented: true
+  headers: false
+  detail: rate-limits/magnite-rate-limits.yml
+content_types:
+  request: [application/json, multipart/form-data]
+  response: [application/json, text/csv]
+  note: text/csv appears on report-export operations in v1.
+audit_log:
+  endpoint: GET /api/v1/changelogs
+  note: >-
+    A first-class audit trail of object create/update/destroy across 40+ object types,
+    filterable by change_type, time, user and versioned_type. This is an object-change log,
+    NOT a product release-notes changelog.
+  docs: https://springserve.atlassian.net/wiki/spaces/SSD/pages/4047339521/Changelog+API
+webhooks:
+  supported: false
+  note: >-
+    No webhook, callback or event-subscription surface in either spec. The "pixels" objects
+    are ad-serving tracking pixels (frequency-cap and impression pixels fired by the ad
+    server), not API event delivery, and "notifications" are in-console user notifications.
+    No AsyncAPI and no Webhooks pointer is emitted.

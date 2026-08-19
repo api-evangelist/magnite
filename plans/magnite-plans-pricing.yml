@@ -1,0 +1,23 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.magnite.com/contact-us/
+note: >-
+  Magnite publishes NO plans, tiers, list prices or rate card. It is an enterprise sell-side
+  ad platform whose commercial model is a negotiated revenue share / take rate on media spend
+  transacted through the SSP, agreed per publisher or per buyer contract — not a per-seat or
+  per-call API price. The SpringServe UI API, the Magnite Streaming API and the in-app SDKs
+  are all entitlements of an existing platform contract; there is no self-serve sign-up,
+  no free tier, and no public pricing page anywhere on magnite.com or springserve.com.
+  Recording plan_count 0 is the finding, not a gap in the search.
+plan_count: 0
+plans: []
+pricing_model: negotiated-enterprise
+public_pricing_page: false
+self_serve_signup: false
+free_tier: false
+trial: false
+contact: https://www.magnite.com/contact-us/
+evidence:
+  - {url: 'https://www.magnite.com/contact-us/', status: 200, finding: contact-sales only}
+  - {url: 'https://www.magnite.com/legal/', status: 200, finding: no pricing or rate-card document listed}
+  - {url: 'https://help.magnite.com/help', status: 200, finding: help center is customer login-gated, no pricing}
