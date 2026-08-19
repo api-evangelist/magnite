@@ -59,7 +59,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/magnite/refs/heads/main/apis.yml
 created: '2026-05-25'
 modified: '2026-08-13'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
 - name: SpringServe UI API
   description: 'The SpringServe ad server REST API — the machine-readable core of Magnite Streaming. Two
