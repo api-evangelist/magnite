@@ -82,38 +82,17 @@ created: '2026-05-25'
 modified: '2026-08-13'
 specificationVersion: '0.23'
 apis:
-- name: SpringServe UI API
-  description: 'The SpringServe ad server REST API — the machine-readable core of Magnite Streaming. Two
-    versions run concurrently: v0 (289 operations, 173 paths) and v1 (379 operations, 295 paths, 139 component
-    schemas). Covers supply tags and supply routers (publisher inventory), demand tags (buyer demand),
-    creatives across video/audio/tile/tag formats, deal lists and curated marketplaces, partner segments
-    and audiences, targeting lists (geo, domain, app bundle, IP, postal code, ISP), forecasting, dashboards,
-    a synchronous and asynchronous reporting engine with saved templates and schedules, and a first-class
-    object-change audit log. Authentication is a token or JWT bearer minted at POST /api/v{0,1}/auth;
-    there is no OAuth and no scope surface. Both OpenAPI 3.1.2 documents are served anonymously from the
-    Swagger UI at https://api.springserve.com/api-docs.'
+- aid: magnite:magnite-account-partner-segments-api
+  name: Magnite Account Partner Segments API
+  description: >-
+    The Account Partner Segments API from Magnite — 3 operation(s) for account partner segments.
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/magnite.png
   tags:
-  - Ad Server
-  - Programmatic Advertising
-  - Connected TV
-  - Reporting
-  - Deal Curation
-  - SSP
-  - OpenAPI
+  - Account Partner Segments
   properties:
   - type: OpenAPI
-    url: openapi/magnite-springserve-v1-openapi.yml
-    name: SpringServe UI API v1 (OpenAPI 3.1.2, 379 operations)
-  - type: OpenAPI
-    url: openapi/magnite-springserve-v0-openapi.yml
-    name: SpringServe UI API v0 (OpenAPI 3.1.2, 289 operations)
-  - type: Overlay
-    url: overlays/magnite-springserve-v1-overlay.yaml
-  - type: Overlay
-    url: overlays/magnite-springserve-v0-overlay.yaml
+    url: openapi/magnite-account-partner-segments-api-openapi.yml
   - type: APIReference
     url: https://api.springserve.com/api-docs
   - type: Documentation
@@ -134,7 +113,2293 @@ apis:
     url: lifecycle/magnite-lifecycle.yml
   - type: SDKs
     url: https://pypi.org/project/springserve/
-    name: springserve (Python)
+- aid: magnite:magnite-accounts-api
+  name: Magnite Accounts API
+  description: The Accounts API from Magnite — 23 operation(s) for accounts.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-accounts-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-advertiser-domain-lists-api
+  name: Magnite Advertiser Domain Lists API
+  description: >-
+    The Advertiser Domain Lists API from Magnite — 9 operation(s) for advertiser domain lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Advertiser Domain Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-advertiser-domain-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-app-bundle-lists-api
+  name: Magnite App Bundle Lists API
+  description: The App Bundle Lists API from Magnite — 20 operation(s) for app bundle lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - App Bundle Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-app-bundle-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-app-name-lists-api
+  name: Magnite App Name Lists API
+  description: The App Name Lists API from Magnite — 21 operation(s) for app name lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - App Name Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-app-name-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-audiences-api
+  name: Magnite Audiences API
+  description: The Audiences API from Magnite — 1 operation(s) for audiences.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Audiences
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-audiences-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-audios-api
+  name: Magnite Audios API
+  description: The Audios API from Magnite — 2 operation(s) for audios.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Audios
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-audios-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-auth-api
+  name: Magnite Auth API
+  description: Endpoints that provide authentication for the API
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-auth-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-bid-maps-api
+  name: Magnite Bid Maps API
+  description: The Bid Maps API from Magnite — 2 operation(s) for bid maps.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Bid Maps
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-bid-maps-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-bills-api
+  name: Magnite Bills API
+  description: The Bills API from Magnite — 8 operation(s) for bills.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Bills
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-bills-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-campaigns-api
+  name: Magnite Campaigns API
+  description: The Campaigns API from Magnite — 2 operation(s) for campaigns.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-campaigns-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-changelogs-api
+  name: Magnite Changelogs API
+  description: The Changelogs API from Magnite — 6 operation(s) for changelogs.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Changelogs
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-changelogs-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-city-lists-api
+  name: Magnite City Lists API
+  description: The City Lists API from Magnite — 6 operation(s) for city lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - City Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-city-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-connected-demand-api
+  name: Magnite Connected Demand API
+  description: The Connected Demand API from Magnite — 3 operation(s) for connected demand.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Connected Demand
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-connected-demand-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-connected-supply-api
+  name: Magnite Connected Supply API
+  description: The Connected Supply API from Magnite — 3 operation(s) for connected supply.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Connected Supply
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-connected-supply-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-content-categories-api
+  name: Magnite Content Categories API
+  description: The Content Categories API from Magnite — 1 operation(s) for content categories.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Content Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-content-categories-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-country-lists-api
+  name: Magnite Country Lists API
+  description: The Country Lists API from Magnite — 6 operation(s) for country lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Country Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-country-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-creatives-api
+  name: Magnite Creatives API
+  description: The Creatives API from Magnite — 6 operation(s) for creatives.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Creatives
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-creatives-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-creatives-audio-api
+  name: Magnite Creatives Audio API
+  description: The Creatives Audio API from Magnite — 2 operation(s) for creatives audio.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Creatives Audio
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-creatives-audio-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-creatives-filepaths-api
+  name: Magnite Creatives Filepaths API
+  description: The Creatives Filepaths API from Magnite — 2 operation(s) for creatives filepaths.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Creatives Filepaths
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-creatives-filepaths-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-creatives-tag-api
+  name: Magnite Creatives Tag API
+  description: The Creatives Tag API from Magnite — 2 operation(s) for creatives tag.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Creatives Tag
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-creatives-tag-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-creatives-tile-api
+  name: Magnite Creatives Tile API
+  description: The Creatives Tile API from Magnite — 2 operation(s) for creatives tile.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Creatives Tile
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-creatives-tile-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-creatives-video-api
+  name: Magnite Creatives Video API
+  description: The Creatives Video API from Magnite — 2 operation(s) for creatives video.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Creatives Video
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-creatives-video-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-curated-marketplaces-api
+  name: Magnite Curated Marketplaces API
+  description: The Curated Marketplaces API from Magnite — 5 operation(s) for curated marketplaces.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Curated Marketplaces
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-curated-marketplaces-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-currencies-api
+  name: Magnite Currencies API
+  description: The Currencies API from Magnite — 1 operation(s) for currencies.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Currencies
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-currencies-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-dashboards-api
+  name: Magnite Dashboards API
+  description: The Dashboards API from Magnite — 27 operation(s) for dashboards.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Dashboards
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-dashboards-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-deal-id-lists-api
+  name: Magnite Deal Id Lists API
+  description: The Deal Id Lists API from Magnite — 9 operation(s) for deal id lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Deal Id Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-deal-id-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-deal-lists-api
+  name: Magnite Deal Lists API
+  description: The Deal Lists API from Magnite — 15 operation(s) for deal lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Deal Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-deal-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-demand-labels-api
+  name: Magnite Demand Labels API
+  description: The Demand Labels API from Magnite — 6 operation(s) for demand labels.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Demand Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-demand-labels-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-demand-partners-api
+  name: Magnite Demand Partners API
+  description: The Demand Partners API from Magnite — 2 operation(s) for demand partners.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Demand Partners
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-demand-partners-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-demand-tags-api
+  name: Magnite Demand Tags API
+  description: The Demand Tags API from Magnite — 17 operation(s) for demand tags.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Demand Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-demand-tags-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-direct-connection-clearing-terms-api
+  name: Magnite Direct Connection Clearing Terms API
+  description: >-
+    The Direct Connection Clearing Terms API from Magnite — 2 operation(s) for direct connection clearing
+    terms.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Direct Connection Clearing Terms
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-direct-connection-clearing-terms-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-direct-connections-api
+  name: Magnite Direct Connections API
+  description: The Direct Connections API from Magnite — 2 operation(s) for direct connections.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Direct Connections
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-direct-connections-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-domain-lists-api
+  name: Magnite Domain Lists API
+  description: The Domain Lists API from Magnite — 26 operation(s) for domain lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Domain Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-domain-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-first-party-partner-segments-api
+  name: Magnite First Party Partner Segments API
+  description: >-
+    The First Party Partner Segments API from Magnite — 2 operation(s) for first party partner segments.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - First Party Partner Segments
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-first-party-partner-segments-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-forecast-api
+  name: Magnite Forecast API
+  description: The Forecast API from Magnite — 1 operation(s) for forecast.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Forecast
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-forecast-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-geo-lists-api
+  name: Magnite Geo Lists API
+  description: The Geo Lists API from Magnite — 4 operation(s) for geo lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Geo Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-geo-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-global-fcap-pixels-api
+  name: Magnite Global Fcap Pixels API
+  description: The Global Fcap Pixels API from Magnite — 6 operation(s) for global fcap pixels.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Global Fcap Pixels
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-global-fcap-pixels-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-hb-bid-maps-api
+  name: Magnite Hb Bid Maps API
+  description: The Hb Bid Maps API from Magnite — 6 operation(s) for hb bid maps.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Hb Bid Maps
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-hb-bid-maps-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-header-bidding-platforms-api
+  name: Magnite Header Bidding Platforms API
+  description: >-
+    The Header Bidding Platforms API from Magnite — 2 operation(s) for header bidding platforms.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Header Bidding Platforms
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-header-bidding-platforms-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-ip-lists-api
+  name: Magnite Ip Lists API
+  description: The Ip Lists API from Magnite — 9 operation(s) for ip lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Ip Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-ip-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-isp-lists-api
+  name: Magnite ISP Lists API
+  description: The ISP Lists API from Magnite — 11 operation(s) for isp lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - ISP Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-isp-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-keys-api
+  name: Magnite Keys API
+  description: The Keys API from Magnite — 4 operation(s) for keys.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-keys-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-magnite-programmatic-api
+  name: Magnite Magnite Programmatic API
+  description: The Magnite Programmatic API from Magnite — 1 operation(s) for magnite programmatic.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Magnite Programmatic
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-magnite-programmatic-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-metro-area-lists-api
+  name: Magnite Metro Area Lists API
+  description: The Metro Area Lists API from Magnite — 6 operation(s) for metro area lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Metro Area Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-metro-area-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-notifications-api
+  name: Magnite Notifications API
+  description: The Notifications API from Magnite — 7 operation(s) for notifications.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-notifications-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-operative-api
+  name: Magnite Operative API
+  description: The Operative API from Magnite — 2 operation(s) for operative.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Operative
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-operative-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-parameter-lists-api
+  name: Magnite Parameter Lists API
+  description: The Parameter Lists API from Magnite — 9 operation(s) for parameter lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Parameter Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-parameter-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-partner-segments-api
+  name: Magnite Partner Segments API
+  description: The Partner Segments API from Magnite — 10 operation(s) for partner segments.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Partner Segments
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-partner-segments-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-permissions-api
+  name: Magnite Permissions API
+  description: The Permissions API from Magnite — 2 operation(s) for permissions.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-permissions-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-postal-code-lists-api
+  name: Magnite Postal Code Lists API
+  description: The Postal Code Lists API from Magnite — 6 operation(s) for postal code lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Postal Code Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-postal-code-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-publisher-id-lists-api
+  name: Magnite Publisher Id Lists API
+  description: The Publisher Id Lists API from Magnite — 9 operation(s) for publisher id lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Publisher Id Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-publisher-id-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-report-api
+  name: Magnite Report API
+  description: The Report API from Magnite — 2 operation(s) for report.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Report
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-report-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-report-templates-api
+  name: Magnite Report Templates API
+  description: The Report Templates API from Magnite — 3 operation(s) for report templates.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Report Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-report-templates-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-reports-api
+  name: Magnite Reports API
+  description: The Reports API from Magnite — 4 operation(s) for reports.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-reports-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-run-as-api
+  name: Magnite Run As API
+  description: The Run As API from Magnite — 4 operation(s) for run as.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Run As
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-run-as-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-scanned-creative-lists-api
+  name: Magnite Scanned Creative Lists API
+  description: >-
+    The Scanned Creative Lists API from Magnite — 11 operation(s) for scanned creative lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Scanned Creative Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-scanned-creative-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-scheduled-reports-api
+  name: Magnite Scheduled Reports API
+  description: The Scheduled Reports API from Magnite — 3 operation(s) for scheduled reports.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Scheduled Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-scheduled-reports-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-search-api
+  name: Magnite Search API
+  description: The Search API from Magnite — 14 operation(s) for search.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-search-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-segments-api
+  name: Magnite Segments API
+  description: The Segments API from Magnite — 9 operation(s) for segments.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Segments
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-segments-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-session-api
+  name: Magnite Session API
+  description: The Session API from Magnite — 1 operation(s) for session.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Session
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-session-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-state-lists-api
+  name: Magnite State Lists API
+  description: The State Lists API from Magnite — 6 operation(s) for state lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - State Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-state-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-supply-labels-api
+  name: Magnite Supply Labels API
+  description: The Supply Labels API from Magnite — 6 operation(s) for supply labels.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Supply Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-supply-labels-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-supply-name-lists-api
+  name: Magnite Supply Name Lists API
+  description: The Supply Name Lists API from Magnite — 11 operation(s) for supply name lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Supply Name Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-supply-name-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-supply-partners-api
+  name: Magnite Supply Partners API
+  description: The Supply Partners API from Magnite — 2 operation(s) for supply partners.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Supply Partners
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-supply-partners-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-supply-routers-api
+  name: Magnite Supply Routers API
+  description: The Supply Routers API from Magnite — 3 operation(s) for supply routers.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Supply Routers
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-supply-routers-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-supply-tags-api
+  name: Magnite Supply Tags API
+  description: The Supply Tags API from Magnite — 9 operation(s) for supply tags.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Supply Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-supply-tags-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-system-settings-api
+  name: Magnite System Settings API
+  description: The System Settings API from Magnite — 2 operation(s) for system settings.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - System Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-system-settings-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-tag-creatives-api
+  name: Magnite Tag Creatives API
+  description: The Tag Creatives API from Magnite — 2 operation(s) for tag creatives.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Tag Creatives
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-tag-creatives-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-tiles-api
+  name: Magnite Tiles API
+  description: The Tiles API from Magnite — 2 operation(s) for tiles.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Tiles
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-tiles-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-timezones-api
+  name: Magnite Timezones API
+  description: The Timezones API from Magnite — 1 operation(s) for timezones.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Timezones
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-timezones-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-user-accounts-api
+  name: Magnite User Accounts API
+  description: >-
+    The entity that combines a User and an Account and defines the role the user plays on that account
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - User Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-user-accounts-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-users-api
+  name: Magnite Users API
+  description: The Users API from Magnite — 6 operation(s) for users.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-users-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-value-lists-api
+  name: Magnite Value Lists API
+  description: The Value Lists API from Magnite — 2 operation(s) for value lists.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Value Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-value-lists-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-vendors-api
+  name: Magnite Vendors API
+  description: The Vendors API from Magnite — 2 operation(s) for vendors.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Vendors
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-vendors-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-videos-api
+  name: Magnite Videos API
+  description: The Videos API from Magnite — 2 operation(s) for videos.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - Videos
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-videos-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
+- aid: magnite:magnite-white-labels-api
+  name: Magnite White Labels API
+  description: The White Labels API from Magnite — 1 operation(s) for white labels.
+  humanURL: https://api.springserve.com/api-docs
+  baseURL: https://console.springserve.com
+  tags:
+  - White Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/magnite-white-labels-api-openapi.yml
+  - type: APIReference
+    url: https://api.springserve.com/api-docs
+  - type: Documentation
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1584726013/SpringServe+API+SDK
+  - type: GettingStarted
+    url: https://springserve.atlassian.net/wiki/spaces/SSD/pages/1573617663/API+-+Getting+Started
+  - type: Authentication
+    url: authentication/magnite-authentication.yml
+  - type: RateLimits
+    url: rate-limits/magnite-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/magnite-problem-types.yml
+  - type: Conventions
+    url: conventions/magnite-conventions.yml
+  - type: DataModel
+    url: data-model/magnite-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/magnite-lifecycle.yml
+  - type: SDKs
+    url: https://pypi.org/project/springserve/
 common:
 - type: AgenticAccess
   url: agentic-access/magnite-agentic-access.yml
