@@ -19,6 +19,18 @@ description: 'Magnite, Inc. (NASDAQ: MGNI) is the world''s largest independent s
   help.magnite.com remains gated behind an authenticated partner login. In Q1 2026 Magnite reported $164.4M
   revenue with CTV crossing 51% of contribution ex-TAC for the first time.'
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: negotiated
   onboarding: contact-sales
@@ -2401,6 +2413,9 @@ apis:
   - type: SDKs
     url: https://pypi.org/project/springserve/
 common:
+- type: CapabilityMap
+  url: capabilities/magnite-capability-edges.yml
+  name: Magnite Business Capability Map
 - type: AgenticAccess
   url: agentic-access/magnite-agentic-access.yml
 - type: Authentication
