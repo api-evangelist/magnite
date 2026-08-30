@@ -60,7 +60,7 @@ tags:
 - Video Advertising
 - OpenRTB
 - Header Bidding
-- AdTech
+- Ad Tech
 - Publisher Monetization
 - Demand-Side Integration
 - Ad Server
@@ -131,6 +131,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -312,6 +314,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -822,6 +826,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Currency
+  tags_raw:
   - Currencies
   properties:
   - type: OpenAPI
@@ -1456,6 +1462,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -2268,6 +2276,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
