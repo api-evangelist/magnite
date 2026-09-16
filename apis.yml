@@ -91,13 +91,12 @@ tags_raw:
 - OpenAPI
 url: https://raw.githubusercontent.com/api-evangelist/magnite/refs/heads/main/apis.yml
 created: '2026-05-25'
-modified: '2026-08-13'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: magnite:magnite-account-partner-segments-api
   name: Magnite Account Partner Segments API
-  description: >-
-    The Account Partner Segments API from Magnite — 3 operation(s) for account partner segments.
+  description: The Account Partner Segments API from Magnite — 3 operation(s) for account partner segments.
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
@@ -159,8 +158,7 @@ apis:
     url: https://pypi.org/project/springserve/
 - aid: magnite:magnite-advertiser-domain-lists-api
   name: Magnite Advertiser Domain Lists API
-  description: >-
-    The Advertiser Domain Lists API from Magnite — 9 operation(s) for advertiser domain lists.
+  description: The Advertiser Domain Lists API from Magnite — 9 operation(s) for advertiser domain lists.
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
@@ -1034,9 +1032,8 @@ apis:
     url: https://pypi.org/project/springserve/
 - aid: magnite:magnite-direct-connection-clearing-terms-api
   name: Magnite Direct Connection Clearing Terms API
-  description: >-
-    The Direct Connection Clearing Terms API from Magnite — 2 operation(s) for direct connection clearing
-    terms.
+  description: The Direct Connection Clearing Terms API from Magnite — 2 operation(s) for direct connection
+    clearing terms.
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
@@ -1126,8 +1123,8 @@ apis:
     url: https://pypi.org/project/springserve/
 - aid: magnite:magnite-first-party-partner-segments-api
   name: Magnite First Party Partner Segments API
-  description: >-
-    The First Party Partner Segments API from Magnite — 2 operation(s) for first party partner segments.
+  description: The First Party Partner Segments API from Magnite — 2 operation(s) for first party partner
+    segments.
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
@@ -1277,8 +1274,7 @@ apis:
     url: https://pypi.org/project/springserve/
 - aid: magnite:magnite-header-bidding-platforms-api
   name: Magnite Header Bidding Platforms API
-  description: >-
-    The Header Bidding Platforms API from Magnite — 2 operation(s) for header bidding platforms.
+  description: The Header Bidding Platforms API from Magnite — 2 operation(s) for header bidding platforms.
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
@@ -1397,7 +1393,7 @@ apis:
   - type: SDKs
     url: https://pypi.org/project/springserve/
 - aid: magnite:magnite-magnite-programmatic-api
-  name: Magnite Magnite Programmatic API
+  name: Magnite Programmatic API
   description: The Magnite Programmatic API from Magnite — 1 operation(s) for magnite programmatic.
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
@@ -1790,8 +1786,7 @@ apis:
     url: https://pypi.org/project/springserve/
 - aid: magnite:magnite-scanned-creative-lists-api
   name: Magnite Scanned Creative Lists API
-  description: >-
-    The Scanned Creative Lists API from Magnite — 11 operation(s) for scanned creative lists.
+  description: The Scanned Creative Lists API from Magnite — 11 operation(s) for scanned creative lists.
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
@@ -2241,8 +2236,8 @@ apis:
     url: https://pypi.org/project/springserve/
 - aid: magnite:magnite-user-accounts-api
   name: Magnite User Accounts API
-  description: >-
-    The entity that combines a User and an Account and defines the role the user plays on that account
+  description: The entity that combines a User and an Account and defines the role the user plays on that
+    account
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
