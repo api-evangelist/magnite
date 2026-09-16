@@ -2484,10 +2484,10 @@ common:
 - type: Wikipedia
   url: https://en.wikipedia.org/wiki/Magnite_Inc
 - type: OpenAPI
-  url: openapi/magnite-springserve-v1-openapi.yml
+  url: openapi/_original/magnite-springserve-v1-openapi.yml
   name: SpringServe UI API v1
 - type: OpenAPI
-  url: openapi/magnite-springserve-v0-openapi.yml
+  url: openapi/_original/magnite-springserve-v0-openapi.yml
   name: SpringServe UI API v0
 - type: Overlay
   url: overlays/magnite-springserve-v1-overlay.yaml
