@@ -434,6 +434,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Changelog
+  tags_raw:
   - Changelogs
   properties:
   - type: OpenAPI
@@ -614,6 +616,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Creative
+  tags_raw:
   - Creatives
   properties:
   - type: OpenAPI
@@ -1910,6 +1914,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Sessions
+  tags_raw:
   - Session
   properties:
   - type: OpenAPI
@@ -2210,6 +2216,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Timezone
+  tags_raw:
   - Timezones
   properties:
   - type: OpenAPI
@@ -2363,6 +2371,8 @@ apis:
   humanURL: https://api.springserve.com/api-docs
   baseURL: https://console.springserve.com
   tags:
+  - Video
+  tags_raw:
   - Videos
   properties:
   - type: OpenAPI
