@@ -2,12 +2,7 @@ openapi: 3.2.0
 info:
   title: Magnite Demand Labels API
   version: '1.0'
-  description: 'Operations tagged Demand Labels across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi.yml, magnite-springserve-v1-openapi.yml. Each path carries the servers of the definition it was published in.'
-servers:
-- url: https://console.springserve.com
-  description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-- url: https://api.springserve.com
-  description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
+  description: 'Operations tagged Demand Labels across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi-original.yaml, magnite-springserve-v1-openapi-original.yaml. Each path carries the servers of the definition it was published in.'
 security:
 - api_key: []
 - bearer_token: []
@@ -60,11 +55,6 @@ paths:
       tags:
       - Demand Labels
       operationId: demand_labels_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/demand_labels/{id}:
     parameters:
     - name: id
@@ -125,11 +115,6 @@ paths:
       tags:
       - Demand Labels
       operationId: demand_labels_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/demand_labels:
     get:
       summary: Index
@@ -208,11 +193,6 @@ paths:
       tags:
       - Demand Labels
       operationId: demand_labels_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/demand_labels/{id}:
     get:
       summary: Show
@@ -303,11 +283,6 @@ paths:
       tags:
       - Demand Labels
       operationId: demand_labels_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/demand_labels/permissions:
     get:
       summary: Collection Permissions
@@ -321,11 +296,6 @@ paths:
       tags:
       - Demand Labels
       operationId: demand_labels_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/demand_labels/{id}/permissions:
     get:
       summary: Permissions Member
@@ -345,29 +315,24 @@ paths:
       tags:
       - Demand Labels
       operationId: demand_labels_id_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
 components:
   examples:
-    demand_label_update_simple:
-      summary: Simple
-      value:
-        name: Demand Label Name
-    demand_label_create_full:
-      summary: Full
-      value:
-        name: Demand Label Name
-        demand_tag_ids:
-        - 1
     demand_label_update_full:
       summary: Full
       value:
         name: Demand Label Name
         demand_tag_ids:
         - 1
+    demand_label_create_full:
+      summary: Full
+      value:
+        name: Demand Label Name
+        demand_tag_ids:
+        - 1
+    demand_label_update_simple:
+      summary: Simple
+      value:
+        name: Demand Label Name
     demand_label_create_simple:
       summary: Simple
       value:
@@ -419,5 +384,5 @@ components:
       bearerFormat: JWT
       description: SpringServe authorization bearer token based authentication.  This key is included in the response from the /api/v0/auth and /api/v1/auth endpoints.  This key will be automatically set if you run the example for /api/v0/auth or /api/v1/auth
 x-refined-from:
-- magnite-springserve-v0-openapi.yml
-- magnite-springserve-v1-openapi.yml
+- magnite-springserve-v0-openapi-original.yaml
+- magnite-springserve-v1-openapi-original.yaml

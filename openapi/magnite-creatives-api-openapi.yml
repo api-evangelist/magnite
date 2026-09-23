@@ -2,12 +2,7 @@ openapi: 3.2.0
 info:
   title: Magnite Creatives API
   version: '1.0'
-  description: 'Operations tagged Creatives across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi.yml, magnite-springserve-v1-openapi.yml. Each path carries the servers of the definition it was published in.'
-servers:
-- url: https://console.springserve.com
-  description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-- url: https://api.springserve.com
-  description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
+  description: 'Operations tagged Creatives across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi-original.yaml, magnite-springserve-v1-openapi-original.yaml. Each path carries the servers of the definition it was published in.'
 security:
 - api_key: []
 - bearer_token: []
@@ -31,11 +26,6 @@ paths:
       tags:
       - Creatives
       operationId: creatives_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/creatives/{id}:
     get:
       summary: Show
@@ -55,11 +45,6 @@ paths:
       tags:
       - Creatives
       operationId: creatives_id_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/creatives:
     get:
       summary: Index
@@ -102,11 +87,6 @@ paths:
       tags:
       - Creatives
       operationId: creatives_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/creatives/{id}:
     get:
       summary: Show
@@ -147,11 +127,6 @@ paths:
       tags:
       - Creatives
       operationId: creatives_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/creatives/bulk_update:
     post:
       summary: Bulk Update
@@ -286,11 +261,6 @@ paths:
       tags:
       - Creatives
       operationId: creatives_bulk_update_same_attributes_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/creatives/bulk/update:
     post:
       summary: Update Multiple Creatives
@@ -368,72 +338,7 @@ paths:
       tags:
       - Creatives
       operationId: creatives_bulk_update_many_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
 components:
-  schemas:
-    Region:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/Region
-      - $ref: '#/components/schemas/ObjectIds'
-    Country:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/Country
-      - $ref: '#/components/schemas/ObjectIds'
-    Browser:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Browser
-      - $ref: '#/components/schemas/ObjectIds'
-    Status:
-      type: object
-      required:
-      - object_ids
-      properties:
-        is_active:
-          type: boolean
-          description: Indicates whether to activate (true) or deactivate (false) the creatives
-        object_ids:
-          type: array
-          items:
-            type: number
-          description: Array of creative IDs to update
-    Device:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Device
-      - $ref: '#/components/schemas/ObjectIds'
-    Brand:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Brand
-      - $ref: '#/components/schemas/ObjectIds'
-    City:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/City
-      - $ref: '#/components/schemas/ObjectIds'
-    OS:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/OS
-      - $ref: '#/components/schemas/ObjectIds'
-    MetroArea:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/MetroArea
-      - $ref: '#/components/schemas/ObjectIds'
-    PostalCode:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/PostalCode
-      - $ref: '#/components/schemas/ObjectIds'
-    ObjectIds:
-      type: object
-      properties:
-        object_ids:
-          type: array
-          items:
-            type: number
-          description: Array of creative IDs to update
-      required:
-      - object_ids
   parameters:
     additionalDataParam:
       name: additional_data
@@ -458,6 +363,66 @@ components:
       - id: 2
         name: Creative Name
         is_active: false
+  schemas:
+    ObjectIds:
+      type: object
+      properties:
+        object_ids:
+          type: array
+          items:
+            type: number
+          description: Array of creative IDs to update
+      required:
+      - object_ids
+    City:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/City
+      - $ref: '#/components/schemas/ObjectIds'
+    OS:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/OS
+      - $ref: '#/components/schemas/ObjectIds'
+    Device:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Device
+      - $ref: '#/components/schemas/ObjectIds'
+    Brand:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Brand
+      - $ref: '#/components/schemas/ObjectIds'
+    PostalCode:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/PostalCode
+      - $ref: '#/components/schemas/ObjectIds'
+    Region:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/Region
+      - $ref: '#/components/schemas/ObjectIds'
+    Country:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/Country
+      - $ref: '#/components/schemas/ObjectIds'
+    MetroArea:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/MetroArea
+      - $ref: '#/components/schemas/ObjectIds'
+    Browser:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Browser
+      - $ref: '#/components/schemas/ObjectIds'
+    Status:
+      type: object
+      required:
+      - object_ids
+      properties:
+        is_active:
+          type: boolean
+          description: Indicates whether to activate (true) or deactivate (false) the creatives
+        object_ids:
+          type: array
+          items:
+            type: number
+          description: Array of creative IDs to update
   securitySchemes:
     api_key:
       type: apiKey
@@ -470,5 +435,5 @@ components:
       bearerFormat: JWT
       description: SpringServe authorization bearer token based authentication.  This key is included in the response from the /api/v0/auth and /api/v1/auth endpoints.  This key will be automatically set if you run the example for /api/v0/auth or /api/v1/auth
 x-refined-from:
-- magnite-springserve-v0-openapi.yml
-- magnite-springserve-v1-openapi.yml
+- magnite-springserve-v0-openapi-original.yaml
+- magnite-springserve-v1-openapi-original.yaml

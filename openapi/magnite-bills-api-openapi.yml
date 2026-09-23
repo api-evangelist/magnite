@@ -2,12 +2,7 @@ openapi: 3.2.0
 info:
   title: Magnite Bills API
   version: '1.0'
-  description: 'Operations tagged Bills across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi.yml, magnite-springserve-v1-openapi.yml. Each path carries the servers of the definition it was published in.'
-servers:
-- url: https://console.springserve.com
-  description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-- url: https://api.springserve.com
-  description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
+  description: 'Operations tagged Bills across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi-original.yaml, magnite-springserve-v1-openapi-original.yaml. Each path carries the servers of the definition it was published in.'
 security:
 - api_key: []
 - bearer_token: []
@@ -54,11 +49,6 @@ paths:
       tags:
       - Bills
       operationId: bills_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/bills/{id}:
     get:
       summary: Show
@@ -106,11 +96,6 @@ paths:
       tags:
       - Bills
       operationId: bills_id_put
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/bills/{bill_id}/bill_items:
     get:
       summary: Index
@@ -163,11 +148,6 @@ paths:
       tags:
       - Bills
       operationId: bills_bill_id_bill_items_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/bills/{bill_id}/bill_items/{id}:
     parameters:
     - name: bill_id
@@ -214,11 +194,6 @@ paths:
       tags:
       - Bills
       operationId: bills_bill_id_bill_items_id_put
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/bills:
     get:
       summary: Index
@@ -282,11 +257,6 @@ paths:
                     name:
                     - can't be blank
       operationId: bills_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/bills/{id}:
     get:
       summary: Show
@@ -365,11 +335,6 @@ paths:
         '204':
           description: No content
       operationId: bills_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/bills/permissions:
     get:
       summary: Collection Permissions
@@ -383,11 +348,6 @@ paths:
               schema:
                 type: object
       operationId: bills_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/bills/{id}/permissions:
     get:
       summary: Permissions Member
@@ -407,22 +367,21 @@ paths:
               schema:
                 type: object
       operationId: bills_id_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
 components:
   examples:
     bill_update_simple:
       summary: Simple
       value:
         name: Bill Name
-    bill_item_update_simple:
-      summary: Simple
+    bill_create_full:
+      summary: Full
       value:
-        label: Bill Item Label
-        unit_cost: 1.11
+        name: Bill Name
+        month: '2026-01-01'
+        currency: USD
+        is_invoice: false
+        is_direct_connect: false
+        is_openrtb: false
     bill_item_create_full:
       summary: Full
       value:
@@ -434,6 +393,22 @@ components:
         xero_account_code: 401
         is_unit_cost_cpm: true
         is_synced: false
+    bill_item_create_simple:
+      summary: Simple
+      value:
+        label: Bill Item Label
+        unit_cost: 1.11
+        units: 1.11
+        total_cost: 1.11
+    bill_create_simple:
+      summary: Simple
+      value:
+        name: Bill Name
+        month: '2026-01-01'
+        currency: USD
+        is_invoice: false
+        is_direct_connect: false
+        is_openrtb: false
     bill_item_update_full:
       summary: Full
       value:
@@ -454,32 +429,12 @@ components:
         is_invoice: false
         is_direct_connect: false
         is_openrtb: false
-    bill_item_create_simple:
+    bill_item_update_simple:
       summary: Simple
       value:
         label: Bill Item Label
         unit_cost: 1.11
-        units: 1.11
-        total_cost: 1.11
-    bill_create_full:
-      summary: Full
-      value:
-        name: Bill Name
-        month: '2026-01-01'
-        currency: USD
-        is_invoice: false
-        is_direct_connect: false
-        is_openrtb: false
-    bill_create_simple:
-      summary: Simple
-      value:
-        name: Bill Name
-        month: '2026-01-01'
-        currency: USD
-        is_invoice: false
-        is_direct_connect: false
-        is_openrtb: false
-    bill_update_full_2:
+    bill_create_full_2:
       summary: Full
       value:
         name: Bill Name
@@ -489,7 +444,7 @@ components:
         is_direct_connect: false
         is_openrtb: false
         is_finalized: false
-    bill_create_full_2:
+    bill_update_full_2:
       summary: Full
       value:
         name: Bill Name
@@ -545,5 +500,5 @@ components:
       bearerFormat: JWT
       description: SpringServe authorization bearer token based authentication.  This key is included in the response from the /api/v0/auth and /api/v1/auth endpoints.  This key will be automatically set if you run the example for /api/v0/auth or /api/v1/auth
 x-refined-from:
-- magnite-springserve-v0-openapi.yml
-- magnite-springserve-v1-openapi.yml
+- magnite-springserve-v0-openapi-original.yaml
+- magnite-springserve-v1-openapi-original.yaml

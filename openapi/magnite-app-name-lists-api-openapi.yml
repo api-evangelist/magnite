@@ -2,12 +2,7 @@ openapi: 3.2.0
 info:
   title: Magnite App Name Lists API
   version: '1.0'
-  description: 'Operations tagged App Name Lists across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi.yml, magnite-springserve-v1-openapi.yml. Each path carries the servers of the definition it was published in.'
-servers:
-- url: https://console.springserve.com
-  description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-- url: https://api.springserve.com
-  description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
+  description: 'Operations tagged App Name Lists across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi-original.yaml, magnite-springserve-v1-openapi-original.yaml. Each path carries the servers of the definition it was published in.'
 security:
 - api_key: []
 - bearer_token: []
@@ -64,11 +59,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_name_lists/{id}:
     get:
       summary: Show
@@ -150,11 +140,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_name_lists/{app_name_list_id}/app_names:
     get:
       summary: Index
@@ -181,11 +166,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_app_name_list_id_app_names_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_name_lists/{app_name_list_id}/app_names/bulk_create:
     post:
       summary: Bulk Create
@@ -219,11 +199,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_app_name_list_id_app_names_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_name_lists/{app_name_list_id}/app_names/bulk_delete:
     delete:
       summary: Bulk Delete
@@ -254,11 +229,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_app_name_list_id_app_names_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_name_lists/{app_name_list_id}/app_names/bulk_replace:
     post:
       summary: Bulk Replace
@@ -292,11 +262,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_app_name_list_id_app_names_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_name_lists/{app_name_list_id}/app_names/file_bulk_create:
     post:
       summary: File Bulk Create
@@ -332,11 +297,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_app_name_list_id_app_names_file_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_name_lists/{app_name_list_id}/app_names/file_bulk_delete:
     delete:
       summary: File Bulk Delete
@@ -371,11 +331,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_app_name_list_id_app_names_file_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_name_lists/{app_name_list_id}/app_names/file_bulk_replace:
     post:
       summary: File Bulk Replace
@@ -411,11 +366,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_app_name_list_id_app_names_file_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists:
     get:
       summary: Index
@@ -465,11 +415,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}:
     parameters:
     - name: id
@@ -520,11 +465,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/bulk_update:
     post:
       summary: Bulk Update
@@ -555,11 +495,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_bulk_update_same_attributes_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/permissions:
     get:
       summary: Collection Permissions
@@ -573,11 +508,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}/app_names:
     get:
       summary: Get all App Names in the list
@@ -597,11 +527,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_app_names_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}/permissions:
     get:
       summary: Permissions Member
@@ -621,11 +546,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}/app_names/bulk_create:
     post:
       summary: Add App Names
@@ -656,11 +576,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_app_names_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}/app_names/bulk_delete:
     delete:
       summary: Delete App Names
@@ -691,11 +606,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_app_names_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}/app_names/bulk_replace:
     post:
       summary: Replace App Names
@@ -726,11 +636,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_app_names_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}/app_names/file_bulk_create:
     post:
       summary: Add App Names (CSV)
@@ -759,11 +664,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_app_names_file_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}/app_names/file_bulk_delete:
     delete:
       summary: Delete App Names (CSV)
@@ -792,11 +692,6 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_app_names_file_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_name_lists/{id}/app_names/file_bulk_replace:
     post:
       summary: Replace App Names (CSV)
@@ -825,18 +720,8 @@ paths:
       tags:
       - App Name Lists
       operationId: app_name_lists_id_app_names_file_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
 components:
   examples:
-    app_name_list_names_bulk_single:
-      summary: Single
-      value:
-        app_names:
-        - Example App Name
     app_name_list_update_simple:
       summary: Simple
       value:
@@ -867,12 +752,18 @@ components:
       summary: Simple
       value:
         name: App Name List Name
-    app_name_list_bulk_update_single:
+    app_name_list_names_bulk_single:
       summary: Single
+      value:
+        app_names:
+        - Example App Name
+    app_name_list_bulk_update_multiple:
+      summary: Multiple
       value:
         is_active: true
         object_ids:
         - 1
+        - 2
     app_name_list_update_simple_2:
       summary: Simple
       value:
@@ -885,13 +776,6 @@ components:
         description: App Name List Description
         partial_match: false
         is_active: true
-    app_name_list_bulk_update_multiple:
-      summary: Multiple
-      value:
-        is_active: true
-        object_ids:
-        - 1
-        - 2
     app_name_list_update_full_2:
       summary: Full
       value:
@@ -899,6 +783,12 @@ components:
         description: App Name List Description
         partial_match: false
         is_active: true
+    app_name_list_bulk_update_single:
+      summary: Single
+      value:
+        is_active: true
+        object_ids:
+        - 1
   securitySchemes:
     api_key:
       type: apiKey
@@ -911,5 +801,5 @@ components:
       bearerFormat: JWT
       description: SpringServe authorization bearer token based authentication.  This key is included in the response from the /api/v0/auth and /api/v1/auth endpoints.  This key will be automatically set if you run the example for /api/v0/auth or /api/v1/auth
 x-refined-from:
-- magnite-springserve-v0-openapi.yml
-- magnite-springserve-v1-openapi.yml
+- magnite-springserve-v0-openapi-original.yaml
+- magnite-springserve-v1-openapi-original.yaml

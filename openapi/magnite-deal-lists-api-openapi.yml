@@ -2,12 +2,7 @@ openapi: 3.2.0
 info:
   title: Magnite Deal Lists API
   version: '1.0'
-  description: 'Operations tagged Deal Lists across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi.yml, magnite-springserve-v1-openapi.yml. Each path carries the servers of the definition it was published in.'
-servers:
-- url: https://console.springserve.com
-  description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-- url: https://api.springserve.com
-  description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
+  description: 'Operations tagged Deal Lists across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi-original.yaml, magnite-springserve-v1-openapi-original.yaml. Each path carries the servers of the definition it was published in.'
 security:
 - api_key: []
 - bearer_token: []
@@ -56,11 +51,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/deal_lists/{id}:
     get:
       summary: Show
@@ -125,11 +115,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/deal_lists/{id}/deals:
     get:
       summary: List deals
@@ -153,11 +138,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_id_deals_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/deal_lists/{id}/deals/bulk_create:
     post:
       summary: Bulk create deals
@@ -189,11 +169,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_id_deals_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/deal_lists/{id}/deals/bulk_delete:
     delete:
       summary: Bulk delete deals
@@ -214,11 +189,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_id_deals_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/deal_lists/{id}/deals/bulk_replace:
     post:
       summary: Bulk replace deals
@@ -250,11 +220,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_id_deals_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists:
     get:
       summary: Index
@@ -304,11 +269,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists/{deal_list_id}:
     get:
       summary: Show
@@ -373,11 +333,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_deal_list_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists/bulk_update:
     post:
       summary: Bulk Update
@@ -408,11 +363,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_bulk_update_same_attributes_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists/permissions:
     get:
       summary: Permissions Collection
@@ -426,11 +376,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists/{deal_list_id}/deals:
     get:
       summary: Deals
@@ -450,11 +395,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_deal_list_id_deals_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists/{id}/permissions:
     get:
       summary: Permissions Member
@@ -474,11 +414,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_id_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists/{deal_list_id}/deals/bulk_create:
     post:
       summary: Add Deals
@@ -509,11 +444,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_deal_list_id_deals_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists/{deal_list_id}/deals/bulk_delete:
     delete:
       summary: Delete Deals
@@ -543,11 +473,6 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_deal_list_id_deals_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/deal_lists/{deal_list_id}/deals/bulk_replace:
     post:
       summary: Replace Deals
@@ -578,32 +503,8 @@ paths:
       tags:
       - Deal Lists
       operationId: deal_lists_deal_list_id_deals_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
 components:
   examples:
-    deal_list_deals_bulk_replace_multiple:
-      summary: Multiple
-      value:
-        deals:
-        - 1
-        - 2
-        - 3
-    deal_list_create_simple:
-      summary: Simple
-      value:
-        name: Deal List Name
-    deal_list_create_full:
-      summary: Full
-      value:
-        name: Deal List Name
-        description: Deal list description
-        is_active: true
-        deals:
-        - 1
     deal_list_deals_bulk_create_single:
       summary: Single
       value:
@@ -617,15 +518,6 @@ components:
         is_active: true
         deals:
         - 1
-    deal_list_update_simple:
-      summary: Simple
-      value:
-        name: Deal List Name
-    deal_list_deals_bulk_replace_single:
-      summary: Single
-      value:
-        deals:
-        - 1
     deal_list_deals_bulk_create_multiple:
       summary: Multiple
       value:
@@ -633,12 +525,34 @@ components:
         - 1
         - 2
         - 3
-    deal_list_bulk_update_single:
+    deal_list_update_simple:
+      summary: Simple
+      value:
+        name: Deal List Name
+    deal_list_create_simple:
+      summary: Simple
+      value:
+        name: Deal List Name
+    deal_list_create_full:
+      summary: Full
+      value:
+        name: Deal List Name
+        description: Deal list description
+        is_active: true
+        deals:
+        - 1
+    deal_list_deals_bulk_replace_single:
       summary: Single
       value:
-        is_active: true
-        object_ids:
+        deals:
         - 1
+    deal_list_deals_bulk_replace_multiple:
+      summary: Multiple
+      value:
+        deals:
+        - 1
+        - 2
+        - 3
     deal_list_bulk_update_multiple:
       summary: Multiple
       value:
@@ -646,6 +560,12 @@ components:
         object_ids:
         - 1
         - 2
+    deal_list_bulk_update_single:
+      summary: Single
+      value:
+        is_active: true
+        object_ids:
+        - 1
   securitySchemes:
     api_key:
       type: apiKey
@@ -658,5 +578,5 @@ components:
       bearerFormat: JWT
       description: SpringServe authorization bearer token based authentication.  This key is included in the response from the /api/v0/auth and /api/v1/auth endpoints.  This key will be automatically set if you run the example for /api/v0/auth or /api/v1/auth
 x-refined-from:
-- magnite-springserve-v0-openapi.yml
-- magnite-springserve-v1-openapi.yml
+- magnite-springserve-v0-openapi-original.yaml
+- magnite-springserve-v1-openapi-original.yaml

@@ -2,12 +2,7 @@ openapi: 3.2.0
 info:
   title: Magnite App Bundle Lists API
   version: '1.0'
-  description: 'Operations tagged App Bundle Lists across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi.yml, magnite-springserve-v1-openapi.yml. Each path carries the servers of the definition it was published in.'
-servers:
-- url: https://console.springserve.com
-  description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-- url: https://api.springserve.com
-  description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
+  description: 'Operations tagged App Bundle Lists across 2 of this provider''s published API definitions: magnite-springserve-v0-openapi-original.yaml, magnite-springserve-v1-openapi-original.yaml. Each path carries the servers of the definition it was published in.'
 security:
 - api_key: []
 - bearer_token: []
@@ -64,11 +59,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_bundle_lists/{id}:
     get:
       summary: Show
@@ -150,11 +140,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_bundle_lists/{app_bundle_list_id}/app_bundles:
     get:
       summary: Index
@@ -181,11 +166,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_app_bundle_list_id_app_bundles_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_bundle_lists/{app_bundle_list_id}/app_bundles/bulk_create:
     post:
       summary: Bulk Create
@@ -219,11 +199,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_app_bundle_list_id_app_bundles_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_bundle_lists/{app_bundle_list_id}/app_bundles/bulk_delete:
     delete:
       summary: Bulk Delete
@@ -254,11 +229,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_app_bundle_list_id_app_bundles_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_bundle_lists/{app_bundle_list_id}/app_bundles/bulk_replace:
     post:
       summary: Bulk Replace
@@ -292,11 +262,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_app_bundle_list_id_app_bundles_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_bundle_lists/{app_bundle_list_id}/app_bundles/file_bulk_create:
     post:
       summary: File Bulk Create
@@ -332,11 +297,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_app_bundle_list_id_app_bundles_file_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_bundle_lists/{app_bundle_list_id}/app_bundles/file_bulk_delete:
     delete:
       summary: File Bulk Delete
@@ -371,11 +331,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_app_bundle_list_id_app_bundles_file_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v0/app_bundle_lists/{app_bundle_list_id}/app_bundles/file_bulk_replace:
     post:
       summary: File Bulk Replace
@@ -411,11 +366,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_app_bundle_list_id_app_bundles_file_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists:
     get:
       summary: Index
@@ -465,11 +415,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}:
     get:
       summary: Show
@@ -532,11 +477,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/permissions:
     get:
       summary: Collection Permissions
@@ -550,11 +490,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}/app_bundles:
     get:
       summary: Get the App Bundles in an App Bundle List
@@ -574,11 +509,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_app_bundles_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}/permissions:
     get:
       summary: Permissions Member
@@ -598,11 +528,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_permissions_get
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}/app_bundles/bulk_create:
     post:
       summary: Add App Bundles
@@ -633,11 +558,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_app_bundles_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}/app_bundles/bulk_delete:
     delete:
       summary: Delete App Bundles
@@ -666,11 +586,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_app_bundles_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}/app_bundles/bulk_replace:
     post:
       summary: Replace App Bundles
@@ -701,11 +616,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_app_bundles_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}/app_bundles/file_bulk_create:
     post:
       summary: Add App Bundles (CSV)
@@ -734,11 +644,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_app_bundles_file_bulk_create_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}/app_bundles/file_bulk_delete:
     delete:
       summary: Delete App Bundles (CSV)
@@ -767,11 +672,6 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_app_bundles_file_bulk_delete_delete
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
   /api/v1/app_bundle_lists/{id}/app_bundles/file_bulk_replace:
     post:
       summary: Replace App Bundles (CSV)
@@ -800,20 +700,12 @@ paths:
       tags:
       - App Bundle Lists
       operationId: app_bundle_lists_id_app_bundles_file_bulk_replace_post
-    servers:
-    - url: https://console.springserve.com
-      description: Production API endpoint named by the SpringServe developer documentation (API - Getting Started).
-    - url: https://api.springserve.com
-      description: Same application; also serves the Swagger UI at /api-docs. Verified 2026-08-13.
 components:
   examples:
-    app_bundle_list_bundles_bulk_multiple:
-      summary: Multiple
+    app_bundle_list_create_simple:
+      summary: Simple
       value:
-        app_bundles:
-        - com.example.app
-        - com.example.app2
-        - com.example.app3
+        name: App Bundle List Name
     app_bundle_list_create_full:
       summary: Full
       value:
@@ -828,20 +720,23 @@ components:
         description: App Bundle List Description
         partial_match: false
         active: true
-    app_bundle_list_update_simple:
-      summary: Simple
-      value:
-        name: App Bundle List Name
-        active: true
-    app_bundle_list_create_simple:
-      summary: Simple
-      value:
-        name: App Bundle List Name
     app_bundle_list_bundles_bulk_single:
       summary: Single
       value:
         app_bundles:
         - com.example.app
+    app_bundle_list_update_simple:
+      summary: Simple
+      value:
+        name: App Bundle List Name
+        active: true
+    app_bundle_list_bundles_bulk_multiple:
+      summary: Multiple
+      value:
+        app_bundles:
+        - com.example.app
+        - com.example.app2
+        - com.example.app3
     app_bundle_list_create_full_2:
       summary: Full
       value:
@@ -873,5 +768,5 @@ components:
       bearerFormat: JWT
       description: SpringServe authorization bearer token based authentication.  This key is included in the response from the /api/v0/auth and /api/v1/auth endpoints.  This key will be automatically set if you run the example for /api/v0/auth or /api/v1/auth
 x-refined-from:
-- magnite-springserve-v0-openapi.yml
-- magnite-springserve-v1-openapi.yml
+- magnite-springserve-v0-openapi-original.yaml
+- magnite-springserve-v1-openapi-original.yaml
