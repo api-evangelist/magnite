@@ -123,12 +123,6 @@ paths:
       operationId: bid_maps_id_delete
 components:
   examples:
-    bid_map_create_simple:
-      summary: Simple
-      value:
-        name: Bid Map Name
-        bid_platform: amazon
-        hb_bid_map_type: inventory_split
     bid_map_update_full:
       summary: Full
       value:
@@ -141,6 +135,12 @@ components:
       summary: Simple
       value:
         name: Bid Map Name
+    bid_map_create_simple:
+      summary: Simple
+      value:
+        name: Bid Map Name
+        bid_platform: amazon
+        hb_bid_map_type: inventory_split
     bid_map_create_full:
       summary: Full
       value:

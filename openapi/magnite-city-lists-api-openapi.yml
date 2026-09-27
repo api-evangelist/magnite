@@ -118,7 +118,9 @@ paths:
                 type: object
       tags:
       - City Lists
-      operationId: city_lists_get
+      operationId: getApiV1CityLists
+      x-operation-id-source: normalized
+      x-operation-id-original: city_lists_get
     post:
       summary: Create
       requestBody:
@@ -169,7 +171,9 @@ paths:
                 $ref: '#/components/schemas/CityListErrorResponse'
       tags:
       - City Lists
-      operationId: city_lists_post
+      operationId: postApiV1CityLists
+      x-operation-id-source: normalized
+      x-operation-id-original: city_lists_post
   /api/v1/city_lists/{id}:
     get:
       summary: Show
@@ -188,7 +192,9 @@ paths:
                 type: object
       tags:
       - City Lists
-      operationId: city_lists_id_get
+      operationId: getApiV1CityListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: city_lists_id_get
     patch:
       summary: Update
       parameters:
@@ -258,7 +264,9 @@ paths:
           description: No content
       tags:
       - City Lists
-      operationId: city_lists_id_delete
+      operationId: deleteApiV1CityListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: city_lists_id_delete
   /api/v1/city_lists/permissions:
     get:
       summary: Collection Permissions
@@ -293,6 +301,15 @@ paths:
       operationId: city_lists_id_permissions_get
 components:
   examples:
+    city_list_update_full:
+      summary: Full
+      value:
+        name: City List Name
+        description: City List Description
+        active: true
+        city_codes:
+        - 2988507
+        - 2643743
     city_list_update_simple:
       summary: Simple
       value:
@@ -305,15 +322,6 @@ components:
         - 2988507
         - 2643743
     city_list_create_full:
-      summary: Full
-      value:
-        name: City List Name
-        description: City List Description
-        active: true
-        city_codes:
-        - 2988507
-        - 2643743
-    city_list_update_full:
       summary: Full
       value:
         name: City List Name
@@ -373,18 +381,6 @@ components:
           - remove
           examples:
           - append
-    CityListErrorResponse:
-      type: object
-      properties:
-        status:
-          type: integer
-        error:
-          type: string
-      examples:
-      - error: City codes can't be blank
-        errors:
-          city_codes:
-          - can't be blank
     CityListResponse:
       type: object
       properties:
@@ -408,6 +404,18 @@ components:
           type: array
           items:
             type: integer
+    CityListErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+      examples:
+      - error: City codes can't be blank
+        errors:
+          city_codes:
+          - can't be blank
   securitySchemes:
     api_key:
       type: apiKey

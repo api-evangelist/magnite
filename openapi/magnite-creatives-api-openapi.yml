@@ -86,7 +86,9 @@ paths:
                         - $ref: ref/concerns/filepath_creative.yaml#/components/schemas/FilepathCreative
       tags:
       - Creatives
-      operationId: creatives_get
+      operationId: getApiV1Creatives
+      x-operation-id-source: normalized
+      x-operation-id-original: creatives_get
   /api/v1/creatives/{id}:
     get:
       summary: Show
@@ -112,7 +114,9 @@ paths:
                 - $ref: ref/concerns/filepath_creative.yaml#/components/schemas/FilepathCreative
       tags:
       - Creatives
-      operationId: creatives_id_get
+      operationId: getApiV1CreativesById
+      x-operation-id-source: normalized
+      x-operation-id-original: creatives_id_get
     delete:
       summary: Delete
       parameters:
@@ -339,14 +343,6 @@ paths:
       - Creatives
       operationId: creatives_bulk_update_many_post
 components:
-  parameters:
-    additionalDataParam:
-      name: additional_data
-      description: "Include additional data from non-model sources in the response. \nSupported values: 'quickstats', 'budget_data'. \nMultiple values can be specified as comma-separated (e.g., 'quickstats,budget_data').\n"
-      in: query
-      schema:
-        type: string
-      example: quickstats
   examples:
     creative_bulk_update_many_single:
       summary: Single
@@ -364,6 +360,14 @@ components:
         name: Creative Name
         is_active: false
   schemas:
+    Device:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Device
+      - $ref: '#/components/schemas/ObjectIds'
+    MetroArea:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/MetroArea
+      - $ref: '#/components/schemas/ObjectIds'
     ObjectIds:
       type: object
       properties:
@@ -374,37 +378,21 @@ components:
           description: Array of creative IDs to update
       required:
       - object_ids
-    City:
+    PostalCode:
       allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/City
-      - $ref: '#/components/schemas/ObjectIds'
-    OS:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/OS
-      - $ref: '#/components/schemas/ObjectIds'
-    Device:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Device
+      - $ref: ref/geo_targeting.yaml#/components/schemas/PostalCode
       - $ref: '#/components/schemas/ObjectIds'
     Brand:
       allOf:
       - $ref: ref/user_agent_targeting.yaml#/components/schemas/Brand
       - $ref: '#/components/schemas/ObjectIds'
-    PostalCode:
+    City:
       allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/PostalCode
+      - $ref: ref/geo_targeting.yaml#/components/schemas/City
       - $ref: '#/components/schemas/ObjectIds'
     Region:
       allOf:
       - $ref: ref/geo_targeting.yaml#/components/schemas/Region
-      - $ref: '#/components/schemas/ObjectIds'
-    Country:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/Country
-      - $ref: '#/components/schemas/ObjectIds'
-    MetroArea:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/MetroArea
       - $ref: '#/components/schemas/ObjectIds'
     Browser:
       allOf:
@@ -423,6 +411,22 @@ components:
           items:
             type: number
           description: Array of creative IDs to update
+    OS:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/OS
+      - $ref: '#/components/schemas/ObjectIds'
+    Country:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/Country
+      - $ref: '#/components/schemas/ObjectIds'
+  parameters:
+    additionalDataParam:
+      name: additional_data
+      description: "Include additional data from non-model sources in the response. \nSupported values: 'quickstats', 'budget_data'. \nMultiple values can be specified as comma-separated (e.g., 'quickstats,budget_data').\n"
+      in: query
+      schema:
+        type: string
+      example: quickstats
   securitySchemes:
     api_key:
       type: apiKey

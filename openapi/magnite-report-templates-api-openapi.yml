@@ -152,14 +152,90 @@ paths:
           $ref: ref/errors.yaml#/components/responses/validationError
       operationId: reports_templates_id_set_default_post
 components:
-  schemas:
+  examples:
+    report_template_create_full:
+      summary: Full
+      value:
+        name: Report Template Name
+        description: My report template
+        date_range: Last 7 Days
+        interval: day
+        interval_start_day: monday
+        timezone: America/New_York
+        currency: USD
+        dimensions:
+        - supply_partner_id
+        - supply_tag_id
+        metrics:
+        - usable_requests
+        - fill_rate
+        filters:
+        - dimension: supply_partner_id
+          type: values
+          values:
+          - 1
+          is_include: true
+          is_exact_match: false
+        having:
+        - metric: usable_requests
+          max: false
+          value: 1
+    report_template_update_simple:
+      summary: Simple
+      value:
+        name: Report Template Name
+    report_template_create_simple:
+      summary: Simple
+      value:
+        name: Report Template Name
+        date_range: Yesterday
+        dimensions:
+        - supply_partner_id
+        metrics:
+        - usable_requests
+    report_template_update_full:
+      summary: Full
+      value:
+        name: Report Template Name
+        description: Updated report template
+        date_range: Last 7 Days
+        interval: day
+        interval_start_day: monday
+        timezone: America/New_York
+        currency: USD
+        dimensions:
+        - supply_partner_id
+        - supply_tag_id
+        metrics:
+        - usable_requests
+        - fill_rate
+        filters:
+        - dimension: supply_partner_id
+          type: values
+          values:
+          - 1
+          is_include: true
+          is_exact_match: false
+  responses:
+    reportTemplate:
+      description: A report template
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/reportTemplate'
     reportParameterError:
-      type: object
-      properties:
-        error:
-          type: string
-          examples:
-          - 'Could not parse report parameters: ...'
+      description: Report Parameter Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/reportParameterError'
+    reportSerializationError:
+      description: Report Serialization Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/reportSerializationError'
+  schemas:
     reportSerializationError:
       type: object
       properties:
@@ -167,6 +243,13 @@ components:
           type: string
           examples:
           - 'Could not serialize report template with /api/v1 format: ...'
+    reportParameterError:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+          - 'Could not parse report parameters: ...'
     reportTemplate:
       allOf:
       - $ref: ref/reports.yaml#/components/schemas/reportParameters
@@ -202,89 +285,6 @@ components:
           - 3
           is_include: true
           is_exact_match: false
-        metrics:
-        - usable_requests
-  responses:
-    reportTemplate:
-      description: A report template
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/reportTemplate'
-    reportSerializationError:
-      description: Report Serialization Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/reportSerializationError'
-    reportParameterError:
-      description: Report Parameter Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/reportParameterError'
-  examples:
-    report_template_update_simple:
-      summary: Simple
-      value:
-        name: Report Template Name
-    report_template_create_full:
-      summary: Full
-      value:
-        name: Report Template Name
-        description: My report template
-        date_range: Last 7 Days
-        interval: day
-        interval_start_day: monday
-        timezone: America/New_York
-        currency: USD
-        dimensions:
-        - supply_partner_id
-        - supply_tag_id
-        metrics:
-        - usable_requests
-        - fill_rate
-        filters:
-        - dimension: supply_partner_id
-          type: values
-          values:
-          - 1
-          is_include: true
-          is_exact_match: false
-        having:
-        - metric: usable_requests
-          max: false
-          value: 1
-    report_template_update_full:
-      summary: Full
-      value:
-        name: Report Template Name
-        description: Updated report template
-        date_range: Last 7 Days
-        interval: day
-        interval_start_day: monday
-        timezone: America/New_York
-        currency: USD
-        dimensions:
-        - supply_partner_id
-        - supply_tag_id
-        metrics:
-        - usable_requests
-        - fill_rate
-        filters:
-        - dimension: supply_partner_id
-          type: values
-          values:
-          - 1
-          is_include: true
-          is_exact_match: false
-    report_template_create_simple:
-      summary: Simple
-      value:
-        name: Report Template Name
-        date_range: Yesterday
-        dimensions:
-        - supply_partner_id
         metrics:
         - usable_requests
   securitySchemes:

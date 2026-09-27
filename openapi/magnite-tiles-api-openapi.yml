@@ -116,6 +116,15 @@ paths:
       operationId: tiles_id_delete
 components:
   examples:
+    tile_creative_custom_create_simple:
+      summary: Custom Simple
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        custom: true
+        custom_code: <div>Ad</div>
+        width: 1
+        height: 1
     tile_creative_update_full:
       summary: Full
       value:
@@ -138,6 +147,54 @@ components:
         country_list_ids:
         - 1
         country_source: list
+        state_list_ids:
+        - 1
+        state_source: list
+        city_list_ids:
+        - 1
+        city_source: list
+        metro_area_list_ids:
+        - 1
+        metro_area_source: list
+        postal_code_list_ids:
+        - 1
+        postal_code_source: list
+        key_value_targeting: true
+        budget_timezone: America/New_York
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        active: true
+    tile_creative_update_simple:
+      summary: Simple
+      value:
+        name: Tile Creative Name
+        creative_landing_page_url: https://www.example.com
+        active: true
+    tile_creative_clickable_image_create_full:
+      summary: Clickable Image Full
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        creative_remote_url: https://www.example.com/image.jpg
+        creative_landing_page_url: https://www.example.com
+        code: tile-code
+        secondary_code: tile-secondary
+        overlay_text: Click here
+        line_item_demand_tag_ids:
+        - 1
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://pixel.example.com/imp
+        country_list_ids:
+        - 1
+        country_source: list
+        country_white_list: true
         state_list_ids:
         - 1
         state_source: list
@@ -207,63 +264,6 @@ components:
         demand_partner_id: 1
         creative_remote_url: https://www.example.com/image.jpg
         creative_landing_page_url: https://www.example.com
-    tile_creative_clickable_image_create_full:
-      summary: Clickable Image Full
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://www.example.com/image.jpg
-        creative_landing_page_url: https://www.example.com
-        code: tile-code
-        secondary_code: tile-secondary
-        overlay_text: Click here
-        line_item_demand_tag_ids:
-        - 1
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://pixel.example.com/imp
-        country_list_ids:
-        - 1
-        country_source: list
-        country_white_list: true
-        state_list_ids:
-        - 1
-        state_source: list
-        city_list_ids:
-        - 1
-        city_source: list
-        metro_area_list_ids:
-        - 1
-        metro_area_source: list
-        postal_code_list_ids:
-        - 1
-        postal_code_source: list
-        key_value_targeting: true
-        budget_timezone: America/New_York
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        active: true
-    tile_creative_update_simple:
-      summary: Simple
-      value:
-        name: Tile Creative Name
-        creative_landing_page_url: https://www.example.com
-        active: true
-    tile_creative_custom_create_simple:
-      summary: Custom Simple
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        custom: true
-        custom_code: <div>Ad</div>
-        width: 1
-        height: 1
   securitySchemes:
     api_key:
       type: apiKey

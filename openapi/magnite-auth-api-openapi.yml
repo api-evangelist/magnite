@@ -170,7 +170,9 @@ paths:
               required:
               - email
               - password
-      operationId: auth_post
+      operationId: postApiV1Auth
+      x-operation-id-source: normalized
+      x-operation-id-original: auth_post
   /api/v1/auth0/login:
     post:
       summary: Authenticate and get user and account info
@@ -210,7 +212,9 @@ paths:
               required:
               - email
               - password
-      operationId: auth0_login_post
+      operationId: postApiV1Auth0Login
+      x-operation-id-source: normalized
+      x-operation-id-original: auth0_login_post
   /api/v1/auth0/users/{email}:
     get:
       summary: Retrieve basic info about a user by email address
@@ -238,7 +242,9 @@ paths:
             application/json:
               schema:
                 type: object
-      operationId: auth0_users_email_get
+      operationId: getApiV1Auth0UsersByEmail
+      x-operation-id-source: normalized
+      x-operation-id-original: auth0_users_email_get
 components:
   securitySchemes:
     api_key:

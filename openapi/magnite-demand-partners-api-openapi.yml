@@ -126,6 +126,10 @@ paths:
       operationId: demand_partners_id_delete
 components:
   examples:
+    demand_partner_create_simple:
+      summary: Simple
+      value:
+        name: Demand Partner Name
     demand_partner_update_simple:
       summary: Simple
       value:
@@ -210,10 +214,6 @@ components:
         account_manager_ids:
         - 1
         note: Demand Partner note
-    demand_partner_create_simple:
-      summary: Simple
-      value:
-        name: Demand Partner Name
     demand_partner_create_full:
       summary: Full
       value:

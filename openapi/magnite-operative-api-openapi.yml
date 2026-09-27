@@ -85,29 +85,12 @@ paths:
       operationId: operative_orders_put
 components:
   examples:
-    operative_order_update_full:
-      summary: Full
+    operative_order_create_simple:
+      summary: Simple
       value:
-        orderId: '1'
-        lineitems:
-        - lineitemId: '1'
-          sourceLineitemId: '1'
-          name: Operative Line Item Name
-          quantity: 1
-          costType: CPM
-          unitCost: 1.11
-          timeZone: America/New_York
-          startDate: '2026-01-01'
-          endDate: '2026-12-31'
-          targets:
-          - targetName: geo
-            targetValues:
-            - US
-    operative_advertiser_create_full:
-      summary: Full
-      value:
-        sourceAdvertiserId: '1'
-        name: Operative Advertiser Name
+        sourceOrderId: '1'
+        name: Operative Order Name
+        advertiserId: '1'
     operative_order_update_simple:
       summary: Simple
       value:
@@ -115,12 +98,6 @@ components:
         lineitems:
         - lineitemId: '1'
           name: Operative Line Item Name
-    operative_order_create_simple:
-      summary: Simple
-      value:
-        sourceOrderId: '1'
-        name: Operative Order Name
-        advertiserId: '1'
     operative_advertiser_create_simple:
       summary: Simple
       value:
@@ -148,6 +125,29 @@ components:
           - targetName: geo
             targetValues:
             - US
+    operative_order_update_full:
+      summary: Full
+      value:
+        orderId: '1'
+        lineitems:
+        - lineitemId: '1'
+          sourceLineitemId: '1'
+          name: Operative Line Item Name
+          quantity: 1
+          costType: CPM
+          unitCost: 1.11
+          timeZone: America/New_York
+          startDate: '2026-01-01'
+          endDate: '2026-12-31'
+          targets:
+          - targetName: geo
+            targetValues:
+            - US
+    operative_advertiser_create_full:
+      summary: Full
+      value:
+        sourceAdvertiserId: '1'
+        name: Operative Advertiser Name
   securitySchemes:
     api_key:
       type: apiKey

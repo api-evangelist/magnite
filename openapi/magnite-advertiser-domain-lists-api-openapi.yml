@@ -354,10 +354,32 @@ paths:
       operationId: advertiser_domain_lists_advertiser_domain_list_id_advertiser_domains_file_bulk_replace_post
 components:
   examples:
+    advertiser_domain_list_update_simple:
+      summary: Simple
+      value:
+        name: Advertiser Domain List Name
+        active: true
     advertiser_domain_list_create_simple:
       summary: Simple
       value:
         name: Advertiser Domain List Name
+    advertiser_domain_list_update_full:
+      summary: Full
+      value:
+        name: Advertiser Domain List Name
+        description: Advertiser Domain List Description
+        active: true
+    advertiser_domain_list_create_full:
+      summary: Full
+      value:
+        name: Advertiser Domain List Name
+        description: Advertiser Domain List Description
+        active: true
+    advertiser_domain_list_domains_bulk_single:
+      summary: Single
+      value:
+        names:
+        - example1.com
     advertiser_domain_list_domains_bulk_multiple:
       summary: Multiple
       value:
@@ -365,28 +387,6 @@ components:
         - example1.com
         - example2.com
         - example3.com
-    advertiser_domain_list_domains_bulk_single:
-      summary: Single
-      value:
-        names:
-        - example1.com
-    advertiser_domain_list_create_full:
-      summary: Full
-      value:
-        name: Advertiser Domain List Name
-        description: Advertiser Domain List Description
-        active: true
-    advertiser_domain_list_update_full:
-      summary: Full
-      value:
-        name: Advertiser Domain List Name
-        description: Advertiser Domain List Description
-        active: true
-    advertiser_domain_list_update_simple:
-      summary: Simple
-      value:
-        name: Advertiser Domain List Name
-        active: true
   securitySchemes:
     api_key:
       type: apiKey

@@ -153,7 +153,9 @@ paths:
                         $ref: '#/components/schemas/DemandLabel'
       tags:
       - Demand Labels
-      operationId: demand_labels_get
+      operationId: getApiV1DemandLabels
+      x-operation-id-source: normalized
+      x-operation-id-original: demand_labels_get
     post:
       summary: Create
       requestBody:
@@ -192,7 +194,9 @@ paths:
                     - can't be blank
       tags:
       - Demand Labels
-      operationId: demand_labels_post
+      operationId: postApiV1DemandLabels
+      x-operation-id-source: normalized
+      x-operation-id-original: demand_labels_post
   /api/v1/demand_labels/{id}:
     get:
       summary: Show
@@ -223,7 +227,9 @@ paths:
                 $ref: '#/components/schemas/DemandLabel'
       tags:
       - Demand Labels
-      operationId: demand_labels_id_get
+      operationId: getApiV1DemandLabelsById
+      x-operation-id-source: normalized
+      x-operation-id-original: demand_labels_id_get
     patch:
       summary: Update
       parameters:
@@ -282,7 +288,9 @@ paths:
           description: No content
       tags:
       - Demand Labels
-      operationId: demand_labels_id_delete
+      operationId: deleteApiV1DemandLabelsById
+      x-operation-id-source: normalized
+      x-operation-id-original: demand_labels_id_delete
   /api/v1/demand_labels/permissions:
     get:
       summary: Collection Permissions
@@ -317,13 +325,13 @@ paths:
       operationId: demand_labels_id_permissions_get
 components:
   examples:
-    demand_label_update_full:
+    demand_label_create_full:
       summary: Full
       value:
         name: Demand Label Name
         demand_tag_ids:
         - 1
-    demand_label_create_full:
+    demand_label_update_full:
       summary: Full
       value:
         name: Demand Label Name

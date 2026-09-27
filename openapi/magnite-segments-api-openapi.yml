@@ -358,49 +358,11 @@ paths:
       operationId: segments_segment_id_items_file_bulk_replace_post
 components:
   examples:
-    segment_items_bulk_replace_multiple:
-      summary: Replace with multiple items
-      value:
-        items:
-        - d207654f-6bdd-474e-9734-67b7c3d02d96
-        - a1b2c3d4-6bdd-474e-9734-67b7c3d02d96
-    segment_pixel_create_full:
-      summary: Pixel segment (full)
-      value:
-        name: Segment Name
-        description: Segment description
-        segment_type: pixel
-        segment_pixel_type: device_id
-        user_expiration_value: 30
-        active: true
-    segment_items_bulk_replace_single:
-      summary: Replace with single item
-      value:
-        items:
-        - d207654f-6bdd-474e-9734-67b7c3d02d96
-    segment_list_create_simple:
-      summary: List segment (simple)
-      value:
-        name: Segment Name
-        segment_type: list
-        segment_list_type: cookie
-    segment_update_full:
-      summary: Update segment (full)
-      value:
-        name: Segment Name
-        description: Segment description
-        active: true
     segment_update_simple:
       summary: Update segment (simple)
       value:
         name: Segment Name
         active: true
-    segment_items_bulk_create_multiple:
-      summary: Add multiple items
-      value:
-        items:
-        - d207654f-6bdd-474e-9734-67b7c3d02d96
-        - a1b2c3d4-6bdd-474e-9734-67b7c3d02d96
     segment_pixel_create_simple:
       summary: Pixel segment (simple)
       value:
@@ -408,8 +370,20 @@ components:
         segment_type: pixel
         segment_pixel_type: device_id
         user_expiration_value: 30
-    segment_items_bulk_create_single:
-      summary: Add single item
+    segment_items_bulk_replace_multiple:
+      summary: Replace with multiple items
+      value:
+        items:
+        - d207654f-6bdd-474e-9734-67b7c3d02d96
+        - a1b2c3d4-6bdd-474e-9734-67b7c3d02d96
+    segment_list_create_simple:
+      summary: List segment (simple)
+      value:
+        name: Segment Name
+        segment_type: list
+        segment_list_type: cookie
+    segment_items_bulk_replace_single:
+      summary: Replace with single item
       value:
         items:
         - d207654f-6bdd-474e-9734-67b7c3d02d96
@@ -421,6 +395,32 @@ components:
         segment_type: list
         segment_list_type: cookie
         active: true
+    segment_items_bulk_create_single:
+      summary: Add single item
+      value:
+        items:
+        - d207654f-6bdd-474e-9734-67b7c3d02d96
+    segment_update_full:
+      summary: Update segment (full)
+      value:
+        name: Segment Name
+        description: Segment description
+        active: true
+    segment_pixel_create_full:
+      summary: Pixel segment (full)
+      value:
+        name: Segment Name
+        description: Segment description
+        segment_type: pixel
+        segment_pixel_type: device_id
+        user_expiration_value: 30
+        active: true
+    segment_items_bulk_create_multiple:
+      summary: Add multiple items
+      value:
+        items:
+        - d207654f-6bdd-474e-9734-67b7c3d02d96
+        - a1b2c3d4-6bdd-474e-9734-67b7c3d02d96
   securitySchemes:
     api_key:
       type: apiKey

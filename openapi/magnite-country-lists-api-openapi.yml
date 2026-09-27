@@ -118,7 +118,9 @@ paths:
                 type: object
       tags:
       - Country Lists
-      operationId: country_lists_get
+      operationId: getApiV1CountryLists
+      x-operation-id-source: normalized
+      x-operation-id-original: country_lists_get
     post:
       summary: Create
       requestBody:
@@ -169,7 +171,9 @@ paths:
                 $ref: '#/components/schemas/CountryListErrorResponse'
       tags:
       - Country Lists
-      operationId: country_lists_post
+      operationId: postApiV1CountryLists
+      x-operation-id-source: normalized
+      x-operation-id-original: country_lists_post
   /api/v1/country_lists/{id}:
     get:
       summary: Show
@@ -188,7 +192,9 @@ paths:
                 type: object
       tags:
       - Country Lists
-      operationId: country_lists_id_get
+      operationId: getApiV1CountryListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: country_lists_id_get
     patch:
       summary: Update
       parameters:
@@ -257,7 +263,9 @@ paths:
           description: No content
       tags:
       - Country Lists
-      operationId: country_lists_id_delete
+      operationId: deleteApiV1CountryListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: country_lists_id_delete
   /api/v1/country_lists/permissions:
     get:
       summary: Collection Permissions
@@ -301,10 +309,12 @@ components:
         country_codes:
         - UA
         - US
-    country_list_create_simple:
-      summary: Simple
+    country_list_create_full:
+      summary: Full
       value:
         name: Country List Name
+        description: Country List Description
+        active: true
         country_codes:
         - AL
         - AD
@@ -312,12 +322,10 @@ components:
       summary: Simple
       value:
         name: Country List Name
-    country_list_create_full:
-      summary: Full
+    country_list_create_simple:
+      summary: Simple
       value:
         name: Country List Name
-        description: Country List Description
-        active: true
         country_codes:
         - AL
         - AD
@@ -373,23 +381,6 @@ components:
           type: array
           items:
             type: string
-    CountryListCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          examples:
-          - Country List Name
-        description:
-          type: string
-          examples:
-          - Country List Description
-        active:
-          type: boolean
-          examples:
-          - true
-      required:
-      - name
     CountryListUpdateRequest:
       type: object
       properties:
@@ -413,6 +404,23 @@ components:
           - remove
           examples:
           - append
+    CountryListCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - Country List Name
+        description:
+          type: string
+          examples:
+          - Country List Description
+        active:
+          type: boolean
+          examples:
+          - true
+      required:
+      - name
   securitySchemes:
     api_key:
       type: apiKey

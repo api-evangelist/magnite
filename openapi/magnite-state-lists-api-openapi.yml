@@ -118,7 +118,9 @@ paths:
                 type: object
       tags:
       - State Lists
-      operationId: state_lists_get
+      operationId: getApiV1StateLists
+      x-operation-id-source: normalized
+      x-operation-id-original: state_lists_get
     post:
       summary: Create
       requestBody:
@@ -168,7 +170,9 @@ paths:
                 $ref: '#/components/schemas/StateListErrorResponse'
       tags:
       - State Lists
-      operationId: state_lists_post
+      operationId: postApiV1StateLists
+      x-operation-id-source: normalized
+      x-operation-id-original: state_lists_post
   /api/v1/state_lists/{id}:
     get:
       summary: Show
@@ -187,7 +191,9 @@ paths:
                 type: object
       tags:
       - State Lists
-      operationId: state_lists_id_get
+      operationId: getApiV1StateListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: state_lists_id_get
     patch:
       summary: Update
       parameters:
@@ -257,7 +263,9 @@ paths:
           description: No content
       tags:
       - State Lists
-      operationId: state_lists_id_delete
+      operationId: deleteApiV1StateListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: state_lists_id_delete
   /api/v1/state_lists/permissions:
     get:
       summary: Collection Permissions
@@ -292,6 +300,10 @@ paths:
       operationId: state_lists_id_permissions_get
 components:
   examples:
+    state_list_update_simple:
+      summary: Simple
+      value:
+        name: State List Name
     state_list_create_full:
       summary: Full
       value:
@@ -317,10 +329,6 @@ components:
         state_codes:
         - CA-ON
         - GB-ENG
-    state_list_update_simple:
-      summary: Simple
-      value:
-        name: State List Name
     state_list_update_full_2:
       summary: Full
       value:
@@ -332,26 +340,6 @@ components:
         - GB-ENG
         list_action: append
   schemas:
-    StateListCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the state list.
-          examples:
-          - State List Name
-        description:
-          type: string
-          description: The description of the state list.
-          examples:
-          - This is my state list.
-        active:
-          type: boolean
-          description: Whether the state list is active.
-          examples:
-          - true
-      required:
-      - name
     StateListUpdateRequest:
       type: object
       properties:
@@ -379,6 +367,26 @@ components:
           description: The action to perform on the state codes in the state list. Required if state_codes or csv_file is provided.
           examples:
           - append
+    StateListCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the state list.
+          examples:
+          - State List Name
+        description:
+          type: string
+          description: The description of the state list.
+          examples:
+          - This is my state list.
+        active:
+          type: boolean
+          description: Whether the state list is active.
+          examples:
+          - true
+      required:
+      - name
     StateListResponse:
       type: object
       properties:

@@ -106,12 +106,6 @@ paths:
       operationId: geo_lists_id_permissions_get
 components:
   examples:
-    geo_list_bulk_update_single:
-      summary: Single
-      value:
-        object_ids:
-        - 1
-        active: true
     geo_list_bulk_update_multiple:
       summary: Multiple
       value:
@@ -119,6 +113,12 @@ components:
         - 1
         - 2
         active: false
+    geo_list_bulk_update_single:
+      summary: Single
+      value:
+        object_ids:
+        - 1
+        active: true
   schemas:
     GeoList:
       type: object

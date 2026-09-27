@@ -83,7 +83,9 @@ paths:
                 type: object
       tags:
       - Reports
-      operationId: reports_post
+      operationId: postApiV1Reports
+      x-operation-id-source: normalized
+      x-operation-id-original: reports_post
   /api/v1/reports/{id}:
     get:
       summary: Get Report
@@ -145,15 +147,6 @@ paths:
       operationId: reports_download_id_get
 components:
   examples:
-    report_create_simple:
-      summary: Simple
-      value:
-        date_range: Yesterday
-        dimensions:
-        - supply_tag_id
-        metrics:
-        - impressions
-        - revenue
     report_create_full:
       summary: Full
       value:
@@ -170,6 +163,15 @@ components:
         - revenue
         - fill_rate
         - cpm
+    report_create_simple:
+      summary: Simple
+      value:
+        date_range: Yesterday
+        dimensions:
+        - supply_tag_id
+        metrics:
+        - impressions
+        - revenue
     report_create_full_2:
       summary: Full
       value:

@@ -217,7 +217,9 @@ paths:
                 items:
                   oneOf:
                   - $ref: '#/components/schemas/Bill'
-      operationId: bills_get
+      operationId: getApiV1Bills
+      x-operation-id-source: normalized
+      x-operation-id-original: bills_get
     post:
       summary: Create
       tags:
@@ -256,7 +258,9 @@ paths:
                   errors:
                     name:
                     - can't be blank
-      operationId: bills_post
+      operationId: postApiV1Bills
+      x-operation-id-source: normalized
+      x-operation-id-original: bills_post
   /api/v1/bills/{id}:
     get:
       summary: Show
@@ -275,7 +279,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Bill'
-      operationId: bills_id_get
+      operationId: getApiV1BillsById
+      x-operation-id-source: normalized
+      x-operation-id-original: bills_id_get
     patch:
       summary: Update
       tags:
@@ -369,19 +375,11 @@ paths:
       operationId: bills_id_permissions_get
 components:
   examples:
-    bill_update_simple:
+    bill_item_update_simple:
       summary: Simple
       value:
-        name: Bill Name
-    bill_create_full:
-      summary: Full
-      value:
-        name: Bill Name
-        month: '2026-01-01'
-        currency: USD
-        is_invoice: false
-        is_direct_connect: false
-        is_openrtb: false
+        label: Bill Item Label
+        unit_cost: 1.11
     bill_item_create_full:
       summary: Full
       value:
@@ -393,6 +391,39 @@ components:
         xero_account_code: 401
         is_unit_cost_cpm: true
         is_synced: false
+    bill_item_update_full:
+      summary: Full
+      value:
+        label: Bill Item Label
+        other_account_id: 1
+        unit_cost: 1.11
+        units: 1.11
+        total_cost: 1.11
+        xero_account_code: 401
+        is_unit_cost_cpm: true
+        is_synced: false
+    bill_create_full:
+      summary: Full
+      value:
+        name: Bill Name
+        month: '2026-01-01'
+        currency: USD
+        is_invoice: false
+        is_direct_connect: false
+        is_openrtb: false
+    bill_update_simple:
+      summary: Simple
+      value:
+        name: Bill Name
+    bill_update_full:
+      summary: Full
+      value:
+        name: Bill Name
+        month: '2026-01-01'
+        currency: USD
+        is_invoice: false
+        is_direct_connect: false
+        is_openrtb: false
     bill_item_create_simple:
       summary: Simple
       value:
@@ -409,31 +440,6 @@ components:
         is_invoice: false
         is_direct_connect: false
         is_openrtb: false
-    bill_item_update_full:
-      summary: Full
-      value:
-        label: Bill Item Label
-        other_account_id: 1
-        unit_cost: 1.11
-        units: 1.11
-        total_cost: 1.11
-        xero_account_code: 401
-        is_unit_cost_cpm: true
-        is_synced: false
-    bill_update_full:
-      summary: Full
-      value:
-        name: Bill Name
-        month: '2026-01-01'
-        currency: USD
-        is_invoice: false
-        is_direct_connect: false
-        is_openrtb: false
-    bill_item_update_simple:
-      summary: Simple
-      value:
-        label: Bill Item Label
-        unit_cost: 1.11
     bill_create_full_2:
       summary: Full
       value:

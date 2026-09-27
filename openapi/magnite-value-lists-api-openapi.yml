@@ -112,21 +112,6 @@ paths:
       operationId: value_lists_id_delete
 components:
   examples:
-    value_list_update_simple:
-      summary: Simple
-      value:
-        name: Value List Name
-    value_list_update_full:
-      summary: Full
-      value:
-        name: Value List Name
-        description: Value list description
-        free_values:
-        - value-one
-        - value-two
-        value_ids:
-        - 1
-        - 2
     value_list_create_full:
       summary: Full
       value:
@@ -139,11 +124,26 @@ components:
         value_ids:
         - 1
         - 2
+    value_list_update_simple:
+      summary: Simple
+      value:
+        name: Value List Name
     value_list_create_simple:
       summary: Simple
       value:
         name: Value List Name
         key_id: 1
+    value_list_update_full:
+      summary: Full
+      value:
+        name: Value List Name
+        description: Value list description
+        free_values:
+        - value-one
+        - value-two
+        value_ids:
+        - 1
+        - 2
   securitySchemes:
     api_key:
       type: apiKey

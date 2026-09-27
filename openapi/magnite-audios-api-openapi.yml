@@ -112,49 +112,10 @@ paths:
       operationId: audios_id_delete
 components:
   examples:
-    audio_creative_create_simple:
+    audio_creative_update_simple:
       summary: Simple
       value:
         name: Audio Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://example.com/audio.mp3
-    audio_creative_update_full:
-      summary: Full
-      value:
-        name: Audio Creative Name
-        code: audio-code
-        secondary_code: audio-secondary
-        advertiser_domain: example.com
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        line_item_demand_tag_ids:
-        - 1
-        country_source: list
-        country_list_ids:
-        - 1
-        state_source: list
-        state_list_ids:
-        - 1
-        city_source: list
-        city_list_ids:
-        - 1
-        metro_area_source: list
-        metro_area_list_ids:
-        - 1
-        postal_code_source: list
-        postal_code_list_ids:
-        - 1
-        key_value_targeting: true
-        budget_timezone: America/New_York
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_url: https://pixel.example.com/imp
-          pixel_format: image
         active: true
     audio_creative_create_full:
       summary: Full
@@ -196,11 +157,50 @@ components:
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
         active: true
-    audio_creative_update_simple:
+    audio_creative_update_full:
+      summary: Full
+      value:
+        name: Audio Creative Name
+        code: audio-code
+        secondary_code: audio-secondary
+        advertiser_domain: example.com
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        line_item_demand_tag_ids:
+        - 1
+        country_source: list
+        country_list_ids:
+        - 1
+        state_source: list
+        state_list_ids:
+        - 1
+        city_source: list
+        city_list_ids:
+        - 1
+        metro_area_source: list
+        metro_area_list_ids:
+        - 1
+        postal_code_source: list
+        postal_code_list_ids:
+        - 1
+        key_value_targeting: true
+        budget_timezone: America/New_York
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_url: https://pixel.example.com/imp
+          pixel_format: image
+        active: true
+    audio_creative_create_simple:
       summary: Simple
       value:
         name: Audio Creative Name
-        active: true
+        demand_partner_id: 1
+        creative_remote_url: https://example.com/audio.mp3
   securitySchemes:
     api_key:
       type: apiKey

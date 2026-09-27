@@ -130,7 +130,9 @@ paths:
                 type: object
       tags:
       - Global Fcap Pixels
-      operationId: global_fcap_pixels_get
+      operationId: getApiV1GlobalFcapPixels
+      x-operation-id-source: normalized
+      x-operation-id-original: global_fcap_pixels_get
     post:
       summary: Create
       requestBody:
@@ -161,7 +163,9 @@ paths:
                 $ref: '#/components/schemas/UnsupportedContentErrorResponse'
       tags:
       - Global Fcap Pixels
-      operationId: global_fcap_pixels_post
+      operationId: postApiV1GlobalFcapPixels
+      x-operation-id-source: normalized
+      x-operation-id-original: global_fcap_pixels_post
   /api/v1/global_fcap_pixels/{id}:
     get:
       summary: Show
@@ -180,7 +184,9 @@ paths:
                 type: object
       tags:
       - Global Fcap Pixels
-      operationId: global_fcap_pixels_id_get
+      operationId: getApiV1GlobalFcapPixelsById
+      x-operation-id-source: normalized
+      x-operation-id-original: global_fcap_pixels_id_get
     patch:
       summary: Update
       parameters:
@@ -231,7 +237,9 @@ paths:
           description: No content
       tags:
       - Global Fcap Pixels
-      operationId: global_fcap_pixels_id_delete
+      operationId: deleteApiV1GlobalFcapPixelsById
+      x-operation-id-source: normalized
+      x-operation-id-original: global_fcap_pixels_id_delete
   /api/v1/global_fcap_pixels/permissions:
     get:
       summary: Collection Permissions
@@ -309,21 +317,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    GlobalFcapPixelUpdateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          examples:
-          - Test Update
-        description:
-          type: string
-          examples:
-          - Description Update
-        active:
-          type: boolean
-          examples:
-          - true
     UnsupportedContentErrorResponse:
       type: object
       properties:
@@ -380,6 +373,21 @@ components:
       required:
       - name
       - frequency_cap_period_amount
+    GlobalFcapPixelUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - Test Update
+        description:
+          type: string
+          examples:
+          - Description Update
+        active:
+          type: boolean
+          examples:
+          - true
   securitySchemes:
     api_key:
       type: apiKey

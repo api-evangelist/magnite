@@ -245,7 +245,9 @@ paths:
                 type: object
       tags:
       - Deal Lists
-      operationId: deal_lists_get
+      operationId: getApiV1DealLists
+      x-operation-id-source: normalized
+      x-operation-id-original: deal_lists_get
     post:
       summary: Create
       requestBody:
@@ -268,7 +270,9 @@ paths:
                 type: object
       tags:
       - Deal Lists
-      operationId: deal_lists_post
+      operationId: postApiV1DealLists
+      x-operation-id-source: normalized
+      x-operation-id-original: deal_lists_post
   /api/v1/deal_lists/{deal_list_id}:
     get:
       summary: Show
@@ -505,17 +509,28 @@ paths:
       operationId: deal_lists_deal_list_id_deals_bulk_replace_post
 components:
   examples:
-    deal_list_deals_bulk_create_single:
-      summary: Single
+    deal_list_deals_bulk_replace_multiple:
+      summary: Multiple
       value:
         deals:
         - 1
+        - 2
+        - 3
     deal_list_update_full:
       summary: Full
       value:
         name: Deal List Name
         description: Deal list description
         is_active: true
+        deals:
+        - 1
+    deal_list_update_simple:
+      summary: Simple
+      value:
+        name: Deal List Name
+    deal_list_deals_bulk_create_single:
+      summary: Single
+      value:
         deals:
         - 1
     deal_list_deals_bulk_create_multiple:
@@ -525,10 +540,11 @@ components:
         - 1
         - 2
         - 3
-    deal_list_update_simple:
-      summary: Simple
+    deal_list_deals_bulk_replace_single:
+      summary: Single
       value:
-        name: Deal List Name
+        deals:
+        - 1
     deal_list_create_simple:
       summary: Simple
       value:
@@ -541,18 +557,12 @@ components:
         is_active: true
         deals:
         - 1
-    deal_list_deals_bulk_replace_single:
+    deal_list_bulk_update_single:
       summary: Single
       value:
-        deals:
+        is_active: true
+        object_ids:
         - 1
-    deal_list_deals_bulk_replace_multiple:
-      summary: Multiple
-      value:
-        deals:
-        - 1
-        - 2
-        - 3
     deal_list_bulk_update_multiple:
       summary: Multiple
       value:
@@ -560,12 +570,6 @@ components:
         object_ids:
         - 1
         - 2
-    deal_list_bulk_update_single:
-      summary: Single
-      value:
-        is_active: true
-        object_ids:
-        - 1
   securitySchemes:
     api_key:
       type: apiKey

@@ -50,6 +50,21 @@ paths:
       operationId: first_party_partner_segments_bulk_create_post
 components:
   examples:
+    first_party_partner_segment_bulk_create_single:
+      summary: Bulk create — single item
+      value:
+        first_party_partner_segments:
+        - code: SEG-001
+          vendor_id: 1
+          category: automotive
+          dmp_segment_id: 1
+          description: First party segment
+          cpm: 1.11
+          political: false
+          adv_id: 1
+          enabled: true
+          account_ids:
+          - 1
     first_party_partner_segment_bulk_create_multiple:
       summary: Bulk create — multiple items
       value:
@@ -75,21 +90,6 @@ components:
           adv_id: 1
           enabled: false
           account_ids: []
-    first_party_partner_segment_bulk_create_single:
-      summary: Bulk create — single item
-      value:
-        first_party_partner_segments:
-        - code: SEG-001
-          vendor_id: 1
-          category: automotive
-          dmp_segment_id: 1
-          description: First party segment
-          cpm: 1.11
-          political: false
-          adv_id: 1
-          enabled: true
-          account_ids:
-          - 1
   securitySchemes:
     api_key:
       type: apiKey

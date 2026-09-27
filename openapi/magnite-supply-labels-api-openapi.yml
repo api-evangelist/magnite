@@ -135,7 +135,9 @@ paths:
                 $ref: '#/components/schemas/SupplyLabelIndexResponse'
       tags:
       - Supply Labels
-      operationId: supply_labels_get
+      operationId: getApiV1SupplyLabels
+      x-operation-id-source: normalized
+      x-operation-id-original: supply_labels_get
     post:
       summary: Create
       requestBody:
@@ -160,7 +162,9 @@ paths:
           $ref: ref/errors.yaml#/components/responses/validationError
       tags:
       - Supply Labels
-      operationId: supply_labels_post
+      operationId: postApiV1SupplyLabels
+      x-operation-id-source: normalized
+      x-operation-id-original: supply_labels_post
   /api/v1/supply_labels/{id}:
     get:
       summary: Show
@@ -179,7 +183,9 @@ paths:
                 $ref: '#/components/schemas/SupplyLabel'
       tags:
       - Supply Labels
-      operationId: supply_labels_id_get
+      operationId: getApiV1SupplyLabelsById
+      x-operation-id-source: normalized
+      x-operation-id-original: supply_labels_id_get
     patch:
       summary: Update
       parameters:
@@ -224,7 +230,9 @@ paths:
           description: No content
       tags:
       - Supply Labels
-      operationId: supply_labels_id_delete
+      operationId: deleteApiV1SupplyLabelsById
+      x-operation-id-source: normalized
+      x-operation-id-original: supply_labels_id_delete
   /api/v1/supply_labels/permissions:
     get:
       summary: Collection Permissions

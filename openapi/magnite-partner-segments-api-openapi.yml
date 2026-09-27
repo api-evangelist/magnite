@@ -124,7 +124,9 @@ paths:
                 $ref: '#/components/schemas/PartnerSegmentIndexResponse'
       tags:
       - Partner Segments
-      operationId: partner_segments_get
+      operationId: getApiV1PartnerSegments
+      x-operation-id-source: normalized
+      x-operation-id-original: partner_segments_get
   /api/v1/partner_segments/{id}:
     parameters:
     - name: id
@@ -146,7 +148,9 @@ paths:
                 $ref: '#/components/schemas/PartnerSegment'
       tags:
       - Partner Segments
-      operationId: partner_segments_id_get
+      operationId: getApiV1PartnerSegmentsById
+      x-operation-id-source: normalized
+      x-operation-id-original: partner_segments_id_get
     patch:
       summary: Update
       requestBody:
@@ -179,7 +183,9 @@ paths:
           description: No content
       tags:
       - Partner Segments
-      operationId: partner_segments_id_delete
+      operationId: deleteApiV1PartnerSegmentsById
+      x-operation-id-source: normalized
+      x-operation-id-original: partner_segments_id_delete
   /api/v1/partner_segments/bulk_create:
     post:
       summary: Bulk Create
@@ -212,7 +218,9 @@ paths:
                   - $ref: '#/components/schemas/PartnerSegment'
       tags:
       - Partner Segments
-      operationId: partner_segments_bulk_create_post
+      operationId: postApiV1PartnerSegmentsBulkCreate
+      x-operation-id-source: normalized
+      x-operation-id-original: partner_segments_bulk_create_post
   /api/v1/partner_segments/bulk_delete:
     delete:
       summary: Bulk Delete
@@ -325,14 +333,6 @@ paths:
       operationId: partner_segments_id_permissions_get
 components:
   examples:
-    partner_segment_update_simple:
-      summary: Simple
-      value:
-        active: true
-    partner_segment_update_full:
-      summary: Full
-      value:
-        active: false
     partner_segment_bulk_create_single:
       summary: Single
       value:
@@ -341,6 +341,14 @@ components:
           vendor_id: 1
           description: Example Partner Segment
           cpm: 1.11
+    partner_segment_update_simple:
+      summary: Simple
+      value:
+        active: true
+    partner_segment_update_full:
+      summary: Full
+      value:
+        active: false
     partner_segment_bulk_create_multiple:
       summary: Multiple
       value:
@@ -365,6 +373,10 @@ components:
           political: false
           adv_id: 1
           enabled: false
+    partner_segment_update_simple_2:
+      summary: Activate a Partner Segment
+      value:
+        is_active: true
     partner_segment_bulk_create_single_2:
       summary: Create a single Partner Segment
       value:
@@ -373,6 +385,10 @@ components:
           vendor_id: 1
           description: Example Partner Segment
           cpm: 1.11
+    partner_segment_update_full_2:
+      summary: Deactivate a Partner Segment
+      value:
+        is_active: false
     partner_segment_bulk_create_multiple_2:
       summary: Create multiple Partner Segments
       value:
@@ -397,14 +413,6 @@ components:
           political: false
           adv_id: 1
           enabled: false
-    partner_segment_update_full_2:
-      summary: Deactivate a Partner Segment
-      value:
-        is_active: false
-    partner_segment_update_simple_2:
-      summary: Activate a Partner Segment
-      value:
-        is_active: true
   parameters:
     additionalDataPartnerSegmentParam:
       name: additional_data

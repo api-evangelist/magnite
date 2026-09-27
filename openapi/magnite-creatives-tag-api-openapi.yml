@@ -121,15 +121,32 @@ paths:
       operationId: tag_creatives_id_delete
 components:
   schemas:
-    TagCreativeCreateData:
+    TagCreativeResponse:
       allOf:
       - $ref: '#/components/schemas/TagCreativeBaseProperties'
       - type: object
-        required:
-        - demand_partner_id
         properties:
+          id:
+            type: integer
+          account_id:
+            type: integer
           demand_partner_id:
-            type: number
+            type: integer
+          type:
+            type: string
+          netflix_pre_approval_enabled:
+            type: boolean
+          netflix_approval_status:
+            type:
+            - string
+            - 'null'
+          netflix_deal_ids:
+            type: array
+            items:
+              type: string
+      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
+    TagCreativeUpdateData:
+      $ref: '#/components/schemas/TagCreativeBaseProperties'
     TagCreativeBaseProperties:
       allOf:
       - type: object
@@ -221,32 +238,15 @@ components:
       - $ref: ref/concerns/targeted_macro.yaml#/components/schemas/TargetedMacro
       - $ref: ref/concerns/user_agent.yaml#/components/schemas/UserAgent
       - $ref: ref/concerns/flight_dates.yaml#/components/schemas/FlightDates
-    TagCreativeUpdateData:
-      $ref: '#/components/schemas/TagCreativeBaseProperties'
-    TagCreativeResponse:
+    TagCreativeCreateData:
       allOf:
       - $ref: '#/components/schemas/TagCreativeBaseProperties'
       - type: object
+        required:
+        - demand_partner_id
         properties:
-          id:
-            type: integer
-          account_id:
-            type: integer
           demand_partner_id:
-            type: integer
-          type:
-            type: string
-          netflix_pre_approval_enabled:
-            type: boolean
-          netflix_approval_status:
-            type:
-            - string
-            - 'null'
-          netflix_deal_ids:
-            type: array
-            items:
-              type: string
-      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
+            type: number
     TagCreativeIndexResponse:
       allOf:
       - $ref: ref/params.yaml#/components/schemas/ParamsResponse
@@ -257,58 +257,6 @@ components:
             items:
               $ref: '#/components/schemas/TagCreativeResponse'
   examples:
-    tag_creative_update_full:
-      summary: Full
-      value:
-        name: Tag Creative Name
-        vast_endpoint_url: https://staging-tv.springserve.com/vast
-        creative_landing_page_url: https://ad.example.com/landing
-        advertiser_domain: example.com
-        code: tag-code
-        secondary_code: tag-secondary
-        line_item_demand_tag_ids:
-        - 1
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://pixel.example.com/imp
-        country_list_ids:
-        - 1
-        country_source: list
-        state_list_ids:
-        - 1
-        state_source: list
-        city_list_ids:
-        - 1
-        city_source: list
-        metro_area_list_ids:
-        - 1
-        metro_area_source: list
-        postal_code_list_ids:
-        - 1
-        postal_code_source: list
-        frequency_caps:
-        - frequency_cap_period: day
-          frequency_cap_period_amount: 1
-          frequency_cap_metric: impressions
-          frequency_cap_value: 1
-          frequency_cap_type: springserve
-        key_value_targeting: true
-        targeted_macros_enabled: true
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        is_active: true
     tag_creative_create_full:
       summary: Full
       value:
@@ -377,18 +325,70 @@ components:
         flight_dates_timezone: America/New_York
         day_parting_users_timezone: true
         is_active: true
-    tag_creative_update_simple:
-      summary: Simple
-      value:
-        name: Tag Creative Name
-        vast_endpoint_url: https://staging-tv.springserve.com/vast
-        is_active: true
     tag_creative_create_simple:
       summary: Simple
       value:
         name: Tag Creative Name
         demand_partner_id: 1
         vast_endpoint_url: https://staging-tv.springserve.com/vast
+    tag_creative_update_simple:
+      summary: Simple
+      value:
+        name: Tag Creative Name
+        vast_endpoint_url: https://staging-tv.springserve.com/vast
+        is_active: true
+    tag_creative_update_full:
+      summary: Full
+      value:
+        name: Tag Creative Name
+        vast_endpoint_url: https://staging-tv.springserve.com/vast
+        creative_landing_page_url: https://ad.example.com/landing
+        advertiser_domain: example.com
+        code: tag-code
+        secondary_code: tag-secondary
+        line_item_demand_tag_ids:
+        - 1
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://pixel.example.com/imp
+        country_list_ids:
+        - 1
+        country_source: list
+        state_list_ids:
+        - 1
+        state_source: list
+        city_list_ids:
+        - 1
+        city_source: list
+        metro_area_list_ids:
+        - 1
+        metro_area_source: list
+        postal_code_list_ids:
+        - 1
+        postal_code_source: list
+        frequency_caps:
+        - frequency_cap_period: day
+          frequency_cap_period_amount: 1
+          frequency_cap_metric: impressions
+          frequency_cap_value: 1
+          frequency_cap_type: springserve
+        key_value_targeting: true
+        targeted_macros_enabled: true
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        is_active: true
   securitySchemes:
     api_key:
       type: apiKey

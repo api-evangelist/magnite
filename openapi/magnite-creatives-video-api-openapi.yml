@@ -140,27 +140,162 @@ paths:
           $ref: ref/errors.yaml#/components/responses/validationError
       operationId: video_creatives_id_delete
 components:
+  examples:
+    video_creative_update_full:
+      summary: Full
+      value:
+        name: Video Creative Name
+        creative_landing_page_url: https://example.com/landing
+        code: video-code
+        secondary_code: video-secondary
+        advertiser_domain: example.com
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        line_item_demand_tag_ids:
+        - 1
+        country_source: list
+        country_list_ids:
+        - 1
+        state_source: list
+        state_list_ids:
+        - 1
+        city_source: list
+        city_list_ids:
+        - 1
+        metro_area_source: list
+        metro_area_list_ids:
+        - 1
+        postal_code_source: list
+        postal_code_list_ids:
+        - 1
+        key_value_targeting: true
+        targeted_macros_enabled: true
+        all_user_agent_devices: true
+        all_user_agent_operating_systems: true
+        all_user_agent_browsers: true
+        all_user_agent_brands: true
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        day_parting_users_timezone: true
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_url: https://pixel.example.com/imp
+          pixel_format: image
+        is_active: true
+    video_creative_create_simple:
+      summary: Simple
+      value:
+        name: Video Creative Name
+        demand_partner_id: 1
+        creative_remote_url: https://example.com/video.mp4
+    video_creative_create_full:
+      summary: Full
+      value:
+        name: Video Creative Name
+        demand_partner_id: 1
+        creative_remote_url: https://example.com/video.mp4
+        creative_landing_page_url: https://example.com/landing
+        code: video-code
+        secondary_code: video-secondary
+        advertiser_domain: example.com
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        line_item_demand_tag_ids:
+        - 1
+        country_source: list
+        country_list_ids:
+        - 1
+        state_source: list
+        state_list_ids:
+        - 1
+        city_source: list
+        city_list_ids:
+        - 1
+        metro_area_source: list
+        metro_area_list_ids:
+        - 1
+        postal_code_source: list
+        postal_code_list_ids:
+        - 1
+        key_value_targeting: true
+        targeted_macros_enabled: true
+        all_user_agent_devices: true
+        all_user_agent_operating_systems: true
+        all_user_agent_browsers: true
+        all_user_agent_brands: true
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        day_parting_users_timezone: true
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_url: https://pixel.example.com/imp
+          pixel_format: image
+        is_active: true
+    video_creative_update_simple:
+      summary: Simple
+      value:
+        name: Video Creative Name
+        is_active: true
   schemas:
-    VideoCreativeIndexResponse:
-      allOf:
-      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/VideoCreativeResponse'
-    VideoCreativeUpdateData:
-      $ref: '#/components/schemas/VideoCreativeBaseProperties'
-    VideoCreativeCreateData:
+    VideoCreativeResponse:
       allOf:
       - $ref: '#/components/schemas/VideoCreativeBaseProperties'
       - type: object
-        required:
-        - demand_partner_id
         properties:
+          id:
+            type: integer
+          account_id:
+            type: integer
           demand_partner_id:
+            type: integer
+          creative_format:
+            type: string
+          type:
+            type: string
+          height:
+            type: integer
+          width:
+            type: integer
+          duration_seconds:
             type: number
+          creative_file_name:
+            type: string
+          creative_content_type:
+            type: string
+          creative_file_size:
+            type: integer
+          creative_updated_at:
+            type: string
+            format: date-time
+          netflix_pre_approval_enabled:
+            type: boolean
+          netflix_approval_status:
+            type:
+            - string
+            - 'null'
+          netflix_deal_ids:
+            type: array
+            items:
+              type: string
+      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
     VideoCreativeBaseProperties:
       allOf:
       - type: object
@@ -252,161 +387,26 @@ components:
       - $ref: ref/concerns/targeted_macro.yaml#/components/schemas/TargetedMacro
       - $ref: ref/concerns/user_agent.yaml#/components/schemas/UserAgent
       - $ref: ref/concerns/flight_dates.yaml#/components/schemas/FlightDates
-    VideoCreativeResponse:
+    VideoCreativeIndexResponse:
+      allOf:
+      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/VideoCreativeResponse'
+    VideoCreativeCreateData:
       allOf:
       - $ref: '#/components/schemas/VideoCreativeBaseProperties'
       - type: object
+        required:
+        - demand_partner_id
         properties:
-          id:
-            type: integer
-          account_id:
-            type: integer
           demand_partner_id:
-            type: integer
-          creative_format:
-            type: string
-          type:
-            type: string
-          height:
-            type: integer
-          width:
-            type: integer
-          duration_seconds:
             type: number
-          creative_file_name:
-            type: string
-          creative_content_type:
-            type: string
-          creative_file_size:
-            type: integer
-          creative_updated_at:
-            type: string
-            format: date-time
-          netflix_pre_approval_enabled:
-            type: boolean
-          netflix_approval_status:
-            type:
-            - string
-            - 'null'
-          netflix_deal_ids:
-            type: array
-            items:
-              type: string
-      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
-  examples:
-    video_creative_create_full:
-      summary: Full
-      value:
-        name: Video Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://example.com/video.mp4
-        creative_landing_page_url: https://example.com/landing
-        code: video-code
-        secondary_code: video-secondary
-        advertiser_domain: example.com
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        line_item_demand_tag_ids:
-        - 1
-        country_source: list
-        country_list_ids:
-        - 1
-        state_source: list
-        state_list_ids:
-        - 1
-        city_source: list
-        city_list_ids:
-        - 1
-        metro_area_source: list
-        metro_area_list_ids:
-        - 1
-        postal_code_source: list
-        postal_code_list_ids:
-        - 1
-        key_value_targeting: true
-        targeted_macros_enabled: true
-        all_user_agent_devices: true
-        all_user_agent_operating_systems: true
-        all_user_agent_browsers: true
-        all_user_agent_brands: true
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        day_parting_users_timezone: true
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_url: https://pixel.example.com/imp
-          pixel_format: image
-        is_active: true
-    video_creative_create_simple:
-      summary: Simple
-      value:
-        name: Video Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://example.com/video.mp4
-    video_creative_update_full:
-      summary: Full
-      value:
-        name: Video Creative Name
-        creative_landing_page_url: https://example.com/landing
-        code: video-code
-        secondary_code: video-secondary
-        advertiser_domain: example.com
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        line_item_demand_tag_ids:
-        - 1
-        country_source: list
-        country_list_ids:
-        - 1
-        state_source: list
-        state_list_ids:
-        - 1
-        city_source: list
-        city_list_ids:
-        - 1
-        metro_area_source: list
-        metro_area_list_ids:
-        - 1
-        postal_code_source: list
-        postal_code_list_ids:
-        - 1
-        key_value_targeting: true
-        targeted_macros_enabled: true
-        all_user_agent_devices: true
-        all_user_agent_operating_systems: true
-        all_user_agent_browsers: true
-        all_user_agent_brands: true
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        day_parting_users_timezone: true
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_url: https://pixel.example.com/imp
-          pixel_format: image
-        is_active: true
-    video_creative_update_simple:
-      summary: Simple
-      value:
-        name: Video Creative Name
-        is_active: true
+    VideoCreativeUpdateData:
+      $ref: '#/components/schemas/VideoCreativeBaseProperties'
   securitySchemes:
     api_key:
       type: apiKey

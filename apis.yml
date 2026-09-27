@@ -21,15 +21,19 @@ description: 'Magnite, Inc. (NASDAQ: MGNI) is the world''s largest independent s
 type: Index
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - magniteengineering/xapi-proto
+  open_source: unknown
   commercial: true
-  callable_host: true
+  callable_host: false
   label: Hosted service · you call their endpoint
-  confidence: high
+  confidence: low
   source:
   - openapi
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: negotiated
@@ -2427,6 +2431,23 @@ apis:
     url: lifecycle/magnite-lifecycle.yml
   - type: SDKs
     url: https://pypi.org/project/springserve/
+- aid: magnite:rubicon-project-openrtb-xapi
+  name: Magnite Exchange API (xAPI) OpenRTB Extensions
+  description: Magnite's Exchange API (xAPI) protobuf extensions to the IAB OpenRTB 2.x protobuf definitions,
+    published in the open on GitHub. Defines Magnite-specific OpenRTB extension fields (extension IDs
+    in the 5100-5299 range) for the AdEngine bidding endpoint, including window/iframe geometry, key-value
+    pairs and supply-chain signals used by demand partners bidding into the Magnite exchange.
+  humanURL: https://github.com/MagniteEngineering/xapi-proto
+  baseURL: https://github.com/MagniteEngineering/xapi-proto
+  tags:
+  - OpenRTB
+  - Real-Time Bidding
+  - Protobuf
+  properties:
+  - type: Protobuf
+    url: grpc/rubicon-project-openrtb-xapi.proto
+  - type: SourceCode
+    url: https://github.com/MagniteEngineering/xapi-proto
 common:
 - type: CapabilityMap
   url: capabilities/magnite-capability-edges.yml

@@ -180,6 +180,17 @@ components:
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
         active: true
+    video_creative_update_simple:
+      summary: Simple
+      value:
+        name: Video Creative Name
+        active: true
+    video_creative_create_simple:
+      summary: Simple
+      value:
+        name: Video Creative Name
+        demand_partner_id: 1
+        creative_remote_url: https://example.com/video.mp4
     video_creative_create_full:
       summary: Full
       value:
@@ -221,17 +232,6 @@ components:
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
         active: true
-    video_creative_update_simple:
-      summary: Simple
-      value:
-        name: Video Creative Name
-        active: true
-    video_creative_create_simple:
-      summary: Simple
-      value:
-        name: Video Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://example.com/video.mp4
   securitySchemes:
     api_key:
       type: apiKey

@@ -391,7 +391,9 @@ paths:
                 type: object
       tags:
       - App Bundle Lists
-      operationId: app_bundle_lists_get
+      operationId: getApiV1AppBundleLists
+      x-operation-id-source: normalized
+      x-operation-id-original: app_bundle_lists_get
     post:
       summary: Create
       requestBody:
@@ -414,7 +416,9 @@ paths:
                 type: object
       tags:
       - App Bundle Lists
-      operationId: app_bundle_lists_post
+      operationId: postApiV1AppBundleLists
+      x-operation-id-source: normalized
+      x-operation-id-original: app_bundle_lists_post
   /api/v1/app_bundle_lists/{id}:
     get:
       summary: Show
@@ -433,7 +437,9 @@ paths:
                 type: object
       tags:
       - App Bundle Lists
-      operationId: app_bundle_lists_id_get
+      operationId: getApiV1AppBundleListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: app_bundle_lists_id_get
     patch:
       summary: Update
       parameters:
@@ -476,7 +482,9 @@ paths:
           description: No content
       tags:
       - App Bundle Lists
-      operationId: app_bundle_lists_id_delete
+      operationId: deleteApiV1AppBundleListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: app_bundle_lists_id_delete
   /api/v1/app_bundle_lists/permissions:
     get:
       summary: Collection Permissions
@@ -702,10 +710,11 @@ paths:
       operationId: app_bundle_lists_id_app_bundles_file_bulk_replace_post
 components:
   examples:
-    app_bundle_list_create_simple:
-      summary: Simple
+    app_bundle_list_bundles_bulk_single:
+      summary: Single
       value:
-        name: App Bundle List Name
+        app_bundles:
+        - com.example.app
     app_bundle_list_create_full:
       summary: Full
       value:
@@ -713,18 +722,10 @@ components:
         description: App Bundle List Description
         partial_match: false
         active: true
-    app_bundle_list_update_full:
-      summary: Full
+    app_bundle_list_create_simple:
+      summary: Simple
       value:
         name: App Bundle List Name
-        description: App Bundle List Description
-        partial_match: false
-        active: true
-    app_bundle_list_bundles_bulk_single:
-      summary: Single
-      value:
-        app_bundles:
-        - com.example.app
     app_bundle_list_update_simple:
       summary: Simple
       value:
@@ -737,14 +738,14 @@ components:
         - com.example.app
         - com.example.app2
         - com.example.app3
-    app_bundle_list_create_full_2:
+    app_bundle_list_update_full:
       summary: Full
       value:
         name: App Bundle List Name
         description: App Bundle List Description
         partial_match: false
-        is_active: true
-    app_bundle_list_update_full_2:
+        active: true
+    app_bundle_list_create_full_2:
       summary: Full
       value:
         name: App Bundle List Name
@@ -755,6 +756,13 @@ components:
       summary: Simple
       value:
         name: App Bundle List Name
+        is_active: true
+    app_bundle_list_update_full_2:
+      summary: Full
+      value:
+        name: App Bundle List Name
+        description: App Bundle List Description
+        partial_match: false
         is_active: true
   securitySchemes:
     api_key:

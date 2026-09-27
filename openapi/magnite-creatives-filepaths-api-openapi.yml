@@ -121,75 +121,6 @@ paths:
       operationId: filepath_creatives_id_delete
 components:
   examples:
-    filepath_creative_update_full:
-      summary: Full
-      value:
-        name: Filepath Creative Name
-        filepath_value: /path/to/creative-v2.mp4
-        duration_seconds: 1
-        clickable: false
-        creative_landing_page_url: https://www.example.com
-        advertiser_domain: example.com
-        code: FP01
-        secondary_code: FP01-SEC
-        is_active: true
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        line_item_demand_tag_ids:
-        - 1
-        country_codes:
-        - US
-        country_source: list
-        country_list_ids:
-        - 1
-        country_white_list: whitelist
-        state_codes:
-        - NY
-        state_source: list
-        state_list_ids:
-        - 1
-        state_white_list: whitelist
-        city_codes:
-        - '1'
-        city_source: list
-        city_list_ids:
-        - 1
-        city_white_list: whitelist
-        metro_area_codes:
-        - 2001
-        metro_area_source: list
-        metro_area_list_ids:
-        - 1
-        metro_area_white_list: whitelist
-        postal_codes:
-        - '10001'
-        postal_code_source: list
-        postal_code_list_ids:
-        - 1
-        postal_code_white_list: whitelist
-        key_value_targeting: false
-        targeted_macros_enabled: false
-        all_user_agent_devices: true
-        all_user_agent_operating_systems: true
-        all_user_agent_browsers: true
-        all_user_agent_brands: true
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        day_parting: null
-        day_parting_users_timezone: false
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_url: https://pixel.example.com/imp
-          pixel_format: image
     filepath_creative_create_full:
       summary: Full
       value:
@@ -265,6 +196,75 @@ components:
       value:
         name: Filepath Creative Name
         is_active: true
+    filepath_creative_update_full:
+      summary: Full
+      value:
+        name: Filepath Creative Name
+        filepath_value: /path/to/creative-v2.mp4
+        duration_seconds: 1
+        clickable: false
+        creative_landing_page_url: https://www.example.com
+        advertiser_domain: example.com
+        code: FP01
+        secondary_code: FP01-SEC
+        is_active: true
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        line_item_demand_tag_ids:
+        - 1
+        country_codes:
+        - US
+        country_source: list
+        country_list_ids:
+        - 1
+        country_white_list: whitelist
+        state_codes:
+        - NY
+        state_source: list
+        state_list_ids:
+        - 1
+        state_white_list: whitelist
+        city_codes:
+        - '1'
+        city_source: list
+        city_list_ids:
+        - 1
+        city_white_list: whitelist
+        metro_area_codes:
+        - 2001
+        metro_area_source: list
+        metro_area_list_ids:
+        - 1
+        metro_area_white_list: whitelist
+        postal_codes:
+        - '10001'
+        postal_code_source: list
+        postal_code_list_ids:
+        - 1
+        postal_code_white_list: whitelist
+        key_value_targeting: false
+        targeted_macros_enabled: false
+        all_user_agent_devices: true
+        all_user_agent_operating_systems: true
+        all_user_agent_browsers: true
+        all_user_agent_brands: true
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        day_parting: null
+        day_parting_users_timezone: false
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_url: https://pixel.example.com/imp
+          pixel_format: image
     filepath_creative_create_simple:
       summary: Simple
       value:
@@ -273,18 +273,6 @@ components:
         filepath_value: /path/to/creative.mp4
         duration_seconds: 1
   schemas:
-    FilepathCreativeCreateData:
-      allOf:
-      - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
-      - type: object
-        required:
-        - demand_partner_id
-        - duration_seconds
-        properties:
-          demand_partner_id:
-            type: number
-    FilepathCreativeUpdateData:
-      $ref: '#/components/schemas/FilepathCreativeBaseProperties'
     FilepathCreativeIndexResponse:
       allOf:
       - $ref: ref/params.yaml#/components/schemas/ParamsResponse
@@ -387,6 +375,8 @@ components:
       - $ref: ref/concerns/targeted_macro.yaml#/components/schemas/TargetedMacro
       - $ref: ref/concerns/user_agent.yaml#/components/schemas/UserAgent
       - $ref: ref/concerns/flight_dates.yaml#/components/schemas/FlightDates
+    FilepathCreativeUpdateData:
+      $ref: '#/components/schemas/FilepathCreativeBaseProperties'
     FilepathCreativeResponse:
       allOf:
       - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
@@ -417,6 +407,16 @@ components:
             items:
               type: string
       - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
+    FilepathCreativeCreateData:
+      allOf:
+      - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
+      - type: object
+        required:
+        - demand_partner_id
+        - duration_seconds
+        properties:
+          demand_partner_id:
+            type: number
   securitySchemes:
     api_key:
       type: apiKey

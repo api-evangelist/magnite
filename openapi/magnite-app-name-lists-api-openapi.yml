@@ -391,7 +391,9 @@ paths:
                 type: object
       tags:
       - App Name Lists
-      operationId: app_name_lists_get
+      operationId: getApiV1AppNameLists
+      x-operation-id-source: normalized
+      x-operation-id-original: app_name_lists_get
     post:
       summary: Create
       requestBody:
@@ -414,7 +416,9 @@ paths:
                 type: object
       tags:
       - App Name Lists
-      operationId: app_name_lists_post
+      operationId: postApiV1AppNameLists
+      x-operation-id-source: normalized
+      x-operation-id-original: app_name_lists_post
   /api/v1/app_name_lists/{id}:
     parameters:
     - name: id
@@ -433,7 +437,9 @@ paths:
                 type: object
       tags:
       - App Name Lists
-      operationId: app_name_lists_id_get
+      operationId: getApiV1AppNameListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: app_name_lists_id_get
     patch:
       summary: Update
       requestBody:
@@ -464,7 +470,9 @@ paths:
           description: No content
       tags:
       - App Name Lists
-      operationId: app_name_lists_id_delete
+      operationId: deleteApiV1AppNameListsById
+      x-operation-id-source: normalized
+      x-operation-id-original: app_name_lists_id_delete
   /api/v1/app_name_lists/bulk_update:
     post:
       summary: Bulk Update
@@ -722,11 +730,6 @@ paths:
       operationId: app_name_lists_id_app_names_file_bulk_replace_post
 components:
   examples:
-    app_name_list_update_simple:
-      summary: Simple
-      value:
-        name: App Name List Name
-        active: true
     app_name_list_create_full:
       summary: Full
       value:
@@ -734,13 +737,10 @@ components:
         description: App Name List Description
         partial_match: false
         active: true
-    app_name_list_update_full:
-      summary: Full
+    app_name_list_create_simple:
+      summary: Simple
       value:
         name: App Name List Name
-        description: App Name List Description
-        partial_match: false
-        active: true
     app_name_list_names_bulk_multiple:
       summary: Multiple
       value:
@@ -748,27 +748,23 @@ components:
         - Example App Name
         - Another App Name
         - Third App Name
-    app_name_list_create_simple:
+    app_name_list_update_simple:
       summary: Simple
       value:
         name: App Name List Name
+        active: true
     app_name_list_names_bulk_single:
       summary: Single
       value:
         app_names:
         - Example App Name
-    app_name_list_bulk_update_multiple:
-      summary: Multiple
-      value:
-        is_active: true
-        object_ids:
-        - 1
-        - 2
-    app_name_list_update_simple_2:
-      summary: Simple
+    app_name_list_update_full:
+      summary: Full
       value:
         name: App Name List Name
-        is_active: true
+        description: App Name List Description
+        partial_match: false
+        active: true
     app_name_list_create_full_2:
       summary: Full
       value:
@@ -776,12 +772,10 @@ components:
         description: App Name List Description
         partial_match: false
         is_active: true
-    app_name_list_update_full_2:
-      summary: Full
+    app_name_list_update_simple_2:
+      summary: Simple
       value:
         name: App Name List Name
-        description: App Name List Description
-        partial_match: false
         is_active: true
     app_name_list_bulk_update_single:
       summary: Single
@@ -789,6 +783,20 @@ components:
         is_active: true
         object_ids:
         - 1
+    app_name_list_bulk_update_multiple:
+      summary: Multiple
+      value:
+        is_active: true
+        object_ids:
+        - 1
+        - 2
+    app_name_list_update_full_2:
+      summary: Full
+      value:
+        name: App Name List Name
+        description: App Name List Description
+        partial_match: false
+        is_active: true
   securitySchemes:
     api_key:
       type: apiKey
