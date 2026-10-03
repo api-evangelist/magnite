@@ -141,6 +141,47 @@ paths:
       operationId: videos_id_delete
 components:
   examples:
+    video_creative_create_full:
+      summary: Full
+      value:
+        name: Video Creative Name
+        demand_partner_id: 1
+        creative_remote_url: https://example.com/video.mp4
+        creative_landing_page_url: https://example.com/landing
+        code: video-code
+        secondary_code: video-secondary
+        advertiser_domain: example.com
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        line_item_demand_tag_ids:
+        - 1
+        country_source: list
+        country_list_ids:
+        - 1
+        state_source: list
+        state_list_ids:
+        - 1
+        city_source: list
+        city_list_ids:
+        - 1
+        metro_area_source: list
+        metro_area_list_ids:
+        - 1
+        postal_code_source: list
+        postal_code_list_ids:
+        - 1
+        key_value_targeting: true
+        budget_timezone: America/New_York
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_url: https://pixel.example.com/imp
+          pixel_format: image
+        active: true
     video_creative_update_full:
       summary: Full
       value:
@@ -191,47 +232,6 @@ components:
         name: Video Creative Name
         demand_partner_id: 1
         creative_remote_url: https://example.com/video.mp4
-    video_creative_create_full:
-      summary: Full
-      value:
-        name: Video Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://example.com/video.mp4
-        creative_landing_page_url: https://example.com/landing
-        code: video-code
-        secondary_code: video-secondary
-        advertiser_domain: example.com
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        line_item_demand_tag_ids:
-        - 1
-        country_source: list
-        country_list_ids:
-        - 1
-        state_source: list
-        state_list_ids:
-        - 1
-        city_source: list
-        city_list_ids:
-        - 1
-        metro_area_source: list
-        metro_area_list_ids:
-        - 1
-        postal_code_source: list
-        postal_code_list_ids:
-        - 1
-        key_value_targeting: true
-        budget_timezone: America/New_York
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_url: https://pixel.example.com/imp
-          pixel_format: image
-        active: true
   securitySchemes:
     api_key:
       type: apiKey

@@ -303,6 +303,22 @@ paths:
       operationId: metro_area_lists_id_permissions_get
 components:
   examples:
+    metro_area_list_create_full:
+      summary: Full
+      value:
+        name: Metro Area List Name
+        description: Metro Area List Description
+        metro_area_codes:
+        - 2001
+        active: true
+    metro_area_list_update_full:
+      summary: Full
+      value:
+        name: Metro Area List Name
+        description: Metro Area List Description
+        active: true
+        metro_area_codes:
+        - 2001
     metro_area_list_create_simple:
       summary: Simple
       value:
@@ -313,22 +329,6 @@ components:
       summary: Simple
       value:
         name: Metro Area List Name
-    metro_area_list_update_full:
-      summary: Full
-      value:
-        name: Metro Area List Name
-        description: Metro Area List Description
-        active: true
-        metro_area_codes:
-        - 2001
-    metro_area_list_create_full:
-      summary: Full
-      value:
-        name: Metro Area List Name
-        description: Metro Area List Description
-        metro_area_codes:
-        - 2001
-        active: true
     metro_area_list_update_full_2:
       summary: Full
       value:
@@ -339,46 +339,6 @@ components:
         metro_area_codes:
         - 2001
   schemas:
-    MetroAreaListCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          examples:
-          - Metro Area List Name
-        description:
-          type: string
-          examples:
-          - Metro Area List Description
-        active:
-          type: boolean
-          examples:
-          - true
-      required:
-      - name
-    MetroAreaListResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-        account_id:
-          type: integer
-        name:
-          type: string
-        description:
-          type: string
-        active:
-          type: boolean
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        metro_area_codes:
-          type: array
-          items:
-            type: number
     MetroAreaListErrorResponse:
       type: object
       properties:
@@ -397,6 +357,23 @@ components:
           examples:
           - metro_area_codes:
             - can't be blank
+    MetroAreaListCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - Metro Area List Name
+        description:
+          type: string
+          examples:
+          - Metro Area List Description
+        active:
+          type: boolean
+          examples:
+          - true
+      required:
+      - name
     MetroAreaListUpdateRequest:
       type: object
       properties:
@@ -420,6 +397,29 @@ components:
           - remove
           examples:
           - append
+    MetroAreaListResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        metro_area_codes:
+          type: array
+          items:
+            type: number
   securitySchemes:
     api_key:
       type: apiKey

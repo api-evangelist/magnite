@@ -325,22 +325,22 @@ paths:
       operationId: demand_labels_id_permissions_get
 components:
   examples:
-    demand_label_create_full:
-      summary: Full
+    demand_label_update_simple:
+      summary: Simple
       value:
         name: Demand Label Name
-        demand_tag_ids:
-        - 1
     demand_label_update_full:
       summary: Full
       value:
         name: Demand Label Name
         demand_tag_ids:
         - 1
-    demand_label_update_simple:
-      summary: Simple
+    demand_label_create_full:
+      summary: Full
       value:
         name: Demand Label Name
+        demand_tag_ids:
+        - 1
     demand_label_create_simple:
       summary: Simple
       value:

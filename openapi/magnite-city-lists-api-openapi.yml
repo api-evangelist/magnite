@@ -301,6 +301,10 @@ paths:
       operationId: city_lists_id_permissions_get
 components:
   examples:
+    city_list_update_simple:
+      summary: Simple
+      value:
+        name: City List Name
     city_list_update_full:
       summary: Full
       value:
@@ -310,23 +314,19 @@ components:
         city_codes:
         - 2988507
         - 2643743
-    city_list_update_simple:
-      summary: Simple
-      value:
-        name: City List Name
-    city_list_create_simple:
-      summary: Simple
-      value:
-        name: City List Name
-        city_codes:
-        - 2988507
-        - 2643743
     city_list_create_full:
       summary: Full
       value:
         name: City List Name
         description: City List Description
         active: true
+        city_codes:
+        - 2988507
+        - 2643743
+    city_list_create_simple:
+      summary: Simple
+      value:
+        name: City List Name
         city_codes:
         - 2988507
         - 2643743
@@ -341,23 +341,6 @@ components:
         - 2643743
         list_action: append
   schemas:
-    CityListCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          examples:
-          - City List Name
-        description:
-          type: string
-          examples:
-          - City List Description
-        active:
-          type: boolean
-          examples:
-          - true
-      required:
-      - name
     CityListUpdateRequest:
       type: object
       properties:
@@ -381,6 +364,35 @@ components:
           - remove
           examples:
           - append
+    CityListErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+      examples:
+      - error: City codes can't be blank
+        errors:
+          city_codes:
+          - can't be blank
+    CityListCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - City List Name
+        description:
+          type: string
+          examples:
+          - City List Description
+        active:
+          type: boolean
+          examples:
+          - true
+      required:
+      - name
     CityListResponse:
       type: object
       properties:
@@ -404,18 +416,6 @@ components:
           type: array
           items:
             type: integer
-    CityListErrorResponse:
-      type: object
-      properties:
-        status:
-          type: integer
-        error:
-          type: string
-      examples:
-      - error: City codes can't be blank
-        errors:
-          city_codes:
-          - can't be blank
   securitySchemes:
     api_key:
       type: apiKey

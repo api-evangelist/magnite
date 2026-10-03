@@ -137,7 +137,396 @@ paths:
           $ref: ref/errors.yaml#/components/responses/validationError
       operationId: tile_creatives_id_delete
 components:
+  examples:
+    tile_creative_multimedia_create_full:
+      summary: Multimedia Full
+      description: Requires the native_creatives beta feature on the account.
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        tiles_template: multimedia
+        creative_landing_page_url: https://www.example.com
+        creative_remote_urls:
+        - https://www.example.com/video.mp4
+        - https://www.example.com/image.jpg
+        creative_input_types:
+        - url
+        - url
+        code: tile-code
+        secondary_code: tile-secondary
+        line_item_demand_tag_ids:
+        - 1
+        overlay_text: Click here
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://pixel.example.com/imp
+        country_list_ids:
+        - 1
+        country_source: list
+        country_white_list: true
+        frequency_caps:
+        - frequency_cap_period: day
+          frequency_cap_period_amount: 1
+          frequency_cap_metric: impressions
+          frequency_cap_value: 1
+          frequency_cap_type: springserve
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        is_active: true
+    tile_creative_custom_create_full:
+      summary: Custom Full
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        tiles_template: custom
+        custom: true
+        custom_code: <div>Ad</div>
+        width: 1
+        height: 1
+        creative_landing_page_url: https://www.example.com
+        code: tile-code
+        secondary_code: tile-secondary
+        line_item_demand_tag_ids:
+        - 1
+        overlay_text: Click here
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://pixel.example.com/imp
+        country_list_ids:
+        - 1
+        country_source: list
+        state_list_ids:
+        - 1
+        state_source: list
+        city_list_ids:
+        - 1
+        city_source: list
+        metro_area_list_ids:
+        - 1
+        metro_area_source: list
+        postal_code_list_ids:
+        - 1
+        postal_code_source: list
+        frequency_caps:
+        - frequency_cap_period: day
+          frequency_cap_period_amount: 1
+          frequency_cap_metric: impressions
+          frequency_cap_value: 1
+          frequency_cap_type: springserve
+        key_value_targeting: true
+        targeted_macros_enabled: true
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        is_active: true
+    tile_creative_clickable_image_create_simple:
+      summary: Clickable Image Simple
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        tiles_template: clickable_image
+        creative_landing_page_url: https://www.example.com
+        creative_remote_url: https://www.example.com/image.jpg
+    tile_creative_multimedia_create_simple:
+      summary: Multimedia Simple
+      description: Requires the native_creatives beta feature on the account.
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        tiles_template: multimedia
+        creative_landing_page_url: https://www.example.com
+        creative_remote_urls:
+        - https://www.example.com/video.mp4
+        - https://www.example.com/image.jpg
+        creative_input_types:
+        - url
+        - url
+    tile_creative_clickable_video_create_full:
+      summary: Clickable Video Full
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        tiles_template: clickable_video
+        creative_landing_page_url: https://www.example.com
+        creative_remote_url: https://www.example.com/video.mp4
+        code: tile-code
+        secondary_code: tile-secondary
+        line_item_demand_tag_ids:
+        - 1
+        overlay_text: Click here
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://pixel.example.com/imp
+        country_list_ids:
+        - 1
+        country_source: list
+        country_white_list: true
+        frequency_caps:
+        - frequency_cap_period: day
+          frequency_cap_period_amount: 1
+          frequency_cap_metric: impressions
+          frequency_cap_value: 1
+          frequency_cap_type: springserve
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        is_active: true
+    tile_creative_clickable_video_create_simple:
+      summary: Clickable Video Simple
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        tiles_template: clickable_video
+        creative_landing_page_url: https://www.example.com
+        creative_remote_url: https://www.example.com/video.mp4
+    tile_creative_update_simple:
+      summary: Simple
+      value:
+        name: Tile Creative Name
+        creative_landing_page_url: https://www.example.com
+        is_active: true
+    tile_creative_clickable_image_create_full:
+      summary: Clickable Image Full
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        tiles_template: clickable_image
+        creative_landing_page_url: https://www.example.com
+        creative_remote_url: https://www.example.com/image.jpg
+        code: tile-code
+        secondary_code: tile-secondary
+        line_item_demand_tag_ids:
+        - 1
+        overlay_text: Click here
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://pixel.example.com/imp
+        country_list_ids:
+        - 1
+        country_source: list
+        country_white_list: true
+        state_list_ids:
+        - 1
+        state_source: list
+        city_list_ids:
+        - 1
+        city_source: list
+        metro_area_list_ids:
+        - 1
+        metro_area_source: list
+        postal_code_list_ids:
+        - 1
+        postal_code_source: list
+        frequency_caps:
+        - frequency_cap_period: day
+          frequency_cap_period_amount: 1
+          frequency_cap_metric: impressions
+          frequency_cap_value: 1
+          frequency_cap_type: springserve
+        key_value_targeting: true
+        targeted_macros_enabled: true
+        user_agent_devices:
+        - desktop
+        all_user_agent_devices: false
+        user_agent_operating_systems:
+        - Windows
+        all_user_agent_operating_systems: false
+        user_agent_browsers:
+        - Chrome
+        all_user_agent_browsers: false
+        user_agent_brands:
+        - '1'
+        all_user_agent_brands: false
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        day_parting_users_timezone: true
+        is_active: true
+    tile_creative_update_full:
+      summary: Full
+      value:
+        name: Tile Creative Name
+        creative_landing_page_url: https://www.example.com
+        overlay_text: Click here
+        code: tile-code
+        secondary_code: tile-secondary
+        line_item_demand_tag_ids:
+        - 1
+        iab_tier_1_category_codes:
+        - IAB1
+        iab_tier_2_category_codes:
+        - IAB1-1
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://pixel.example.com/imp
+        country_list_ids:
+        - 1
+        country_source: list
+        state_list_ids:
+        - 1
+        state_source: list
+        city_list_ids:
+        - 1
+        city_source: list
+        metro_area_list_ids:
+        - 1
+        metro_area_source: list
+        postal_code_list_ids:
+        - 1
+        postal_code_source: list
+        frequency_caps:
+        - frequency_cap_period: day
+          frequency_cap_period_amount: 1
+          frequency_cap_metric: impressions
+          frequency_cap_value: 1
+          frequency_cap_type: springserve
+        key_value_targeting: true
+        targeted_macros_enabled: true
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: day
+          budget_metric: impressions
+          budget_value: 1
+          budget_pacing: smooth
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        is_active: true
+    tile_creative_custom_create_simple:
+      summary: Custom Simple
+      value:
+        name: Tile Creative Name
+        demand_partner_id: 1
+        tiles_template: custom
+        custom: true
+        custom_code: <div>Ad</div>
+        width: 1
+        height: 1
   schemas:
+    TileCreativeMultipartData:
+      type: object
+      required:
+      - demand_partner_id
+      - name
+      - tiles_template
+      - creative_landing_page_url
+      properties:
+        demand_partner_id:
+          type: number
+          description: ID of the demand partner (required)
+        name:
+          type: string
+          description: Name of the creative (required)
+        tiles_template:
+          type: string
+          enum:
+          - clickable_image
+          - clickable_video
+          - custom
+          - multimedia
+          - ih_clicktoweb_iv
+          - ih_clicktoweb
+          - ih_clicktovideo_iv
+          - ih_clicktovideo
+          description: Select one of the available templates (required)
+        creative_landing_page_url:
+          type: string
+          description: Landing page URL (required)
+        creatives:
+          type: array
+          items:
+            type: string
+            format: binary
+          description: File uploads in positional order, one per 'file' entry in creative_input_types
+        is_active:
+          type: boolean
+          default: true
+          description: Whether the creative is active (optional, defaults to true)
+    TileCreativeUpdateData:
+      $ref: '#/components/schemas/TileCreativeBaseProperties'
+    TileCreativeResponse:
+      allOf:
+      - $ref: '#/components/schemas/TileCreativeBaseProperties'
+      - type: object
+        properties:
+          id:
+            type: integer
+          account_id:
+            type: integer
+          demand_partner_id:
+            type: integer
+          creative_format:
+            type: string
+          type:
+            type: string
+          creative_file_name:
+            type: string
+          creative_content_type:
+            type: string
+          creative_file_size:
+            type: integer
+          creative_updated_at:
+            type: string
+            format: date-time
+          custom:
+            type: boolean
+          netflix_pre_approval_enabled:
+            type: boolean
+          netflix_approval_status:
+            type:
+            - string
+            - 'null'
+          netflix_deal_ids:
+            type: array
+            items:
+              type: string
+      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
     TileCreativeCreateData:
       type: object
       required:
@@ -180,91 +569,6 @@ components:
         is_active:
           type: boolean
           default: true
-    TileCreativeMultipartData:
-      type: object
-      required:
-      - demand_partner_id
-      - name
-      - tiles_template
-      - creative_landing_page_url
-      properties:
-        demand_partner_id:
-          type: number
-          description: ID of the demand partner (required)
-        name:
-          type: string
-          description: Name of the creative (required)
-        tiles_template:
-          type: string
-          enum:
-          - clickable_image
-          - clickable_video
-          - custom
-          - multimedia
-          - ih_clicktoweb_iv
-          - ih_clicktoweb
-          - ih_clicktovideo_iv
-          - ih_clicktovideo
-          description: Select one of the available templates (required)
-        creative_landing_page_url:
-          type: string
-          description: Landing page URL (required)
-        creatives:
-          type: array
-          items:
-            type: string
-            format: binary
-          description: File uploads in positional order, one per 'file' entry in creative_input_types
-        is_active:
-          type: boolean
-          default: true
-          description: Whether the creative is active (optional, defaults to true)
-    TileCreativeIndexResponse:
-      allOf:
-      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/TileCreativeResponse'
-    TileCreativeResponse:
-      allOf:
-      - $ref: '#/components/schemas/TileCreativeBaseProperties'
-      - type: object
-        properties:
-          id:
-            type: integer
-          account_id:
-            type: integer
-          demand_partner_id:
-            type: integer
-          creative_format:
-            type: string
-          type:
-            type: string
-          creative_file_name:
-            type: string
-          creative_content_type:
-            type: string
-          creative_file_size:
-            type: integer
-          creative_updated_at:
-            type: string
-            format: date-time
-          custom:
-            type: boolean
-          netflix_pre_approval_enabled:
-            type: boolean
-          netflix_approval_status:
-            type:
-            - string
-            - 'null'
-          netflix_deal_ids:
-            type: array
-            items:
-              type: string
-      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
     TileCreativeBaseProperties:
       allOf:
       - type: object
@@ -373,319 +677,15 @@ components:
       - $ref: ref/concerns/targeted_macro.yaml#/components/schemas/TargetedMacro
       - $ref: ref/concerns/user_agent.yaml#/components/schemas/UserAgent
       - $ref: ref/concerns/flight_dates.yaml#/components/schemas/FlightDates
-    TileCreativeUpdateData:
-      $ref: '#/components/schemas/TileCreativeBaseProperties'
-  examples:
-    tile_creative_clickable_video_create_full:
-      summary: Clickable Video Full
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        tiles_template: clickable_video
-        creative_landing_page_url: https://www.example.com
-        creative_remote_url: https://www.example.com/video.mp4
-        code: tile-code
-        secondary_code: tile-secondary
-        line_item_demand_tag_ids:
-        - 1
-        overlay_text: Click here
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://pixel.example.com/imp
-        country_list_ids:
-        - 1
-        country_source: list
-        country_white_list: true
-        frequency_caps:
-        - frequency_cap_period: day
-          frequency_cap_period_amount: 1
-          frequency_cap_metric: impressions
-          frequency_cap_value: 1
-          frequency_cap_type: springserve
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        is_active: true
-    tile_creative_custom_create_simple:
-      summary: Custom Simple
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        tiles_template: custom
-        custom: true
-        custom_code: <div>Ad</div>
-        width: 1
-        height: 1
-    tile_creative_update_full:
-      summary: Full
-      value:
-        name: Tile Creative Name
-        creative_landing_page_url: https://www.example.com
-        overlay_text: Click here
-        code: tile-code
-        secondary_code: tile-secondary
-        line_item_demand_tag_ids:
-        - 1
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://pixel.example.com/imp
-        country_list_ids:
-        - 1
-        country_source: list
-        state_list_ids:
-        - 1
-        state_source: list
-        city_list_ids:
-        - 1
-        city_source: list
-        metro_area_list_ids:
-        - 1
-        metro_area_source: list
-        postal_code_list_ids:
-        - 1
-        postal_code_source: list
-        frequency_caps:
-        - frequency_cap_period: day
-          frequency_cap_period_amount: 1
-          frequency_cap_metric: impressions
-          frequency_cap_value: 1
-          frequency_cap_type: springserve
-        key_value_targeting: true
-        targeted_macros_enabled: true
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        is_active: true
-    tile_creative_update_simple:
-      summary: Simple
-      value:
-        name: Tile Creative Name
-        creative_landing_page_url: https://www.example.com
-        is_active: true
-    tile_creative_clickable_image_create_full:
-      summary: Clickable Image Full
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        tiles_template: clickable_image
-        creative_landing_page_url: https://www.example.com
-        creative_remote_url: https://www.example.com/image.jpg
-        code: tile-code
-        secondary_code: tile-secondary
-        line_item_demand_tag_ids:
-        - 1
-        overlay_text: Click here
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://pixel.example.com/imp
-        country_list_ids:
-        - 1
-        country_source: list
-        country_white_list: true
-        state_list_ids:
-        - 1
-        state_source: list
-        city_list_ids:
-        - 1
-        city_source: list
-        metro_area_list_ids:
-        - 1
-        metro_area_source: list
-        postal_code_list_ids:
-        - 1
-        postal_code_source: list
-        frequency_caps:
-        - frequency_cap_period: day
-          frequency_cap_period_amount: 1
-          frequency_cap_metric: impressions
-          frequency_cap_value: 1
-          frequency_cap_type: springserve
-        key_value_targeting: true
-        targeted_macros_enabled: true
-        user_agent_devices:
-        - desktop
-        all_user_agent_devices: false
-        user_agent_operating_systems:
-        - Windows
-        all_user_agent_operating_systems: false
-        user_agent_browsers:
-        - Chrome
-        all_user_agent_browsers: false
-        user_agent_brands:
-        - '1'
-        all_user_agent_brands: false
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        day_parting_users_timezone: true
-        is_active: true
-    tile_creative_custom_create_full:
-      summary: Custom Full
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        tiles_template: custom
-        custom: true
-        custom_code: <div>Ad</div>
-        width: 1
-        height: 1
-        creative_landing_page_url: https://www.example.com
-        code: tile-code
-        secondary_code: tile-secondary
-        line_item_demand_tag_ids:
-        - 1
-        overlay_text: Click here
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://pixel.example.com/imp
-        country_list_ids:
-        - 1
-        country_source: list
-        state_list_ids:
-        - 1
-        state_source: list
-        city_list_ids:
-        - 1
-        city_source: list
-        metro_area_list_ids:
-        - 1
-        metro_area_source: list
-        postal_code_list_ids:
-        - 1
-        postal_code_source: list
-        frequency_caps:
-        - frequency_cap_period: day
-          frequency_cap_period_amount: 1
-          frequency_cap_metric: impressions
-          frequency_cap_value: 1
-          frequency_cap_type: springserve
-        key_value_targeting: true
-        targeted_macros_enabled: true
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        is_active: true
-    tile_creative_multimedia_create_full:
-      summary: Multimedia Full
-      description: Requires the native_creatives beta feature on the account.
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        tiles_template: multimedia
-        creative_landing_page_url: https://www.example.com
-        creative_remote_urls:
-        - https://www.example.com/video.mp4
-        - https://www.example.com/image.jpg
-        creative_input_types:
-        - url
-        - url
-        code: tile-code
-        secondary_code: tile-secondary
-        line_item_demand_tag_ids:
-        - 1
-        overlay_text: Click here
-        iab_tier_1_category_codes:
-        - IAB1
-        iab_tier_2_category_codes:
-        - IAB1-1
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://pixel.example.com/imp
-        country_list_ids:
-        - 1
-        country_source: list
-        country_white_list: true
-        frequency_caps:
-        - frequency_cap_period: day
-          frequency_cap_period_amount: 1
-          frequency_cap_metric: impressions
-          frequency_cap_value: 1
-          frequency_cap_type: springserve
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: day
-          budget_metric: impressions
-          budget_value: 1
-          budget_pacing: smooth
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        is_active: true
-    tile_creative_clickable_video_create_simple:
-      summary: Clickable Video Simple
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        tiles_template: clickable_video
-        creative_landing_page_url: https://www.example.com
-        creative_remote_url: https://www.example.com/video.mp4
-    tile_creative_clickable_image_create_simple:
-      summary: Clickable Image Simple
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        tiles_template: clickable_image
-        creative_landing_page_url: https://www.example.com
-        creative_remote_url: https://www.example.com/image.jpg
-    tile_creative_multimedia_create_simple:
-      summary: Multimedia Simple
-      description: Requires the native_creatives beta feature on the account.
-      value:
-        name: Tile Creative Name
-        demand_partner_id: 1
-        tiles_template: multimedia
-        creative_landing_page_url: https://www.example.com
-        creative_remote_urls:
-        - https://www.example.com/video.mp4
-        - https://www.example.com/image.jpg
-        creative_input_types:
-        - url
-        - url
+    TileCreativeIndexResponse:
+      allOf:
+      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/TileCreativeResponse'
   securitySchemes:
     api_key:
       type: apiKey

@@ -363,13 +363,20 @@ components:
       summary: Simple
       value:
         name: Advertiser Domain List Name
-    advertiser_domain_list_update_full:
+    advertiser_domain_list_create_full:
       summary: Full
       value:
         name: Advertiser Domain List Name
         description: Advertiser Domain List Description
         active: true
-    advertiser_domain_list_create_full:
+    advertiser_domain_list_domains_bulk_multiple:
+      summary: Multiple
+      value:
+        names:
+        - example1.com
+        - example2.com
+        - example3.com
+    advertiser_domain_list_update_full:
       summary: Full
       value:
         name: Advertiser Domain List Name
@@ -380,13 +387,6 @@ components:
       value:
         names:
         - example1.com
-    advertiser_domain_list_domains_bulk_multiple:
-      summary: Multiple
-      value:
-        names:
-        - example1.com
-        - example2.com
-        - example3.com
   securitySchemes:
     api_key:
       type: apiKey

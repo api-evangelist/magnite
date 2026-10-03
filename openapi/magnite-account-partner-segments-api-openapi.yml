@@ -101,6 +101,16 @@ paths:
       operationId: account_partner_segments_bulk_update_same_attributes_post
 components:
   examples:
+    account_partner_segment_create_simple:
+      summary: Create with required fields only
+      value:
+        partner_segment_id: 1
+    account_partner_segment_bulk_update_single:
+      summary: Bulk update a single segment
+      value:
+        object_ids:
+        - 1
+        is_active: true
     account_partner_segment_bulk_update_multiple:
       summary: Bulk update multiple segments
       value:
@@ -112,24 +122,14 @@ components:
       summary: Update active status only
       value:
         is_active: false
-    account_partner_segment_create_simple:
-      summary: Create with required fields only
-      value:
-        partner_segment_id: 1
-    account_partner_segment_update_full:
-      summary: Update all mutable fields
-      value:
-        is_active: true
-    account_partner_segment_bulk_update_single:
-      summary: Bulk update a single segment
-      value:
-        object_ids:
-        - 1
-        is_active: true
     account_partner_segment_create_full:
       summary: Create with all fields
       value:
         partner_segment_id: 1
+        is_active: true
+    account_partner_segment_update_full:
+      summary: Update all mutable fields
+      value:
         is_active: true
   securitySchemes:
     api_key:

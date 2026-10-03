@@ -85,12 +85,6 @@ paths:
       operationId: operative_orders_put
 components:
   examples:
-    operative_order_create_simple:
-      summary: Simple
-      value:
-        sourceOrderId: '1'
-        name: Operative Order Name
-        advertiserId: '1'
     operative_order_update_simple:
       summary: Simple
       value:
@@ -125,6 +119,11 @@ components:
           - targetName: geo
             targetValues:
             - US
+    operative_advertiser_create_full:
+      summary: Full
+      value:
+        sourceAdvertiserId: '1'
+        name: Operative Advertiser Name
     operative_order_update_full:
       summary: Full
       value:
@@ -143,11 +142,12 @@ components:
           - targetName: geo
             targetValues:
             - US
-    operative_advertiser_create_full:
-      summary: Full
+    operative_order_create_simple:
+      summary: Simple
       value:
-        sourceAdvertiserId: '1'
-        name: Operative Advertiser Name
+        sourceOrderId: '1'
+        name: Operative Order Name
+        advertiserId: '1'
   securitySchemes:
     api_key:
       type: apiKey

@@ -112,11 +112,14 @@ paths:
       operationId: value_lists_id_delete
 components:
   examples:
-    value_list_create_full:
+    value_list_update_simple:
+      summary: Simple
+      value:
+        name: Value List Name
+    value_list_update_full:
       summary: Full
       value:
         name: Value List Name
-        key_id: 1
         description: Value list description
         free_values:
         - value-one
@@ -124,19 +127,16 @@ components:
         value_ids:
         - 1
         - 2
-    value_list_update_simple:
-      summary: Simple
-      value:
-        name: Value List Name
     value_list_create_simple:
       summary: Simple
       value:
         name: Value List Name
         key_id: 1
-    value_list_update_full:
+    value_list_create_full:
       summary: Full
       value:
         name: Value List Name
+        key_id: 1
         description: Value list description
         free_values:
         - value-one

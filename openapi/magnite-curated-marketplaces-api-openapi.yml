@@ -163,6 +163,11 @@ paths:
       operationId: curated_marketplaces_id_permissions_get
 components:
   examples:
+    curated_marketplace_update_simple:
+      summary: Simple
+      value:
+        name: Curated Marketplace Name
+        is_active: true
     curated_marketplace_create_full:
       summary: Full
       value:
@@ -193,6 +198,12 @@ components:
         tier_breakout_enabled: false
         note: note
         is_active: true
+    curated_marketplace_create_simple:
+      summary: Simple
+      value:
+        name: Curated Marketplace Name
+        supply_partner_id: 1
+        rate: 1.11
     curated_marketplace_update_full:
       summary: Full
       value:
@@ -219,17 +230,6 @@ components:
         obfuscate_latlon_enabled: false
         tier_breakout_enabled: false
         note: note
-        is_active: true
-    curated_marketplace_create_simple:
-      summary: Simple
-      value:
-        name: Curated Marketplace Name
-        supply_partner_id: 1
-        rate: 1.11
-    curated_marketplace_update_simple:
-      summary: Simple
-      value:
-        name: Curated Marketplace Name
         is_active: true
   securitySchemes:
     api_key:

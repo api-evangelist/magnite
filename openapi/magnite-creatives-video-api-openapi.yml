@@ -141,6 +141,17 @@ paths:
       operationId: video_creatives_id_delete
 components:
   examples:
+    video_creative_update_simple:
+      summary: Simple
+      value:
+        name: Video Creative Name
+        is_active: true
+    video_creative_create_simple:
+      summary: Simple
+      value:
+        name: Video Creative Name
+        demand_partner_id: 1
+        creative_remote_url: https://example.com/video.mp4
     video_creative_update_full:
       summary: Full
       value:
@@ -191,12 +202,6 @@ components:
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
         is_active: true
-    video_creative_create_simple:
-      summary: Simple
-      value:
-        name: Video Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://example.com/video.mp4
     video_creative_create_full:
       summary: Full
       value:
@@ -249,53 +254,16 @@ components:
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
         is_active: true
-    video_creative_update_simple:
-      summary: Simple
-      value:
-        name: Video Creative Name
-        is_active: true
   schemas:
-    VideoCreativeResponse:
+    VideoCreativeCreateData:
       allOf:
       - $ref: '#/components/schemas/VideoCreativeBaseProperties'
       - type: object
+        required:
+        - demand_partner_id
         properties:
-          id:
-            type: integer
-          account_id:
-            type: integer
           demand_partner_id:
-            type: integer
-          creative_format:
-            type: string
-          type:
-            type: string
-          height:
-            type: integer
-          width:
-            type: integer
-          duration_seconds:
             type: number
-          creative_file_name:
-            type: string
-          creative_content_type:
-            type: string
-          creative_file_size:
-            type: integer
-          creative_updated_at:
-            type: string
-            format: date-time
-          netflix_pre_approval_enabled:
-            type: boolean
-          netflix_approval_status:
-            type:
-            - string
-            - 'null'
-          netflix_deal_ids:
-            type: array
-            items:
-              type: string
-      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
     VideoCreativeBaseProperties:
       allOf:
       - type: object
@@ -396,15 +364,47 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/VideoCreativeResponse'
-    VideoCreativeCreateData:
+    VideoCreativeResponse:
       allOf:
       - $ref: '#/components/schemas/VideoCreativeBaseProperties'
       - type: object
-        required:
-        - demand_partner_id
         properties:
+          id:
+            type: integer
+          account_id:
+            type: integer
           demand_partner_id:
+            type: integer
+          creative_format:
+            type: string
+          type:
+            type: string
+          height:
+            type: integer
+          width:
+            type: integer
+          duration_seconds:
             type: number
+          creative_file_name:
+            type: string
+          creative_content_type:
+            type: string
+          creative_file_size:
+            type: integer
+          creative_updated_at:
+            type: string
+            format: date-time
+          netflix_pre_approval_enabled:
+            type: boolean
+          netflix_approval_status:
+            type:
+            - string
+            - 'null'
+          netflix_deal_ids:
+            type: array
+            items:
+              type: string
+      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
     VideoCreativeUpdateData:
       $ref: '#/components/schemas/VideoCreativeBaseProperties'
   securitySchemes:

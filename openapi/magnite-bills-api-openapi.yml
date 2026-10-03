@@ -375,22 +375,6 @@ paths:
       operationId: bills_id_permissions_get
 components:
   examples:
-    bill_item_update_simple:
-      summary: Simple
-      value:
-        label: Bill Item Label
-        unit_cost: 1.11
-    bill_item_create_full:
-      summary: Full
-      value:
-        label: Bill Item Label
-        other_account_id: 1
-        unit_cost: 1.11
-        units: 1.11
-        total_cost: 1.11
-        xero_account_code: 401
-        is_unit_cost_cpm: true
-        is_synced: false
     bill_item_update_full:
       summary: Full
       value:
@@ -411,10 +395,33 @@ components:
         is_invoice: false
         is_direct_connect: false
         is_openrtb: false
+    bill_item_create_full:
+      summary: Full
+      value:
+        label: Bill Item Label
+        other_account_id: 1
+        unit_cost: 1.11
+        units: 1.11
+        total_cost: 1.11
+        xero_account_code: 401
+        is_unit_cost_cpm: true
+        is_synced: false
     bill_update_simple:
       summary: Simple
       value:
         name: Bill Name
+    bill_item_create_simple:
+      summary: Simple
+      value:
+        label: Bill Item Label
+        unit_cost: 1.11
+        units: 1.11
+        total_cost: 1.11
+    bill_item_update_simple:
+      summary: Simple
+      value:
+        label: Bill Item Label
+        unit_cost: 1.11
     bill_update_full:
       summary: Full
       value:
@@ -424,13 +431,6 @@ components:
         is_invoice: false
         is_direct_connect: false
         is_openrtb: false
-    bill_item_create_simple:
-      summary: Simple
-      value:
-        label: Bill Item Label
-        unit_cost: 1.11
-        units: 1.11
-        total_cost: 1.11
     bill_create_simple:
       summary: Simple
       value:

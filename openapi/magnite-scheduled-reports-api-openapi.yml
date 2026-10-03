@@ -177,160 +177,24 @@ paths:
       - Scheduled Reports
       operationId: scheduled_reports_bulk_update_same_attributes_put
 components:
-  responses:
-    scheduledReport:
-      description: A scheduled report
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/scheduledReport'
-  examples:
-    scheduled_report_bulk_update_multiple:
-      summary: Multiple
-      value:
-        is_active: false
-        object_ids:
-        - 1
-        - 2
-    scheduled_report_bulk_update_single:
-      summary: Single
-      value:
-        is_active: true
-        object_ids:
-        - 1
-    scheduled_report_update_full:
-      summary: Full
-      value:
-        name: Scheduled Report Name
-        is_active: true
-        interval: monthly
-        day_of_month: 1
-        hour: 8
-        timezone: America/New_York
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        permissions: require_login
-        message: Your scheduled report is ready.
-        report_params:
-          date_range: Yesterday
-          interval: day
-          timezone: Etc/UTC
-          currency: USD
-          dimensions:
-          - supply_tag_id
-          - demand_tag_id
-          metrics:
-          - impressions
-          - revenue
-          - fill_rate
-          - cpm
-        scheduled_report_recipients:
-        - user_account_id: 1
-        scheduled_report_external_recipients:
-        - email: example@example.com
-          report_type: supply_client
-    scheduled_report_create_simple:
-      summary: Simple
-      value:
-        name: Scheduled Report Name
-        interval: daily
-        start_date: '2026-10-01'
-        hour: 8
-        report_params:
-          date_range: Yesterday
-          dimensions:
-          - supply_tag_id
-          metrics:
-          - impressions
-          - revenue
-    scheduled_report_update_simple:
-      summary: Simple
-      value:
-        name: Scheduled Report Name
-        is_active: true
-    scheduled_report_create_full:
-      summary: Full
-      value:
-        name: Scheduled Report Name
-        is_active: true
-        interval: weekly
-        weekdays:
-        - Monday
-        - Wednesday
-        hour: 8
-        timezone: America/New_York
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        permissions: require_login
-        message: Your scheduled report is ready.
-        report_params:
-          date_range: Yesterday
-          interval: day
-          timezone: Etc/UTC
-          currency: USD
-          dimensions:
-          - supply_tag_id
-          - demand_tag_id
-          filters:
-          - dimension: supply_tag_id
-            type: values
-            values:
-            - 1
-            is_include: true
-            is_exact_match: false
-          metrics:
-          - impressions
-          - revenue
-          - fill_rate
-          - cpm
-        scheduled_report_recipients:
-        - user_account_id: 1
-        scheduled_report_external_recipients:
-        - email: example@example.com
-          report_type: supply_client
   schemas:
-    scheduledReportExternalRecipient:
+    partialUser:
       type: object
       properties:
         id:
           type: integer
+          examples:
+          - 1
         email:
           type: string
           examples:
           - example@example.com
-        report_type:
-          type: string
-          enum:
-          - supply_client
-          - unrestricted
-          default: supply_client
-        created_at:
-          type: string
-          readOnly: true
-        updated_at:
-          type: string
-          readOnly: true
-      examples:
-      - email: example@example.com
-    scheduledReportRecipient:
-      type: object
-      properties:
-        id:
-          type: integer
-        user_account_id:
-          type: integer
-        user_account:
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/partialUserAccount'
-        created_at:
-          type: string
-          readOnly: true
-        updated_at:
-          type: string
-          readOnly: true
-      examples:
-      - user_account_id: 1
+        name:
+          type:
+          - string
+          - 'null'
+          examples:
+          - Example User
     scheduledReport:
       type: object
       properties:
@@ -434,23 +298,6 @@ components:
           readOnly: true
           allOf:
           - $ref: '#/components/schemas/partialUserAccount'
-    partialUser:
-      type: object
-      properties:
-        id:
-          type: integer
-          examples:
-          - 1
-        email:
-          type: string
-          examples:
-          - example@example.com
-        name:
-          type:
-          - string
-          - 'null'
-          examples:
-          - Example User
     partialUserAccount:
       type: object
       properties:
@@ -470,6 +317,159 @@ components:
           type: integer
           examples:
           - 1
+    scheduledReportRecipient:
+      type: object
+      properties:
+        id:
+          type: integer
+        user_account_id:
+          type: integer
+        user_account:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/partialUserAccount'
+        created_at:
+          type: string
+          readOnly: true
+        updated_at:
+          type: string
+          readOnly: true
+      examples:
+      - user_account_id: 1
+    scheduledReportExternalRecipient:
+      type: object
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+          examples:
+          - example@example.com
+        report_type:
+          type: string
+          enum:
+          - supply_client
+          - unrestricted
+          default: supply_client
+        created_at:
+          type: string
+          readOnly: true
+        updated_at:
+          type: string
+          readOnly: true
+      examples:
+      - email: example@example.com
+  examples:
+    scheduled_report_update_simple:
+      summary: Simple
+      value:
+        name: Scheduled Report Name
+        is_active: true
+    scheduled_report_create_full:
+      summary: Full
+      value:
+        name: Scheduled Report Name
+        is_active: true
+        interval: weekly
+        weekdays:
+        - Monday
+        - Wednesday
+        hour: 8
+        timezone: America/New_York
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        permissions: require_login
+        message: Your scheduled report is ready.
+        report_params:
+          date_range: Yesterday
+          interval: day
+          timezone: Etc/UTC
+          currency: USD
+          dimensions:
+          - supply_tag_id
+          - demand_tag_id
+          filters:
+          - dimension: supply_tag_id
+            type: values
+            values:
+            - 1
+            is_include: true
+            is_exact_match: false
+          metrics:
+          - impressions
+          - revenue
+          - fill_rate
+          - cpm
+        scheduled_report_recipients:
+        - user_account_id: 1
+        scheduled_report_external_recipients:
+        - email: example@example.com
+          report_type: supply_client
+    scheduled_report_create_simple:
+      summary: Simple
+      value:
+        name: Scheduled Report Name
+        interval: daily
+        start_date: '2026-10-01'
+        hour: 8
+        report_params:
+          date_range: Yesterday
+          dimensions:
+          - supply_tag_id
+          metrics:
+          - impressions
+          - revenue
+    scheduled_report_update_full:
+      summary: Full
+      value:
+        name: Scheduled Report Name
+        is_active: true
+        interval: monthly
+        day_of_month: 1
+        hour: 8
+        timezone: America/New_York
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        permissions: require_login
+        message: Your scheduled report is ready.
+        report_params:
+          date_range: Yesterday
+          interval: day
+          timezone: Etc/UTC
+          currency: USD
+          dimensions:
+          - supply_tag_id
+          - demand_tag_id
+          metrics:
+          - impressions
+          - revenue
+          - fill_rate
+          - cpm
+        scheduled_report_recipients:
+        - user_account_id: 1
+        scheduled_report_external_recipients:
+        - email: example@example.com
+          report_type: supply_client
+    scheduled_report_bulk_update_multiple:
+      summary: Multiple
+      value:
+        is_active: false
+        object_ids:
+        - 1
+        - 2
+    scheduled_report_bulk_update_single:
+      summary: Single
+      value:
+        is_active: true
+        object_ids:
+        - 1
+  responses:
+    scheduledReport:
+      description: A scheduled report
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/scheduledReport'
   securitySchemes:
     api_key:
       type: apiKey

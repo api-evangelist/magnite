@@ -153,6 +153,10 @@ paths:
       operationId: reports_templates_id_set_default_post
 components:
   examples:
+    report_template_update_simple:
+      summary: Simple
+      value:
+        name: Report Template Name
     report_template_create_full:
       summary: Full
       value:
@@ -180,19 +184,6 @@ components:
         - metric: usable_requests
           max: false
           value: 1
-    report_template_update_simple:
-      summary: Simple
-      value:
-        name: Report Template Name
-    report_template_create_simple:
-      summary: Simple
-      value:
-        name: Report Template Name
-        date_range: Yesterday
-        dimensions:
-        - supply_partner_id
-        metrics:
-        - usable_requests
     report_template_update_full:
       summary: Full
       value:
@@ -216,13 +207,16 @@ components:
           - 1
           is_include: true
           is_exact_match: false
+    report_template_create_simple:
+      summary: Simple
+      value:
+        name: Report Template Name
+        date_range: Yesterday
+        dimensions:
+        - supply_partner_id
+        metrics:
+        - usable_requests
   responses:
-    reportTemplate:
-      description: A report template
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/reportTemplate'
     reportParameterError:
       description: Report Parameter Error
       content:
@@ -235,14 +229,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/reportSerializationError'
+    reportTemplate:
+      description: A report template
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/reportTemplate'
   schemas:
-    reportSerializationError:
-      type: object
-      properties:
-        error:
-          type: string
-          examples:
-          - 'Could not serialize report template with /api/v1 format: ...'
     reportParameterError:
       type: object
       properties:
@@ -250,6 +243,13 @@ components:
           type: string
           examples:
           - 'Could not parse report parameters: ...'
+    reportSerializationError:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+          - 'Could not serialize report template with /api/v1 format: ...'
     reportTemplate:
       allOf:
       - $ref: ref/reports.yaml#/components/schemas/reportParameters

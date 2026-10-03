@@ -710,27 +710,6 @@ paths:
       operationId: app_bundle_lists_id_app_bundles_file_bulk_replace_post
 components:
   examples:
-    app_bundle_list_bundles_bulk_single:
-      summary: Single
-      value:
-        app_bundles:
-        - com.example.app
-    app_bundle_list_create_full:
-      summary: Full
-      value:
-        name: App Bundle List Name
-        description: App Bundle List Description
-        partial_match: false
-        active: true
-    app_bundle_list_create_simple:
-      summary: Simple
-      value:
-        name: App Bundle List Name
-    app_bundle_list_update_simple:
-      summary: Simple
-      value:
-        name: App Bundle List Name
-        active: true
     app_bundle_list_bundles_bulk_multiple:
       summary: Multiple
       value:
@@ -738,6 +717,20 @@ components:
         - com.example.app
         - com.example.app2
         - com.example.app3
+    app_bundle_list_create_simple:
+      summary: Simple
+      value:
+        name: App Bundle List Name
+    app_bundle_list_bundles_bulk_single:
+      summary: Single
+      value:
+        app_bundles:
+        - com.example.app
+    app_bundle_list_update_simple:
+      summary: Simple
+      value:
+        name: App Bundle List Name
+        active: true
     app_bundle_list_update_full:
       summary: Full
       value:
@@ -745,19 +738,26 @@ components:
         description: App Bundle List Description
         partial_match: false
         active: true
-    app_bundle_list_create_full_2:
+    app_bundle_list_create_full:
       summary: Full
       value:
         name: App Bundle List Name
         description: App Bundle List Description
         partial_match: false
-        is_active: true
+        active: true
     app_bundle_list_update_simple_2:
       summary: Simple
       value:
         name: App Bundle List Name
         is_active: true
     app_bundle_list_update_full_2:
+      summary: Full
+      value:
+        name: App Bundle List Name
+        description: App Bundle List Description
+        partial_match: false
+        is_active: true
+    app_bundle_list_create_full_2:
       summary: Full
       value:
         name: App Bundle List Name

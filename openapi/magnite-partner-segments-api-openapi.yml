@@ -333,6 +333,10 @@ paths:
       operationId: partner_segments_id_permissions_get
 components:
   examples:
+    partner_segment_update_simple:
+      summary: Simple
+      value:
+        active: true
     partner_segment_bulk_create_single:
       summary: Single
       value:
@@ -341,16 +345,44 @@ components:
           vendor_id: 1
           description: Example Partner Segment
           cpm: 1.11
-    partner_segment_update_simple:
-      summary: Simple
+    partner_segment_bulk_create_multiple:
+      summary: Multiple
       value:
-        active: true
+        partner_segments:
+        - code: EXAMPLE_PARTNER_SEGMENT_1
+          vendor_id: 1
+          description: Example Partner Segment
+          cpm: 1.11
+          external_code: ''
+          dmp_segment_id: 1
+          category: EXAMPLE_CATEGORY
+          political: false
+          adv_id: 1
+          enabled: true
+        - code: EXAMPLE_PARTNER_SEGMENT_2
+          vendor_id: 1
+          description: Another Partner Segment
+          cpm: 1.11
+          external_code: ''
+          dmp_segment_id: 1
+          category: EXAMPLE_CATEGORY
+          political: false
+          adv_id: 1
+          enabled: false
     partner_segment_update_full:
       summary: Full
       value:
         active: false
-    partner_segment_bulk_create_multiple:
-      summary: Multiple
+    partner_segment_bulk_create_single_2:
+      summary: Create a single Partner Segment
+      value:
+        partner_segments:
+        - code: EXAMPLE_PARTNER_SEGMENT_1
+          vendor_id: 1
+          description: Example Partner Segment
+          cpm: 1.11
+    partner_segment_bulk_create_multiple_2:
+      summary: Create multiple Partner Segments
       value:
         partner_segments:
         - code: EXAMPLE_PARTNER_SEGMENT_1
@@ -377,53 +409,10 @@ components:
       summary: Activate a Partner Segment
       value:
         is_active: true
-    partner_segment_bulk_create_single_2:
-      summary: Create a single Partner Segment
-      value:
-        partner_segments:
-        - code: EXAMPLE_PARTNER_SEGMENT_1
-          vendor_id: 1
-          description: Example Partner Segment
-          cpm: 1.11
     partner_segment_update_full_2:
       summary: Deactivate a Partner Segment
       value:
         is_active: false
-    partner_segment_bulk_create_multiple_2:
-      summary: Create multiple Partner Segments
-      value:
-        partner_segments:
-        - code: EXAMPLE_PARTNER_SEGMENT_1
-          vendor_id: 1
-          description: Example Partner Segment
-          cpm: 1.11
-          external_code: ''
-          dmp_segment_id: 1
-          category: EXAMPLE_CATEGORY
-          political: false
-          adv_id: 1
-          enabled: true
-        - code: EXAMPLE_PARTNER_SEGMENT_2
-          vendor_id: 1
-          description: Another Partner Segment
-          cpm: 1.11
-          external_code: ''
-          dmp_segment_id: 1
-          category: EXAMPLE_CATEGORY
-          political: false
-          adv_id: 1
-          enabled: false
-  parameters:
-    additionalDataPartnerSegmentParam:
-      name: additional_data
-      description: Include additional data from non-model sources on the result. Comma-delimited.
-      in: query
-      schema:
-        type: string
-        enum:
-        - size
-        - account_partner_segment
-        - size,account_partner_segment
   schemas:
     PartnerSegment:
       type: object
@@ -476,6 +465,17 @@ components:
             items:
               allOf:
               - $ref: '#/components/schemas/PartnerSegment'
+  parameters:
+    additionalDataPartnerSegmentParam:
+      name: additional_data
+      description: Include additional data from non-model sources on the result. Comma-delimited.
+      in: query
+      schema:
+        type: string
+        enum:
+        - size
+        - account_partner_segment
+        - size,account_partner_segment
   securitySchemes:
     api_key:
       type: apiKey

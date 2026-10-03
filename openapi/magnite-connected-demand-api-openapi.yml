@@ -98,6 +98,11 @@ paths:
       operationId: connected_demand_id_duplicate_get
 components:
   examples:
+    selling_strategy_update_simple:
+      summary: Simple
+      value:
+        name: Connected Demand Name
+        active: true
     selling_strategy_update_full:
       summary: Full
       value:
@@ -179,11 +184,6 @@ components:
         isp_source: list
         isp_list_ids:
         - 1
-    selling_strategy_update_simple:
-      summary: Simple
-      value:
-        name: Connected Demand Name
-        active: true
   securitySchemes:
     api_key:
       type: apiKey

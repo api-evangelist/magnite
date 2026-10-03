@@ -273,16 +273,16 @@ components:
         name: Supply Label Name
         supply_tag_ids:
         - 1
+    supply_label_create_simple:
+      summary: Simple
+      value:
+        name: Supply Label Name
     supply_label_create_full:
       summary: Full
       value:
         name: Supply Label Name
         supply_tag_ids:
         - 1
-    supply_label_create_simple:
-      summary: Simple
-      value:
-        name: Supply Label Name
     supply_label_update_simple:
       summary: Simple
       value:

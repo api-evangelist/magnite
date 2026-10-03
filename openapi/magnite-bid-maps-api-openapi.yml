@@ -135,12 +135,6 @@ components:
       summary: Simple
       value:
         name: Bid Map Name
-    bid_map_create_simple:
-      summary: Simple
-      value:
-        name: Bid Map Name
-        bid_platform: amazon
-        hb_bid_map_type: inventory_split
     bid_map_create_full:
       summary: Full
       value:
@@ -153,6 +147,12 @@ components:
           bid_floor: 1.11
         - parameter_value: ott2_4034_60
           bid_floor: 2.22
+    bid_map_create_simple:
+      summary: Simple
+      value:
+        name: Bid Map Name
+        bid_platform: amazon
+        hb_bid_map_type: inventory_split
   securitySchemes:
     api_key:
       type: apiKey

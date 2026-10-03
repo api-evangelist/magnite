@@ -113,12 +113,62 @@ paths:
       operationId: connected_supply_id_duplicate_get
 components:
   examples:
-    buying_strategy_create_simple:
-      summary: Simple
+    buying_strategy_update_full:
+      summary: Full
       value:
-        supply_partner_id: 1
-        rate: 1.11
-        rate_currency: USD
+        name: Connected Supply Name
+        active: true
+        environment: desktop
+        domain_targeting: true
+        domain_list_ids:
+        - 1
+        app_name_targeting: true
+        app_name_list_ids:
+        - 1
+        app_bundle_targeting: true
+        app_bundle_list_ids:
+        - 1
+        ip_targeting: true
+        ip_list_ids:
+        - 1
+        country_targeting: true
+        country_source: list
+        country_list_ids:
+        - 1
+        state_targeting: true
+        state_source: list
+        state_list_ids:
+        - 1
+        city_targeting: true
+        city_source: list
+        city_list_ids:
+        - 1
+        metro_area_targeting: true
+        metro_area_source: list
+        metro_area_list_ids:
+        - 1
+        postal_code_targeting: true
+        postal_code_source: list
+        postal_code_list_ids:
+        - 1
+        allowed_player_sizes:
+        - s
+        - m
+        - l
+        segment_targeting_enabled: false
+        targeted_macros_enabled: false
+        blocking_unknown_advertiser_domains: false
+        pre_bid_blocking_enabled: false
+        post_imp_detection_enabled: false
+        budget_timezone: America/New_York
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://pixel.example.com/imp
+        demand_tag_priorities:
+        - demand_tag_id: 1
+          priority: 1
+          tier: 1
     buying_strategy_update_simple:
       summary: Simple
       value:
@@ -179,62 +229,12 @@ components:
         - pixel_type: AdImpression
           pixel_format: image
           pixel_url: https://pixel.example.com/imp
-    buying_strategy_update_full:
-      summary: Full
+    buying_strategy_create_simple:
+      summary: Simple
       value:
-        name: Connected Supply Name
-        active: true
-        environment: desktop
-        domain_targeting: true
-        domain_list_ids:
-        - 1
-        app_name_targeting: true
-        app_name_list_ids:
-        - 1
-        app_bundle_targeting: true
-        app_bundle_list_ids:
-        - 1
-        ip_targeting: true
-        ip_list_ids:
-        - 1
-        country_targeting: true
-        country_source: list
-        country_list_ids:
-        - 1
-        state_targeting: true
-        state_source: list
-        state_list_ids:
-        - 1
-        city_targeting: true
-        city_source: list
-        city_list_ids:
-        - 1
-        metro_area_targeting: true
-        metro_area_source: list
-        metro_area_list_ids:
-        - 1
-        postal_code_targeting: true
-        postal_code_source: list
-        postal_code_list_ids:
-        - 1
-        allowed_player_sizes:
-        - s
-        - m
-        - l
-        segment_targeting_enabled: false
-        targeted_macros_enabled: false
-        blocking_unknown_advertiser_domains: false
-        pre_bid_blocking_enabled: false
-        post_imp_detection_enabled: false
-        budget_timezone: America/New_York
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://pixel.example.com/imp
-        demand_tag_priorities:
-        - demand_tag_id: 1
-          priority: 1
-          tier: 1
+        supply_partner_id: 1
+        rate: 1.11
+        rate_currency: USD
   securitySchemes:
     api_key:
       type: apiKey

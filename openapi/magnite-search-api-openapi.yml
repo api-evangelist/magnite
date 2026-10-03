@@ -558,12 +558,44 @@ paths:
       - Search
       operationId: search_user_accounts_get
 components:
+  parameters:
+    limit:
+      name: limit
+      description: max number of results to return
+      in: query
+      schema:
+        type: string
+    q:
+      name: q
+      description: the string to search for
+      in: query
+      schema:
+        type: string
+    with_deleted:
+      name: with_deleted
+      in: query
+      schema:
+        type: boolean
+    account_id:
+      name: account_id
+      description: Scope the search to the given account instead of your currently active account. Only supported for `streaming_publishers` and `streaming_seller_seats`.
+      in: query
+      schema:
+        type: integer
+    is_active:
+      name: is_active
+      description: Filter results by active state. `true` returns only active records, `false` returns only inactive records. Omit to return both.
+      in: query
+      schema:
+        type: boolean
   schemas:
-    V1SearchResponse:
-      type: array
-      items:
-        allOf:
-        - $ref: '#/components/schemas/V1SearchResponseItem'
+    V1SearchResponseItem:
+      type: object
+      properties:
+        id:
+          type: number
+        label:
+          type: string
     AdServerSearchResult:
       type: object
       required:
@@ -578,43 +610,11 @@ components:
           type: string
         url_match:
           type: string
-    V1SearchResponseItem:
-      type: object
-      properties:
-        id:
-          type: number
-        label:
-          type: string
-  parameters:
-    account_id:
-      name: account_id
-      description: Scope the search to the given account instead of your currently active account. Only supported for `streaming_publishers` and `streaming_seller_seats`.
-      in: query
-      schema:
-        type: integer
-    limit:
-      name: limit
-      description: max number of results to return
-      in: query
-      schema:
-        type: string
-    q:
-      name: q
-      description: the string to search for
-      in: query
-      schema:
-        type: string
-    is_active:
-      name: is_active
-      description: Filter results by active state. `true` returns only active records, `false` returns only inactive records. Omit to return both.
-      in: query
-      schema:
-        type: boolean
-    with_deleted:
-      name: with_deleted
-      in: query
-      schema:
-        type: boolean
+    V1SearchResponse:
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/V1SearchResponseItem'
   securitySchemes:
     api_key:
       type: apiKey

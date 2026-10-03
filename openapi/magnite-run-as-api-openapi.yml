@@ -114,14 +114,14 @@ paths:
       operationId: run_as_stop_post
 components:
   examples:
-    run_as_start_external_user:
-      summary: External (Partner) User
-      value:
-        email: partner@example.com
     run_as_start_internal_user:
       summary: Internal (Magnite) User
       value:
         email: user@magnite.com
+    run_as_start_external_user:
+      summary: External (Partner) User
+      value:
+        email: partner@example.com
   securitySchemes:
     api_key:
       type: apiKey

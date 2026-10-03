@@ -121,6 +121,13 @@ paths:
       operationId: filepath_creatives_id_delete
 components:
   examples:
+    filepath_creative_create_simple:
+      summary: Simple
+      value:
+        name: Filepath Creative Name
+        demand_partner_id: 1
+        filepath_value: /path/to/creative.mp4
+        duration_seconds: 1
     filepath_creative_create_full:
       summary: Full
       value:
@@ -265,23 +272,47 @@ components:
         - pixel_type: AdImpression
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
-    filepath_creative_create_simple:
-      summary: Simple
-      value:
-        name: Filepath Creative Name
-        demand_partner_id: 1
-        filepath_value: /path/to/creative.mp4
-        duration_seconds: 1
   schemas:
-    FilepathCreativeIndexResponse:
+    FilepathCreativeCreateData:
       allOf:
-      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
+      - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
+      - type: object
+        required:
+        - demand_partner_id
+        - duration_seconds
+        properties:
+          demand_partner_id:
+            type: number
+    FilepathCreativeResponse:
+      allOf:
+      - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
       - type: object
         properties:
-          results:
+          id:
+            type: integer
+          account_id:
+            type: integer
+          demand_partner_id:
+            type: integer
+          creative_format:
+            type: string
+          type:
+            type: string
+          creative_landing_page_url:
+            type:
+            - string
+            - 'null'
+          netflix_pre_approval_enabled:
+            type: boolean
+          netflix_approval_status:
+            type:
+            - string
+            - 'null'
+          netflix_deal_ids:
             type: array
             items:
-              $ref: '#/components/schemas/FilepathCreativeResponse'
+              type: string
+      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
     FilepathCreativeBaseProperties:
       allOf:
       - type: object
@@ -377,46 +408,15 @@ components:
       - $ref: ref/concerns/flight_dates.yaml#/components/schemas/FlightDates
     FilepathCreativeUpdateData:
       $ref: '#/components/schemas/FilepathCreativeBaseProperties'
-    FilepathCreativeResponse:
+    FilepathCreativeIndexResponse:
       allOf:
-      - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
+      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
       - type: object
         properties:
-          id:
-            type: integer
-          account_id:
-            type: integer
-          demand_partner_id:
-            type: integer
-          creative_format:
-            type: string
-          type:
-            type: string
-          creative_landing_page_url:
-            type:
-            - string
-            - 'null'
-          netflix_pre_approval_enabled:
-            type: boolean
-          netflix_approval_status:
-            type:
-            - string
-            - 'null'
-          netflix_deal_ids:
+          results:
             type: array
             items:
-              type: string
-      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
-    FilepathCreativeCreateData:
-      allOf:
-      - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
-      - type: object
-        required:
-        - demand_partner_id
-        - duration_seconds
-        properties:
-          demand_partner_id:
-            type: number
+              $ref: '#/components/schemas/FilepathCreativeResponse'
   securitySchemes:
     api_key:
       type: apiKey

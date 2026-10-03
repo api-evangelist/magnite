@@ -339,19 +339,12 @@ paths:
       operationId: scanned_creative_lists_id_creatives_file_bulk_replace_post
 components:
   examples:
-    scanned_creative_list_creatives_bulk_replace_multiple:
-      summary: Multiple
-      value:
-        vast_hashes:
-        - abc123def456
-        - def456ghi789
-        - ghi789jkl012
     scanned_creative_list_creatives_bulk_create_single:
       summary: Single
       value:
         vast_hashes:
         - abc123def456
-    scanned_creative_list_update_simple:
+    scanned_creative_list_create_simple:
       summary: Simple
       value:
         name: Scanned Creative List Name
@@ -366,6 +359,13 @@ components:
         name: Scanned Creative List Name
         description: Scanned creative list description
         is_active: true
+    scanned_creative_list_creatives_bulk_replace_multiple:
+      summary: Multiple
+      value:
+        vast_hashes:
+        - abc123def456
+        - def456ghi789
+        - ghi789jkl012
     scanned_creative_list_create_full:
       summary: Full
       value:
@@ -379,7 +379,7 @@ components:
         - abc123def456
         - def456ghi789
         - ghi789jkl012
-    scanned_creative_list_create_simple:
+    scanned_creative_list_update_simple:
       summary: Simple
       value:
         name: Scanned Creative List Name

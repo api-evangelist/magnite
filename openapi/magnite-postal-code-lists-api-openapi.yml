@@ -303,6 +303,10 @@ paths:
       operationId: postal_code_lists_id_permissions_get
 components:
   examples:
+    postal_code_list_update_simple:
+      summary: Simple
+      value:
+        name: Postal Code List Name
     postal_code_list_update_full:
       summary: Full
       value:
@@ -317,10 +321,6 @@ components:
         name: Postal Code List Name
         postal_codes:
         - '10001'
-    postal_code_list_update_simple:
-      summary: Simple
-      value:
-        name: Postal Code List Name
     postal_code_list_create_full:
       summary: Full
       value:
@@ -339,6 +339,29 @@ components:
         postal_codes:
         - '10001'
   schemas:
+    PostalCodeListResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        postal_codes:
+          type: array
+          items:
+            type: string
     PostalCodeListCreateRequest:
       type: object
       properties:
@@ -397,29 +420,6 @@ components:
           examples:
           - postal_codes:
             - can't be blank
-    PostalCodeListResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-        account_id:
-          type: integer
-        name:
-          type: string
-        description:
-          type: string
-        active:
-          type: boolean
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        postal_codes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     api_key:
       type: apiKey

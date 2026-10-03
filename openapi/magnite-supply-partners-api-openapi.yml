@@ -171,10 +171,6 @@ components:
           domain_list_ids:
           - 1
           segment_targeting_enabled: false
-    supply_partner_update_simple:
-      summary: Simple
-      value:
-        name: Supply Partner Name
     supply_partner_update_full:
       summary: Full
       value:
@@ -204,6 +200,10 @@ components:
           domain_list_ids:
           - 1
           segment_targeting_enabled: false
+    supply_partner_update_simple:
+      summary: Simple
+      value:
+        name: Supply Partner Name
     supply_partner_create_simple:
       summary: Simple
       value:

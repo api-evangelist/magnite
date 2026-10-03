@@ -140,15 +140,6 @@ paths:
       operationId: campaigns_id_delete
 components:
   examples:
-    campaign_tiles_dedup_create_simple:
-      summary: Tiles Screen Deduplication Simple
-      value:
-        name: Campaign Name
-        demand_partner_id: 1
-        has_rate: true
-        rate: 1.11
-        tiles_screen_deduplication: true
-        max_bids_per_screen: 1
     campaign_tiles_dedup_create_full:
       summary: Tiles Screen Deduplication Full
       value:
@@ -190,6 +181,13 @@ components:
           pixel_url: https://ad.example.com/pixel
         is_active: true
         note: Campaign note
+    campaign_managed_create_simple:
+      summary: Managed Simple
+      value:
+        name: Campaign Name
+        demand_partner_id: 1
+        has_rate: true
+        rate: 1.11
     campaign_update_full:
       summary: Full
       value:
@@ -230,6 +228,65 @@ components:
           pixel_url: https://ad.example.com/pixel
         is_active: true
         note: Campaign note
+    campaign_direct_connect_create_full:
+      summary: Direct Connect Full
+      value:
+        name: Campaign Name
+        demand_partner_id: 1
+        code: '1'
+        secondary_code: '1'
+        has_rate: false
+        partner_tier_override_enabled: true
+        partner_tier_override: '1'
+        guaranteed_delivery: false
+        guaranteed_tier: '1'
+        audited_creative_statuses:
+        - '1'
+        demand_tag_ids:
+        - 1
+        campaign_tiers:
+        - supply_tag_id: 1
+          tier: 1
+          slot_order: '1'
+          slot_number: 1
+        tiles_screen_deduplication: false
+        third_party_fee: 1.11
+        third_party_fee_currency: USD
+        third_party_fee_metric: 0
+        third_party_fee_net_revenue: false
+        non_billable_fees:
+        - cost_basis: impressions
+          value: 1.11
+          currency: USD
+        tag_pixels:
+        - pixel_type: AdImpression
+          pixel_format: image
+          pixel_url: https://ad.example.com/pixel
+        is_active: true
+        note: Campaign note
+    campaign_tiles_dedup_create_simple:
+      summary: Tiles Screen Deduplication Simple
+      value:
+        name: Campaign Name
+        demand_partner_id: 1
+        has_rate: true
+        rate: 1.11
+        tiles_screen_deduplication: true
+        max_bids_per_screen: 1
+    campaign_update_simple:
+      summary: Simple
+      value:
+        name: Campaign Name
+        rate: 1.11
+        demand_tag_ids:
+        - 1
+        is_active: true
+    campaign_direct_connect_create_simple:
+      summary: Direct Connect Simple
+      value:
+        name: Campaign Name
+        demand_partner_id: 1
+        has_rate: false
     campaign_managed_create_full:
       summary: Managed Full
       value:
@@ -276,63 +333,6 @@ components:
         mediaocean_prisma_campaign_link: https://prisma.example.com/campaign
         is_active: true
         note: Campaign note
-    campaign_direct_connect_create_full:
-      summary: Direct Connect Full
-      value:
-        name: Campaign Name
-        demand_partner_id: 1
-        code: '1'
-        secondary_code: '1'
-        has_rate: false
-        partner_tier_override_enabled: true
-        partner_tier_override: '1'
-        guaranteed_delivery: false
-        guaranteed_tier: '1'
-        audited_creative_statuses:
-        - '1'
-        demand_tag_ids:
-        - 1
-        campaign_tiers:
-        - supply_tag_id: 1
-          tier: 1
-          slot_order: '1'
-          slot_number: 1
-        tiles_screen_deduplication: false
-        third_party_fee: 1.11
-        third_party_fee_currency: USD
-        third_party_fee_metric: 0
-        third_party_fee_net_revenue: false
-        non_billable_fees:
-        - cost_basis: impressions
-          value: 1.11
-          currency: USD
-        tag_pixels:
-        - pixel_type: AdImpression
-          pixel_format: image
-          pixel_url: https://ad.example.com/pixel
-        is_active: true
-        note: Campaign note
-    campaign_update_simple:
-      summary: Simple
-      value:
-        name: Campaign Name
-        rate: 1.11
-        demand_tag_ids:
-        - 1
-        is_active: true
-    campaign_direct_connect_create_simple:
-      summary: Direct Connect Simple
-      value:
-        name: Campaign Name
-        demand_partner_id: 1
-        has_rate: false
-    campaign_managed_create_simple:
-      summary: Managed Simple
-      value:
-        name: Campaign Name
-        demand_partner_id: 1
-        has_rate: true
-        rate: 1.11
   securitySchemes:
     api_key:
       type: apiKey

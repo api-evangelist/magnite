@@ -300,19 +300,6 @@ paths:
       operationId: state_lists_id_permissions_get
 components:
   examples:
-    state_list_update_simple:
-      summary: Simple
-      value:
-        name: State List Name
-    state_list_create_full:
-      summary: Full
-      value:
-        name: State List Name
-        description: State List Description
-        active: true
-        state_codes:
-        - US-CA
-        - US-NY
     state_list_create_simple:
       summary: Simple
       value:
@@ -329,6 +316,19 @@ components:
         state_codes:
         - CA-ON
         - GB-ENG
+    state_list_create_full:
+      summary: Full
+      value:
+        name: State List Name
+        description: State List Description
+        active: true
+        state_codes:
+        - US-CA
+        - US-NY
+    state_list_update_simple:
+      summary: Simple
+      value:
+        name: State List Name
     state_list_update_full_2:
       summary: Full
       value:

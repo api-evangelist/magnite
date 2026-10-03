@@ -147,6 +147,50 @@ paths:
       operationId: supply_routers_download_get
 components:
   examples:
+    supply_router_update_full:
+      summary: Full
+      value:
+        name: Supply Router Name
+        supply_partner_id: 1
+        code: '1'
+        environment: desktop
+        format: video
+        supply_router_ratios:
+        - supply_tag_id: 1
+          fallback_supply_tag_id: 1
+          ratio: 1
+        player_sizes:
+        - s
+        - m
+        - l
+        domain_white_list: true
+        domain_list_ids:
+        - 1
+        country_source: list
+        country_white_list: true
+        country_codes:
+        - US
+        country_list_ids:
+        - 1
+        segment_targeting_enabled: true
+        segment_groups:
+        - group: 1
+          white_list: true
+          segment_ids:
+          - 1
+        start_date: '2026-01-01'
+        end_date: '2026-12-31'
+        flight_dates_timezone: America/New_York
+        third_party_override: true
+        post_imp_detection_enabled: true
+        custom_response: '1'
+        active: true
+        note: Supply Router note
+    supply_router_update_simple:
+      summary: Simple
+      value:
+        name: Supply Router Name
+        active: true
     supply_router_create_full:
       summary: Full
       value:
@@ -277,50 +321,6 @@ components:
       value:
         name: Supply Router Name
         supply_partner_id: 1
-    supply_router_update_simple:
-      summary: Simple
-      value:
-        name: Supply Router Name
-        active: true
-    supply_router_update_full:
-      summary: Full
-      value:
-        name: Supply Router Name
-        supply_partner_id: 1
-        code: '1'
-        environment: desktop
-        format: video
-        supply_router_ratios:
-        - supply_tag_id: 1
-          fallback_supply_tag_id: 1
-          ratio: 1
-        player_sizes:
-        - s
-        - m
-        - l
-        domain_white_list: true
-        domain_list_ids:
-        - 1
-        country_source: list
-        country_white_list: true
-        country_codes:
-        - US
-        country_list_ids:
-        - 1
-        segment_targeting_enabled: true
-        segment_groups:
-        - group: 1
-          white_list: true
-          segment_ids:
-          - 1
-        start_date: '2026-01-01'
-        end_date: '2026-12-31'
-        flight_dates_timezone: America/New_York
-        third_party_override: true
-        post_imp_detection_enabled: true
-        custom_response: '1'
-        active: true
-        note: Supply Router note
   securitySchemes:
     api_key:
       type: apiKey

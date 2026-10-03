@@ -328,28 +328,19 @@ components:
         name: Deal ID List Name
         description: Deal ID list description
         active: true
-    deal_id_list_update_simple:
-      summary: Simple
-      value:
-        name: Deal ID List Name
-    deal_id_list_update_full:
-      summary: Full
-      value:
-        name: Deal ID List Name
-        description: Deal ID list description
-        active: true
-    deal_id_list_deal_ids_bulk_replace_single:
+    deal_id_list_deal_ids_bulk_create_single:
       summary: Single
       value:
         deal_ids:
         - deal-abc-123
-    deal_id_list_deal_ids_bulk_create_multiple:
-      summary: Multiple
+    deal_id_list_create_simple:
+      summary: Simple
       value:
-        deal_ids:
-        - deal-abc-123
-        - deal-xyz-456
-        - deal-def-789
+        name: Deal ID List Name
+    deal_id_list_update_simple:
+      summary: Simple
+      value:
+        name: Deal ID List Name
     deal_id_list_deal_ids_bulk_replace_multiple:
       summary: Multiple
       value:
@@ -357,11 +348,20 @@ components:
         - deal-abc-123
         - deal-xyz-456
         - deal-def-789
-    deal_id_list_create_simple:
-      summary: Simple
+    deal_id_list_update_full:
+      summary: Full
       value:
         name: Deal ID List Name
-    deal_id_list_deal_ids_bulk_create_single:
+        description: Deal ID list description
+        active: true
+    deal_id_list_deal_ids_bulk_create_multiple:
+      summary: Multiple
+      value:
+        deal_ids:
+        - deal-abc-123
+        - deal-xyz-456
+        - deal-def-789
+    deal_id_list_deal_ids_bulk_replace_single:
       summary: Single
       value:
         deal_ids:
