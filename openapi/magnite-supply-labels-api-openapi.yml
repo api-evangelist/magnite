@@ -273,7 +273,7 @@ components:
         name: Supply Label Name
         supply_tag_ids:
         - 1
-    supply_label_create_simple:
+    supply_label_update_simple:
       summary: Simple
       value:
         name: Supply Label Name
@@ -283,11 +283,21 @@ components:
         name: Supply Label Name
         supply_tag_ids:
         - 1
-    supply_label_update_simple:
+    supply_label_create_simple:
       summary: Simple
       value:
         name: Supply Label Name
   schemas:
+    SupplyLabelIndexResponse:
+      allOf:
+      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              allOf:
+              - $ref: '#/components/schemas/SupplyLabel'
     SupplyLabel:
       type: object
       properties:
@@ -307,16 +317,6 @@ components:
           type: array
           items:
             type: number
-    SupplyLabelIndexResponse:
-      allOf:
-      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              allOf:
-              - $ref: '#/components/schemas/SupplyLabel'
   securitySchemes:
     api_key:
       type: apiKey

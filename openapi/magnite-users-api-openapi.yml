@@ -130,11 +130,6 @@ paths:
       operationId: users_id_permissions_get
 components:
   examples:
-    user_update_current_simple:
-      summary: Simple
-      value:
-        name: User Name
-        timezone: America/New_York
     user_update_current_full:
       summary: Full
       value:
@@ -144,6 +139,11 @@ components:
         notification_opt_outs:
         - DC Requests
         all_notification_opt_outs: false
+    user_update_current_simple:
+      summary: Simple
+      value:
+        name: User Name
+        timezone: America/New_York
   securitySchemes:
     api_key:
       type: apiKey

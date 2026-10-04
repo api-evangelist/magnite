@@ -342,14 +342,7 @@ paths:
       operationId: isp_lists_id_isp_names_file_bulk_replace_post
 components:
   examples:
-    isp_list_isp_names_bulk_replace_multiple:
-      summary: Multiple
-      value:
-        isp_names:
-        - Akamai Technologies
-        - Verizon Internet Services
-        - iCloud Private Relay
-    isp_list_isp_names_bulk_replace_single:
+    isp_list_isp_names_bulk_create_single:
       summary: Single
       value:
         isp_names:
@@ -363,10 +356,6 @@ components:
         isp_names:
         - Akamai Technologies
         - Verizon Internet Services
-    isp_list_create_simple:
-      summary: Simple
-      value:
-        name: ISP List Name
     isp_list_isp_names_bulk_create_multiple:
       summary: Multiple
       value:
@@ -374,10 +363,26 @@ components:
         - Akamai Technologies
         - Verizon Internet Services
         - iCloud Private Relay
+    isp_list_isp_names_bulk_replace_multiple:
+      summary: Multiple
+      value:
+        isp_names:
+        - Akamai Technologies
+        - Verizon Internet Services
+        - iCloud Private Relay
+    isp_list_create_simple:
+      summary: Simple
+      value:
+        name: ISP List Name
     isp_list_update_simple:
       summary: Simple
       value:
         name: ISP List Name
+    isp_list_isp_names_bulk_replace_single:
+      summary: Single
+      value:
+        isp_names:
+        - Akamai Technologies
     isp_list_create_full:
       summary: Full
       value:
@@ -387,11 +392,6 @@ components:
         isp_names:
         - Akamai Technologies
         - Verizon Internet Services
-    isp_list_isp_names_bulk_create_single:
-      summary: Single
-      value:
-        isp_names:
-        - Akamai Technologies
   securitySchemes:
     api_key:
       type: apiKey

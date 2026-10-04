@@ -163,21 +163,13 @@ paths:
       operationId: curated_marketplaces_id_permissions_get
 components:
   examples:
-    curated_marketplace_update_simple:
-      summary: Simple
-      value:
-        name: Curated Marketplace Name
-        is_active: true
-    curated_marketplace_create_full:
+    curated_marketplace_update_full:
       summary: Full
       value:
         name: Curated Marketplace Name
-        supply_partner_id: 1
         selling_strategy_name: Selling Strategy Name
-        revenue_model_type: 0
         rate: 1.11
         rate_currency: USD
-        supply_tag_type: 1
         bulk_add_enabled: true
         rpm_floor: 1.11
         optimization_active: false
@@ -204,13 +196,21 @@ components:
         name: Curated Marketplace Name
         supply_partner_id: 1
         rate: 1.11
-    curated_marketplace_update_full:
+    curated_marketplace_update_simple:
+      summary: Simple
+      value:
+        name: Curated Marketplace Name
+        is_active: true
+    curated_marketplace_create_full:
       summary: Full
       value:
         name: Curated Marketplace Name
+        supply_partner_id: 1
         selling_strategy_name: Selling Strategy Name
+        revenue_model_type: 0
         rate: 1.11
         rate_currency: USD
+        supply_tag_type: 1
         bulk_add_enabled: true
         rpm_floor: 1.11
         optimization_active: false

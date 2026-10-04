@@ -272,21 +272,6 @@ paths:
       operationId: keys_key_id_values_value_id_delete
 components:
   examples:
-    key_value_create_full:
-      summary: Full
-      value:
-        name: Key Name
-        value: my-value
-    key_create_simple:
-      summary: Simple
-      value:
-        name: Key Name
-        key: my-custom-key
-        definition_type: free
-    key_update_simple:
-      summary: Simple
-      value:
-        name: Key Name
     key_create_full:
       summary: Full
       value:
@@ -298,16 +283,30 @@ components:
         supply_client_reporting_enabled: true
         demand_client_reporting_enabled: true
         key_sharing_enabled: false
+    key_value_create_full:
+      summary: Full
+      value:
+        name: Key Name
+        value: my-value
+    key_create_simple:
+      summary: Simple
+      value:
+        name: Key Name
+        key: my-custom-key
+        definition_type: free
     key_value_update_full:
       summary: Full
       value:
         name: Key Name
         value: updated-value
-    key_value_create_simple:
+    key_value_update_simple:
       summary: Simple
       value:
         name: Key Name
-        value: my-value
+    key_update_simple:
+      summary: Simple
+      value:
+        name: Key Name
     key_update_full:
       summary: Full
       value:
@@ -319,10 +318,11 @@ components:
         key_sharing_enabled: true
         key_sharing_other_account_ids:
         - 1
-    key_value_update_simple:
+    key_value_create_simple:
       summary: Simple
       value:
         name: Key Name
+        value: my-value
   securitySchemes:
     api_key:
       type: apiKey

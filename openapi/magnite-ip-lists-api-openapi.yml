@@ -365,15 +365,13 @@ paths:
       operationId: ip_lists_ip_list_id_ips_file_bulk_replace_post
 components:
   examples:
-    ip_list_create_simple:
-      summary: Simple
-      value:
-        name: IP List Name
-    ip_list_update_simple:
-      summary: Simple
-      value:
-        name: IP List Name
     ip_list_update_full:
+      summary: Full
+      value:
+        name: IP List Name
+        description: IP list description
+        active: true
+    ip_list_create_full:
       summary: Full
       value:
         name: IP List Name
@@ -384,6 +382,10 @@ components:
       value:
         ips:
         - 158.106.194.74
+    ip_list_create_simple:
+      summary: Simple
+      value:
+        name: IP List Name
     ip_list_ips_bulk_replace_multiple:
       summary: Multiple
       value:
@@ -398,12 +400,10 @@ components:
         - 158.106.194.74
         - 158.106.194.75
         - 10.0.0.1
-    ip_list_create_full:
-      summary: Full
+    ip_list_update_simple:
+      summary: Simple
       value:
         name: IP List Name
-        description: IP list description
-        active: true
     ip_list_ips_bulk_replace_single:
       summary: Single
       value:

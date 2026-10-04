@@ -309,14 +309,10 @@ paths:
       operationId: hb_bid_maps_id_permissions_get
 components:
   examples:
-    hb_bid_map_update_full:
-      summary: Full
+    hb_bid_map_update_simple:
+      summary: Simple
       value:
         name: HB Bid Map Name
-        description: Updated description
-        hb_bid_map_entries:
-        - parameter_value: ott3_4035_30
-          bid_floor: 1.11
     hb_bid_map_create_full:
       summary: Full
       value:
@@ -329,10 +325,14 @@ components:
           bid_floor: 1.11
         - parameter_value: ott2_4034_60
           bid_floor: 2.22
-    hb_bid_map_update_simple:
-      summary: Simple
+    hb_bid_map_update_full:
+      summary: Full
       value:
         name: HB Bid Map Name
+        description: Updated description
+        hb_bid_map_entries:
+        - parameter_value: ott3_4035_30
+          bid_floor: 1.11
     hb_bid_map_create_simple:
       summary: Simple
       value:
@@ -372,50 +372,6 @@ components:
           default: inventory_split
           examples:
           - paid
-    HbBidMapEntryArray:
-      type: object
-      properties:
-        hb_bid_map_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/HbBidMapEntry'
-    HbBidMapResponseFields:
-      type: object
-      properties:
-        id:
-          type: integer
-        account_id:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-    HbBidMapUpdateRequest:
-      allOf:
-      - $ref: '#/components/schemas/HbBidMap'
-      - type: object
-        properties:
-          bid_platform:
-            readOnly: true
-          hb_bid_map_type:
-            readOnly: true
-          list_action:
-            type: string
-            enum:
-            - append
-            - remove
-            - replace
-            default: append
-    HbBidMapCreateRequest:
-      allOf:
-      - $ref: '#/components/schemas/HbBidMap'
-      - type: object
-        required:
-        - name
-        - bid_platform
-        - hb_bid_map_type
     HbBidMapsIndexResponse:
       allOf:
       - $ref: ref/params.yaml#/components/schemas/ParamsResponse
@@ -446,6 +402,50 @@ components:
       required:
       - parameter_value
       - bid_floor
+    HbBidMapEntryArray:
+      type: object
+      properties:
+        hb_bid_map_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/HbBidMapEntry'
+    HbBidMapCreateRequest:
+      allOf:
+      - $ref: '#/components/schemas/HbBidMap'
+      - type: object
+        required:
+        - name
+        - bid_platform
+        - hb_bid_map_type
+    HbBidMapResponseFields:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    HbBidMapUpdateRequest:
+      allOf:
+      - $ref: '#/components/schemas/HbBidMap'
+      - type: object
+        properties:
+          bid_platform:
+            readOnly: true
+          hb_bid_map_type:
+            readOnly: true
+          list_action:
+            type: string
+            enum:
+            - append
+            - remove
+            - replace
+            default: append
   securitySchemes:
     api_key:
       type: apiKey

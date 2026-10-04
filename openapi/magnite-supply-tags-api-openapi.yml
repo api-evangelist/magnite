@@ -377,69 +377,6 @@ paths:
       operationId: supply_tags_id_permissions_get
 components:
   examples:
-    supply_tag_tile_create_simple:
-      summary: Tile Simple
-      value:
-        name: Supply Tag Name
-        supply_partner_id: 1
-        supply_class: 1
-        format: tile
-        dynamic_tile: false
-        width: 1
-        height: 1
-        rate: 1.11
-    supply_tag_update_full:
-      summary: Full
-      value:
-        name: Supply Tag Name
-        rate: 1.11
-        rate_currency: USD
-        payment_terms: CPM
-        rpm_floor: 1.11
-        rpm_floor_hb: false
-        open_market_enabled: false
-        format: video
-        environment: desktop
-        domain_targeting: Allowlist
-        domain_list_ids:
-        - 1
-        country_targeting: Include
-        country_source: list
-        country_list_ids:
-        - 1
-        key_value_targeting: true
-        segment_targeting_enabled: true
-        timeout: 1
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: daily
-          budget_metric: spend
-          budget_value: 1.11
-          budget_pacing: smooth
-        frequency_caps:
-        - imps: 1
-          duration: 1
-          duration_unit: days
-        demand_tag_priorities:
-        - demand_tag_id: 1
-          priority: 1
-          tier: 1
-          ratio: 1
-        macro_overrides:
-        - override_type: static
-          macro_param: '{{IP}}'
-          override_value: '1'
-        advanced_floor_rules:
-        - dimension: adomain
-          values:
-          - example.com
-          floor_price: 1.11
-        supply_label_ids:
-        - 1
-        key_ids:
-        - 1
-        code: supply-tag-code
-        active: true
     supply_tag_pause_ad_create_simple:
       summary: Pause Ad Simple
       value:
@@ -448,69 +385,14 @@ components:
         supply_class: 1
         format: pause_ad
         rate: 1.11
-    supply_tag_audio_create_full:
-      summary: Audio Full
+    supply_tag_audio_create_simple:
+      summary: Audio Simple
       value:
         name: Supply Tag Name
         supply_partner_id: 1
         supply_class: 1
         format: audio
-        environment: desktop
-        domain_targeting: Allowlist
-        domain_list_ids:
-        - 1
-        country_targeting: Include
-        country_source: list
-        country_list_ids:
-        - 1
-        key_value_targeting: true
-        segment_targeting_enabled: true
         rate: 1.11
-        rate_currency: USD
-        payment_terms: CPM
-        rpm_floor: 1.11
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: daily
-          budget_metric: spend
-          budget_value: 1.11
-          budget_pacing: smooth
-        supply_label_ids:
-        - 1
-        code: supply-tag-code
-        active: true
-    supply_tag_pause_ad_create_full:
-      summary: Pause Ad Full
-      value:
-        name: Supply Tag Name
-        supply_partner_id: 1
-        supply_class: 1
-        format: pause_ad
-        environment: desktop
-        screen_setting: in_content
-        domain_targeting: Allowlist
-        domain_list_ids:
-        - 1
-        country_targeting: Include
-        country_source: list
-        country_list_ids:
-        - 1
-        key_value_targeting: true
-        segment_targeting_enabled: true
-        rate: 1.11
-        rate_currency: USD
-        payment_terms: CPM
-        rpm_floor: 1.11
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: daily
-          budget_metric: spend
-          budget_value: 1.11
-          budget_pacing: smooth
-        supply_label_ids:
-        - 1
-        code: supply-tag-code
-        active: true
     supply_tag_tag_create_full:
       summary: Tag Full
       value:
@@ -653,6 +535,179 @@ components:
         skip_enabled: false
         code: supply-tag-code
         active: true
+    supply_tag_update_full:
+      summary: Full
+      value:
+        name: Supply Tag Name
+        rate: 1.11
+        rate_currency: USD
+        payment_terms: CPM
+        rpm_floor: 1.11
+        rpm_floor_hb: false
+        open_market_enabled: false
+        format: video
+        environment: desktop
+        domain_targeting: Allowlist
+        domain_list_ids:
+        - 1
+        country_targeting: Include
+        country_source: list
+        country_list_ids:
+        - 1
+        key_value_targeting: true
+        segment_targeting_enabled: true
+        timeout: 1
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: daily
+          budget_metric: spend
+          budget_value: 1.11
+          budget_pacing: smooth
+        frequency_caps:
+        - imps: 1
+          duration: 1
+          duration_unit: days
+        demand_tag_priorities:
+        - demand_tag_id: 1
+          priority: 1
+          tier: 1
+          ratio: 1
+        macro_overrides:
+        - override_type: static
+          macro_param: '{{IP}}'
+          override_value: '1'
+        advanced_floor_rules:
+        - dimension: adomain
+          values:
+          - example.com
+          floor_price: 1.11
+        supply_label_ids:
+        - 1
+        key_ids:
+        - 1
+        code: supply-tag-code
+        active: true
+    supply_tag_bid_link_create_simple:
+      summary: BidLink Simple
+      value:
+        name: Supply Tag Name
+        supply_partner_id: 1
+        supply_class: 3
+        rate: 1.11
+    supply_tag_pause_ad_create_full:
+      summary: Pause Ad Full
+      value:
+        name: Supply Tag Name
+        supply_partner_id: 1
+        supply_class: 1
+        format: pause_ad
+        environment: desktop
+        screen_setting: in_content
+        domain_targeting: Allowlist
+        domain_list_ids:
+        - 1
+        country_targeting: Include
+        country_source: list
+        country_list_ids:
+        - 1
+        key_value_targeting: true
+        segment_targeting_enabled: true
+        rate: 1.11
+        rate_currency: USD
+        payment_terms: CPM
+        rpm_floor: 1.11
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: daily
+          budget_metric: spend
+          budget_value: 1.11
+          budget_pacing: smooth
+        supply_label_ids:
+        - 1
+        code: supply-tag-code
+        active: true
+    supply_tag_audio_create_full:
+      summary: Audio Full
+      value:
+        name: Supply Tag Name
+        supply_partner_id: 1
+        supply_class: 1
+        format: audio
+        environment: desktop
+        domain_targeting: Allowlist
+        domain_list_ids:
+        - 1
+        country_targeting: Include
+        country_source: list
+        country_list_ids:
+        - 1
+        key_value_targeting: true
+        segment_targeting_enabled: true
+        rate: 1.11
+        rate_currency: USD
+        payment_terms: CPM
+        rpm_floor: 1.11
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: daily
+          budget_metric: spend
+          budget_value: 1.11
+          budget_pacing: smooth
+        supply_label_ids:
+        - 1
+        code: supply-tag-code
+        active: true
+    supply_tag_tile_create_simple:
+      summary: Tile Simple
+      value:
+        name: Supply Tag Name
+        supply_partner_id: 1
+        supply_class: 1
+        format: tile
+        dynamic_tile: false
+        width: 1
+        height: 1
+        rate: 1.11
+    supply_tag_update_simple:
+      summary: Simple
+      value:
+        rate: 1.11
+        active: true
+    supply_tag_tile_create_full:
+      summary: Tile Full
+      value:
+        name: Supply Tag Name
+        supply_partner_id: 1
+        supply_class: 1
+        format: tile
+        environment: desktop
+        dynamic_tile: false
+        width: 1
+        height: 1
+        screen_setting: in_content
+        domain_targeting: Allowlist
+        domain_list_ids:
+        - 1
+        country_targeting: Include
+        country_source: list
+        country_list_ids:
+        - 1
+        key_value_targeting: true
+        segment_targeting_enabled: true
+        rate: 1.11
+        rate_currency: USD
+        payment_terms: CPM
+        rpm_floor: 1.11
+        budget_timezone: America/New_York
+        budgets:
+        - budget_period: daily
+          budget_metric: spend
+          budget_value: 1.11
+          budget_pacing: smooth
+        supply_label_ids:
+        - 1
+        code: supply-tag-code
+        active: true
     supply_tag_bid_link_create_full:
       summary: BidLink Full
       value:
@@ -695,61 +750,6 @@ components:
         bid_return_net_price: false
         vast_ext_return_net_price: false
         code: supply-tag-code
-        active: true
-    supply_tag_tile_create_full:
-      summary: Tile Full
-      value:
-        name: Supply Tag Name
-        supply_partner_id: 1
-        supply_class: 1
-        format: tile
-        environment: desktop
-        dynamic_tile: false
-        width: 1
-        height: 1
-        screen_setting: in_content
-        domain_targeting: Allowlist
-        domain_list_ids:
-        - 1
-        country_targeting: Include
-        country_source: list
-        country_list_ids:
-        - 1
-        key_value_targeting: true
-        segment_targeting_enabled: true
-        rate: 1.11
-        rate_currency: USD
-        payment_terms: CPM
-        rpm_floor: 1.11
-        budget_timezone: America/New_York
-        budgets:
-        - budget_period: daily
-          budget_metric: spend
-          budget_value: 1.11
-          budget_pacing: smooth
-        supply_label_ids:
-        - 1
-        code: supply-tag-code
-        active: true
-    supply_tag_bid_link_create_simple:
-      summary: BidLink Simple
-      value:
-        name: Supply Tag Name
-        supply_partner_id: 1
-        supply_class: 3
-        rate: 1.11
-    supply_tag_audio_create_simple:
-      summary: Audio Simple
-      value:
-        name: Supply Tag Name
-        supply_partner_id: 1
-        supply_class: 1
-        format: audio
-        rate: 1.11
-    supply_tag_update_simple:
-      summary: Simple
-      value:
-        rate: 1.11
         active: true
     supply_tag_tag_create_simple:
       summary: Tag Simple

@@ -213,10 +213,13 @@ components:
         is_active: true
         object_ids:
         - 1
-    user_account_update_simple:
-      summary: Simple
+    user_account_bulk_update_multiple:
+      summary: Multiple
       value:
-        is_active: true
+        is_active: false
+        object_ids:
+        - 1
+        - 2
     user_account_create_full:
       summary: Full
       value:
@@ -233,18 +236,6 @@ components:
         account_contact: false
         high_volume_user: false
         is_active: true
-    user_account_create_simple:
-      summary: Simple
-      value:
-        email: user@example.com
-        role: analytics
-    user_account_bulk_update_multiple:
-      summary: Multiple
-      value:
-        is_active: false
-        object_ids:
-        - 1
-        - 2
     user_account_update_full:
       summary: Full
       value:
@@ -264,6 +255,15 @@ components:
         - 1
         account_contact: false
         high_volume_user: false
+        is_active: true
+    user_account_create_simple:
+      summary: Simple
+      value:
+        email: user@example.com
+        role: analytics
+    user_account_update_simple:
+      summary: Simple
+      value:
         is_active: true
   securitySchemes:
     api_key:

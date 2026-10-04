@@ -152,6 +152,17 @@ components:
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
         active: true
+    audio_creative_create_simple:
+      summary: Simple
+      value:
+        name: Audio Creative Name
+        demand_partner_id: 1
+        creative_remote_url: https://example.com/audio.mp3
+    audio_creative_update_simple:
+      summary: Simple
+      value:
+        name: Audio Creative Name
+        active: true
     audio_creative_update_full:
       summary: Full
       value:
@@ -189,17 +200,6 @@ components:
         - pixel_type: AdImpression
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
-        active: true
-    audio_creative_create_simple:
-      summary: Simple
-      value:
-        name: Audio Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://example.com/audio.mp3
-    audio_creative_update_simple:
-      summary: Simple
-      value:
-        name: Audio Creative Name
         active: true
   securitySchemes:
     api_key:

@@ -640,6 +640,10 @@ paths:
       operationId: accounts_foreign_seat_foreign_platform_name_foreign_seat_id_white_label_get
 components:
   examples:
+    account_update_simple:
+      summary: Simple
+      value:
+        tier_a_active: true
     account_update_full:
       summary: Full
       value:
@@ -648,17 +652,13 @@ components:
         tier_c_active: false
         tier_e_active: false
         tier_f_active: false
-    account_update_simple:
-      summary: Simple
-      value:
-        tier_a_active: true
-    account_curator_main_create_simple:
-      summary: Curator Main Simple
+    account_publisher_create_simple:
+      summary: Publisher Simple
       value:
         name: Account Name
-        platform_type: curator_main
+        platform_type: publisher
         account_type_id: 1
-        reporting_view: curator_main
+        reporting_view: publisher
         net_payable_term: 1
         net_receivable_term: 1
         contract_commencement_date: '2026-01-01'
@@ -676,44 +676,6 @@ components:
         support_level: level_1
         support_fee: 1.11
         support_commencement_date: '2026-01-01'
-        server_side_hb_fee: 1.11
-        server_side_hb_fee_commencement_date: '2026-01-01'
-    account_update_simple_2:
-      summary: Simple
-      value:
-        name: Account Name
-        is_active: true
-    account_bulk_set_dc_visibility_many:
-      summary: Multiple
-      value:
-        other_account_ids:
-        - 1
-        - 2
-    account_curator_sub_create_simple:
-      summary: Curator Sub Simple
-      value:
-        name: Account Name
-        platform_type: curator_sub
-        account_type_id: 1
-        reporting_view: curator_sub
-        net_payable_term: 1
-        net_receivable_term: 1
-        contract_commencement_date: '2026-01-01'
-        minimum_commencement_date: '2026-01-01'
-        support_level: level_1
-        support_fee: 1.11
-        support_commencement_date: '2026-01-01'
-        multicall_max: 2
-        dsp_bidder_fee_type: cpm
-        ssp_bidder_fee_type: cpm
-        oem_bidder_fee_type: cpm
-        tier_a_active: true
-        tier_a_cutoff_type: impressions
-        tier_a_fees:
-        - tier_fee_type: platform
-          fee_type: cpm
-          fee_value: 1.11
-        cdn_fee: 1.11
         server_side_hb_fee: 1.11
         server_side_hb_fee_commencement_date: '2026-01-01'
     account_update_full_2:
@@ -752,51 +714,15 @@ components:
         - EUR
         is_active: true
         display_in_dropdown: true
-    account_external_bidder_create_full:
-      summary: External Bidder Full
+    account_bulk_update_multiple:
+      summary: Multiple
       value:
+      - id: 1
         name: Account Name
-        platform_type: publisher
-        account_type_id: 1
-        reporting_view: network
-        website_url: https://account.example.com
-        email: account@example.com
-        account_manager_id: 1
-        account_owner_id: 1
-        is_test: false
-        net_payable_term: 1
-        net_receivable_term: 1
-        contract_commencement_date: '2026-01-01'
-        contract_term_months: 1
-        multicall_max: 2
-        cdn_fee: 1.11
-        cdn_fee_type: cpg
-        player_fee: 1.11
-        support_level: level_1
-        support_fee: 1.11
-        support_commencement_date: '2026-01-01'
-        dsp_bidder_fee_type: cpm
-        ssp_bidder_fee_type: cpm
-        oem_bidder_fee_type: cpm
-        openrtb_enabled: true
-        openrtb_buyer_fee_type: revshare
-        openrtb_buyer_fee_value: 1.11
-        openrtb_buyer_requires_user_id: true
-        openrtb_buyer_timeout: 600
-        openrtb_hosting_user_mapping: true
-        openrtb_sync_url: https://account.example.com/sync
-        account_usersync_weights:
-        - sync_on_account_id: 1
-          weight: 1
         is_active: true
-        display_in_dropdown: true
-        server_side_hb_fee: 1.11
-        server_side_hb_fee_commencement_date: '2026-01-01'
-    account_bulk_connect_curators_one:
-      summary: Connect One
-      value:
-        other_account_ids:
-        - 1
+      - id: 2
+        name: Account Name
+        daily_impression_goal: 1
     account_dsp_sub_create_full:
       summary: DSP Sub Full
       value:
@@ -856,40 +782,8 @@ components:
         display_in_dropdown: true
         server_side_hb_fee: 1.11
         server_side_hb_fee_commencement_date: '2026-01-01'
-    account_bulk_connect_dsps_many:
-      summary: Connect Many
-      value:
-        other_account_ids:
-        - 1
-        - 2
-    account_dsp_main_create_simple:
-      summary: DSP Main Simple
-      value:
-        name: Account Name
-        platform_type: dsp_main
-        account_type_id: 1
-        reporting_view: dsp_main
-        net_payable_term: 1
-        net_receivable_term: 1
-        contract_commencement_date: '2026-01-01'
-        multicall_max: 2
-        dsp_bidder_fee_type: cpm
-        ssp_bidder_fee_type: cpm
-        oem_bidder_fee_type: cpm
-        tier_a_active: true
-        tier_a_cutoff_type: impressions
-        tier_a_fees:
-        - tier_fee_type: platform
-          fee_type: cpm
-          fee_value: 1.11
-        cdn_fee: 1.11
-        support_level: level_1
-        support_fee: 1.11
-        support_commencement_date: '2026-01-01'
-        server_side_hb_fee: 1.11
-        server_side_hb_fee_commencement_date: '2026-01-01'
-    account_bulk_set_dc_visibility_one:
-      summary: Single
+    account_bulk_connect_curators_one:
+      summary: Connect One
       value:
         other_account_ids:
         - 1
@@ -943,32 +837,116 @@ components:
         display_in_dropdown: true
         server_side_hb_fee: 1.11
         server_side_hb_fee_commencement_date: '2026-01-01'
-    account_publisher_create_simple:
-      summary: Publisher Simple
+    account_dsp_main_create_full:
+      summary: DSP Main Full
       value:
         name: Account Name
-        platform_type: publisher
+        platform_type: dsp_main
         account_type_id: 1
-        reporting_view: publisher
+        reporting_view: dsp_main
+        website_url: https://account.example.com
+        email: account@example.com
+        account_manager_id: 1
+        account_owner_id: 1
+        is_test: false
         net_payable_term: 1
         net_receivable_term: 1
         contract_commencement_date: '2026-01-01'
+        contract_term_months: 1
+        minimum_commencement_date: '2026-01-01'
+        monthly_minimum: 1
         multicall_max: 2
+        direct_connect_enabled: true
+        cdn_fee: 1.11
+        cdn_fee_type: cpg
+        player_fee: 1.11
+        pmp_revshare_rate: 1
+        support_level: level_1
+        support_fee: 1.11
+        support_commencement_date: '2026-01-01'
         dsp_bidder_fee_type: cpm
+        dsp_bidder_fee_value: 1.11
         ssp_bidder_fee_type: cpm
+        ssp_bidder_fee_value: 1.11
         oem_bidder_fee_type: cpm
+        oem_bidder_fee_value: 1.11
+        management_fee_type: cpm
+        management_fee_value: 1.11
         tier_a_active: true
         tier_a_cutoff_type: impressions
         tier_a_fees:
         - tier_fee_type: platform
           fee_type: cpm
           fee_value: 1.11
+        create_sub_accounts_enabled: true
+        demand_partner_expansion_enabled: true
+        advertiser_domain_required: true
+        mediaocean_prisma_enabled: true
+        cl_budget_allocations_enabled: true
+        creative_pre_approval_enabled: true
+        creative_pre_approval_publishers:
+        - 1
+        multi_currency_enabled: true
+        default_currency: USD
+        quickstats_currencies:
+        - EUR
+        dma_reporting_enabled: true
+        state_reporting_enabled: true
+        is_active: true
+        display_in_dropdown: true
+        server_side_hb_fee: 1.11
+        server_side_hb_fee_commencement_date: '2026-01-01'
+    account_external_bidder_create_full:
+      summary: External Bidder Full
+      value:
+        name: Account Name
+        platform_type: publisher
+        account_type_id: 1
+        reporting_view: network
+        website_url: https://account.example.com
+        email: account@example.com
+        account_manager_id: 1
+        account_owner_id: 1
+        is_test: false
+        net_payable_term: 1
+        net_receivable_term: 1
+        contract_commencement_date: '2026-01-01'
+        contract_term_months: 1
+        multicall_max: 2
         cdn_fee: 1.11
+        cdn_fee_type: cpg
+        player_fee: 1.11
         support_level: level_1
         support_fee: 1.11
         support_commencement_date: '2026-01-01'
+        dsp_bidder_fee_type: cpm
+        ssp_bidder_fee_type: cpm
+        oem_bidder_fee_type: cpm
+        openrtb_enabled: true
+        openrtb_buyer_fee_type: revshare
+        openrtb_buyer_fee_value: 1.11
+        openrtb_buyer_requires_user_id: true
+        openrtb_buyer_timeout: 600
+        openrtb_hosting_user_mapping: true
+        openrtb_sync_url: https://account.example.com/sync
+        account_usersync_weights:
+        - sync_on_account_id: 1
+          weight: 1
+        is_active: true
+        display_in_dropdown: true
         server_side_hb_fee: 1.11
         server_side_hb_fee_commencement_date: '2026-01-01'
+    account_bulk_set_dc_visibility_one:
+      summary: Single
+      value:
+        other_account_ids:
+        - 1
+    account_bulk_connect_dsps_many:
+      summary: Connect Many
+      value:
+        other_account_ids:
+        - 1
+        - 2
     account_publisher_create_full:
       summary: Publisher Full
       value:
@@ -1056,6 +1034,159 @@ components:
         display_in_dropdown: true
         server_side_hb_fee: 1.11
         server_side_hb_fee_commencement_date: '2026-01-01'
+    account_update_simple_2:
+      summary: Simple
+      value:
+        name: Account Name
+        is_active: true
+    account_clearline_sub_create_simple:
+      summary: ClearLine Sub Simple
+      value:
+        name: Account Name
+        platform_type: dsp_sub
+        account_type_id: 1
+        reporting_view: dsp_sub
+        net_payable_term: 1
+        net_receivable_term: 1
+        contract_commencement_date: '2026-01-01'
+        minimum_commencement_date: '2026-01-01'
+        support_level: level_1
+        support_fee: 1.11
+        support_commencement_date: '2026-01-01'
+        multicall_max: 2
+        dsp_bidder_fee_type: cpm
+        ssp_bidder_fee_type: cpm
+        oem_bidder_fee_type: cpm
+        cl_direct_ios_enabled: true
+        tier_a_active: true
+        tier_a_cutoff_type: impressions
+        tier_a_fees:
+        - tier_fee_type: platform
+          fee_type: cpm
+          fee_value: 1.11
+        cdn_fee: 1.11
+        server_side_hb_fee: 1.11
+        server_side_hb_fee_commencement_date: '2026-01-01'
+    account_curator_main_create_simple:
+      summary: Curator Main Simple
+      value:
+        name: Account Name
+        platform_type: curator_main
+        account_type_id: 1
+        reporting_view: curator_main
+        net_payable_term: 1
+        net_receivable_term: 1
+        contract_commencement_date: '2026-01-01'
+        multicall_max: 2
+        dsp_bidder_fee_type: cpm
+        ssp_bidder_fee_type: cpm
+        oem_bidder_fee_type: cpm
+        tier_a_active: true
+        tier_a_cutoff_type: impressions
+        tier_a_fees:
+        - tier_fee_type: platform
+          fee_type: cpm
+          fee_value: 1.11
+        cdn_fee: 1.11
+        support_level: level_1
+        support_fee: 1.11
+        support_commencement_date: '2026-01-01'
+        server_side_hb_fee: 1.11
+        server_side_hb_fee_commencement_date: '2026-01-01'
+    account_bulk_connect_dsps_one:
+      summary: Connect One
+      value:
+        other_account_ids:
+        - 1
+    account_bulk_connect_curators_many:
+      summary: Connect Many
+      value:
+        other_account_ids:
+        - 1
+        - 2
+    account_bulk_set_dc_visibility_many:
+      summary: Multiple
+      value:
+        other_account_ids:
+        - 1
+        - 2
+    account_curator_main_create_full:
+      summary: Curator Main Full
+      value:
+        name: Account Name
+        platform_type: curator_main
+        account_type_id: 1
+        reporting_view: curator_main
+        website_url: https://account.example.com
+        email: account@example.com
+        account_manager_id: 1
+        account_owner_id: 1
+        is_test: false
+        net_payable_term: 1
+        net_receivable_term: 1
+        contract_commencement_date: '2026-01-01'
+        contract_term_months: 1
+        minimum_commencement_date: '2026-01-01'
+        monthly_minimum: 1
+        multicall_max: 2
+        cdn_fee: 1.11
+        cdn_fee_type: cpg
+        player_fee: 1.11
+        pmp_revshare_rate: 1
+        support_level: level_1
+        support_fee: 1.11
+        support_commencement_date: '2026-01-01'
+        dsp_bidder_fee_type: cpm
+        dsp_bidder_fee_value: 1.11
+        ssp_bidder_fee_type: cpm
+        ssp_bidder_fee_value: 1.11
+        oem_bidder_fee_type: cpm
+        oem_bidder_fee_value: 1.11
+        management_fee_type: cpm
+        management_fee_value: 1.11
+        tier_a_active: true
+        tier_a_cutoff_type: impressions
+        tier_a_fees:
+        - tier_fee_type: platform
+          fee_type: cpm
+          fee_value: 1.11
+        multi_currency_enabled: true
+        default_currency: USD
+        quickstats_currencies:
+        - EUR
+        dma_reporting_enabled: true
+        state_reporting_enabled: true
+        is_active: true
+        display_in_dropdown: true
+        server_side_hb_fee: 1.11
+        server_side_hb_fee_commencement_date: '2026-01-01'
+    account_curator_sub_create_simple:
+      summary: Curator Sub Simple
+      value:
+        name: Account Name
+        platform_type: curator_sub
+        account_type_id: 1
+        reporting_view: curator_sub
+        net_payable_term: 1
+        net_receivable_term: 1
+        contract_commencement_date: '2026-01-01'
+        minimum_commencement_date: '2026-01-01'
+        support_level: level_1
+        support_fee: 1.11
+        support_commencement_date: '2026-01-01'
+        multicall_max: 2
+        dsp_bidder_fee_type: cpm
+        ssp_bidder_fee_type: cpm
+        oem_bidder_fee_type: cpm
+        tier_a_active: true
+        tier_a_cutoff_type: impressions
+        tier_a_fees:
+        - tier_fee_type: platform
+          fee_type: cpm
+          fee_value: 1.11
+        cdn_fee: 1.11
+        server_side_hb_fee: 1.11
+        server_side_hb_fee_commencement_date: '2026-01-01'
     account_dsp_sub_create_simple:
       summary: DSP Sub Simple
       value:
@@ -1083,12 +1214,12 @@ components:
         cdn_fee: 1.11
         server_side_hb_fee: 1.11
         server_side_hb_fee_commencement_date: '2026-01-01'
-    account_bulk_connect_curators_many:
-      summary: Connect Many
+    account_bulk_update_single:
+      summary: Single
       value:
-        other_account_ids:
-        - 1
-        - 2
+      - id: 1
+        name: Account Name
+        is_active: true
     account_clearline_sub_create_full:
       summary: ClearLine Sub Full
       value:
@@ -1149,104 +1280,20 @@ components:
         display_in_dropdown: true
         server_side_hb_fee: 1.11
         server_side_hb_fee_commencement_date: '2026-01-01'
-    account_bulk_update_multiple:
-      summary: Multiple
-      value:
-      - id: 1
-        name: Account Name
-        is_active: true
-      - id: 2
-        name: Account Name
-        daily_impression_goal: 1
-    account_dsp_main_create_full:
-      summary: DSP Main Full
+    account_dsp_main_create_simple:
+      summary: DSP Main Simple
       value:
         name: Account Name
         platform_type: dsp_main
         account_type_id: 1
         reporting_view: dsp_main
-        website_url: https://account.example.com
-        email: account@example.com
-        account_manager_id: 1
-        account_owner_id: 1
-        is_test: false
         net_payable_term: 1
         net_receivable_term: 1
         contract_commencement_date: '2026-01-01'
-        contract_term_months: 1
-        minimum_commencement_date: '2026-01-01'
-        monthly_minimum: 1
-        multicall_max: 2
-        direct_connect_enabled: true
-        cdn_fee: 1.11
-        cdn_fee_type: cpg
-        player_fee: 1.11
-        pmp_revshare_rate: 1
-        support_level: level_1
-        support_fee: 1.11
-        support_commencement_date: '2026-01-01'
-        dsp_bidder_fee_type: cpm
-        dsp_bidder_fee_value: 1.11
-        ssp_bidder_fee_type: cpm
-        ssp_bidder_fee_value: 1.11
-        oem_bidder_fee_type: cpm
-        oem_bidder_fee_value: 1.11
-        management_fee_type: cpm
-        management_fee_value: 1.11
-        tier_a_active: true
-        tier_a_cutoff_type: impressions
-        tier_a_fees:
-        - tier_fee_type: platform
-          fee_type: cpm
-          fee_value: 1.11
-        create_sub_accounts_enabled: true
-        demand_partner_expansion_enabled: true
-        advertiser_domain_required: true
-        mediaocean_prisma_enabled: true
-        cl_budget_allocations_enabled: true
-        creative_pre_approval_enabled: true
-        creative_pre_approval_publishers:
-        - 1
-        multi_currency_enabled: true
-        default_currency: USD
-        quickstats_currencies:
-        - EUR
-        dma_reporting_enabled: true
-        state_reporting_enabled: true
-        is_active: true
-        display_in_dropdown: true
-        server_side_hb_fee: 1.11
-        server_side_hb_fee_commencement_date: '2026-01-01'
-    account_bulk_connect_dsps_one:
-      summary: Connect One
-      value:
-        other_account_ids:
-        - 1
-    account_bulk_update_single:
-      summary: Single
-      value:
-      - id: 1
-        name: Account Name
-        is_active: true
-    account_clearline_sub_create_simple:
-      summary: ClearLine Sub Simple
-      value:
-        name: Account Name
-        platform_type: dsp_sub
-        account_type_id: 1
-        reporting_view: dsp_sub
-        net_payable_term: 1
-        net_receivable_term: 1
-        contract_commencement_date: '2026-01-01'
-        minimum_commencement_date: '2026-01-01'
-        support_level: level_1
-        support_fee: 1.11
-        support_commencement_date: '2026-01-01'
         multicall_max: 2
         dsp_bidder_fee_type: cpm
         ssp_bidder_fee_type: cpm
         oem_bidder_fee_type: cpm
-        cl_direct_ios_enabled: true
         tier_a_active: true
         tier_a_cutoff_type: impressions
         tier_a_fees:
@@ -1254,56 +1301,9 @@ components:
           fee_type: cpm
           fee_value: 1.11
         cdn_fee: 1.11
-        server_side_hb_fee: 1.11
-        server_side_hb_fee_commencement_date: '2026-01-01'
-    account_curator_main_create_full:
-      summary: Curator Main Full
-      value:
-        name: Account Name
-        platform_type: curator_main
-        account_type_id: 1
-        reporting_view: curator_main
-        website_url: https://account.example.com
-        email: account@example.com
-        account_manager_id: 1
-        account_owner_id: 1
-        is_test: false
-        net_payable_term: 1
-        net_receivable_term: 1
-        contract_commencement_date: '2026-01-01'
-        contract_term_months: 1
-        minimum_commencement_date: '2026-01-01'
-        monthly_minimum: 1
-        multicall_max: 2
-        cdn_fee: 1.11
-        cdn_fee_type: cpg
-        player_fee: 1.11
-        pmp_revshare_rate: 1
         support_level: level_1
         support_fee: 1.11
         support_commencement_date: '2026-01-01'
-        dsp_bidder_fee_type: cpm
-        dsp_bidder_fee_value: 1.11
-        ssp_bidder_fee_type: cpm
-        ssp_bidder_fee_value: 1.11
-        oem_bidder_fee_type: cpm
-        oem_bidder_fee_value: 1.11
-        management_fee_type: cpm
-        management_fee_value: 1.11
-        tier_a_active: true
-        tier_a_cutoff_type: impressions
-        tier_a_fees:
-        - tier_fee_type: platform
-          fee_type: cpm
-          fee_value: 1.11
-        multi_currency_enabled: true
-        default_currency: USD
-        quickstats_currencies:
-        - EUR
-        dma_reporting_enabled: true
-        state_reporting_enabled: true
-        is_active: true
-        display_in_dropdown: true
         server_side_hb_fee: 1.11
         server_side_hb_fee_commencement_date: '2026-01-01'
     account_external_bidder_create_simple:

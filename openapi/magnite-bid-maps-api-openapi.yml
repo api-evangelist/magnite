@@ -123,14 +123,6 @@ paths:
       operationId: bid_maps_id_delete
 components:
   examples:
-    bid_map_update_full:
-      summary: Full
-      value:
-        name: Bid Map Name
-        description: Updated description
-        hb_bid_map_entries:
-        - parameter_value: ott3_4035_30
-          bid_floor: 1.11
     bid_map_update_simple:
       summary: Simple
       value:
@@ -147,6 +139,14 @@ components:
           bid_floor: 1.11
         - parameter_value: ott2_4034_60
           bid_floor: 2.22
+    bid_map_update_full:
+      summary: Full
+      value:
+        name: Bid Map Name
+        description: Updated description
+        hb_bid_map_entries:
+        - parameter_value: ott3_4035_30
+          bid_floor: 1.11
     bid_map_create_simple:
       summary: Simple
       value:

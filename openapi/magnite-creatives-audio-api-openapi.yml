@@ -141,15 +141,43 @@ paths:
       operationId: audio_creatives_id_delete
 components:
   schemas:
-    AudioCreativeCreateData:
+    AudioCreativeResponse:
       allOf:
       - $ref: '#/components/schemas/AudioCreativeBaseProperties'
       - type: object
-        required:
-        - demand_partner_id
         properties:
+          id:
+            type: integer
+          account_id:
+            type: integer
           demand_partner_id:
+            type: integer
+          creative_format:
+            type: string
+          type:
+            type: string
+          duration_seconds:
             type: number
+          creative_file_name:
+            type: string
+          creative_content_type:
+            type: string
+          creative_file_size:
+            type: integer
+          creative_updated_at:
+            type: string
+            format: date-time
+          netflix_pre_approval_enabled:
+            type: boolean
+          netflix_approval_status:
+            type:
+            - string
+            - 'null'
+          netflix_deal_ids:
+            type: array
+            items:
+              type: string
+      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
     AudioCreativeIndexResponse:
       allOf:
       - $ref: ref/params.yaml#/components/schemas/ParamsResponse
@@ -159,6 +187,17 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/AudioCreativeResponse'
+    AudioCreativeUpdateData:
+      $ref: '#/components/schemas/AudioCreativeBaseProperties'
+    AudioCreativeCreateData:
+      allOf:
+      - $ref: '#/components/schemas/AudioCreativeBaseProperties'
+      - type: object
+        required:
+        - demand_partner_id
+        properties:
+          demand_partner_id:
+            type: number
     AudioCreativeBaseProperties:
       allOf:
       - type: object
@@ -246,51 +285,13 @@ components:
       - $ref: ref/concerns/targeted_macro.yaml#/components/schemas/TargetedMacro
       - $ref: ref/concerns/user_agent.yaml#/components/schemas/UserAgent
       - $ref: ref/concerns/flight_dates.yaml#/components/schemas/FlightDates
-    AudioCreativeUpdateData:
-      $ref: '#/components/schemas/AudioCreativeBaseProperties'
-    AudioCreativeResponse:
-      allOf:
-      - $ref: '#/components/schemas/AudioCreativeBaseProperties'
-      - type: object
-        properties:
-          id:
-            type: integer
-          account_id:
-            type: integer
-          demand_partner_id:
-            type: integer
-          creative_format:
-            type: string
-          type:
-            type: string
-          duration_seconds:
-            type: number
-          creative_file_name:
-            type: string
-          creative_content_type:
-            type: string
-          creative_file_size:
-            type: integer
-          creative_updated_at:
-            type: string
-            format: date-time
-          netflix_pre_approval_enabled:
-            type: boolean
-          netflix_approval_status:
-            type:
-            - string
-            - 'null'
-          netflix_deal_ids:
-            type: array
-            items:
-              type: string
-      - $ref: ref/concerns/timestamps.yaml#/components/schemas/Timestamps
   examples:
-    audio_creative_update_simple:
+    audio_creative_create_simple:
       summary: Simple
       value:
         name: Audio Creative Name
-        is_active: true
+        demand_partner_id: 1
+        creative_remote_url: https://example.com/audio.mp3
     audio_creative_create_full:
       summary: Full
       value:
@@ -391,12 +392,11 @@ components:
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
         is_active: true
-    audio_creative_create_simple:
+    audio_creative_update_simple:
       summary: Simple
       value:
         name: Audio Creative Name
-        demand_partner_id: 1
-        creative_remote_url: https://example.com/audio.mp3
+        is_active: true
   securitySchemes:
     api_key:
       type: apiKey

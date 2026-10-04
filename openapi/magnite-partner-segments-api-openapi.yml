@@ -333,18 +333,10 @@ paths:
       operationId: partner_segments_id_permissions_get
 components:
   examples:
-    partner_segment_update_simple:
-      summary: Simple
+    partner_segment_update_full:
+      summary: Full
       value:
-        active: true
-    partner_segment_bulk_create_single:
-      summary: Single
-      value:
-        partner_segments:
-        - code: EXAMPLE_PARTNER_SEGMENT_1
-          vendor_id: 1
-          description: Example Partner Segment
-          cpm: 1.11
+        active: false
     partner_segment_bulk_create_multiple:
       summary: Multiple
       value:
@@ -369,10 +361,18 @@ components:
           political: false
           adv_id: 1
           enabled: false
-    partner_segment_update_full:
-      summary: Full
+    partner_segment_bulk_create_single:
+      summary: Single
       value:
-        active: false
+        partner_segments:
+        - code: EXAMPLE_PARTNER_SEGMENT_1
+          vendor_id: 1
+          description: Example Partner Segment
+          cpm: 1.11
+    partner_segment_update_simple:
+      summary: Simple
+      value:
+        active: true
     partner_segment_bulk_create_single_2:
       summary: Create a single Partner Segment
       value:
@@ -381,6 +381,10 @@ components:
           vendor_id: 1
           description: Example Partner Segment
           cpm: 1.11
+    partner_segment_update_full_2:
+      summary: Deactivate a Partner Segment
+      value:
+        is_active: false
     partner_segment_bulk_create_multiple_2:
       summary: Create multiple Partner Segments
       value:
@@ -409,10 +413,6 @@ components:
       summary: Activate a Partner Segment
       value:
         is_active: true
-    partner_segment_update_full_2:
-      summary: Deactivate a Partner Segment
-      value:
-        is_active: false
   schemas:
     PartnerSegment:
       type: object

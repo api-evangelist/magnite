@@ -279,12 +279,6 @@ components:
       value:
         name: Global Fcap Pixel Name
         active: true
-    global_fcap_pixel_update_full:
-      summary: Full
-      value:
-        name: Global Fcap Pixel Name
-        description: Global Fcap Pixel Description
-        active: true
     global_fcap_pixel_create_full:
       summary: Full
       value:
@@ -294,6 +288,12 @@ components:
         list_type: ip_address
         frequency_cap_period_amount: 1
         frequency_cap_period: hour
+    global_fcap_pixel_update_full:
+      summary: Full
+      value:
+        name: Global Fcap Pixel Name
+        description: Global Fcap Pixel Description
+        active: true
     global_fcap_pixel_create_simple:
       summary: Simple
       value:
@@ -302,6 +302,52 @@ components:
         frequency_cap_period: hour
         list_type: ip_address
   schemas:
+    GlobalFcapPixelUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - Test Update
+        description:
+          type: string
+          examples:
+          - Description Update
+        active:
+          type: boolean
+          examples:
+          - true
+    GlobalFcapPixelResponseFields:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        hash_check:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    UnsupportedContentErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+          - Name can't be blank
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          examples:
+          - name:
+            - can't be blank
     GlobalFcapPixel:
       type: object
       properties:
@@ -342,52 +388,6 @@ components:
       required:
       - name
       - frequency_cap_period_amount
-    UnsupportedContentErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-          examples:
-          - Name can't be blank
-        errors:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-          examples:
-          - name:
-            - can't be blank
-    GlobalFcapPixelUpdateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          examples:
-          - Test Update
-        description:
-          type: string
-          examples:
-          - Description Update
-        active:
-          type: boolean
-          examples:
-          - true
-    GlobalFcapPixelResponseFields:
-      type: object
-      properties:
-        id:
-          type: integer
-        account_id:
-          type: integer
-        hash_check:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
   securitySchemes:
     api_key:
       type: apiKey

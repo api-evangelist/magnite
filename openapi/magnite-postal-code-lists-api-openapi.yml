@@ -307,18 +307,18 @@ components:
       summary: Simple
       value:
         name: Postal Code List Name
+    postal_code_list_create_simple:
+      summary: Simple
+      value:
+        name: Postal Code List Name
+        postal_codes:
+        - '10001'
     postal_code_list_update_full:
       summary: Full
       value:
         name: Postal Code List Name
         description: Postal Code List Description
         active: true
-        postal_codes:
-        - '10001'
-    postal_code_list_create_simple:
-      summary: Simple
-      value:
-        name: Postal Code List Name
         postal_codes:
         - '10001'
     postal_code_list_create_full:
@@ -362,23 +362,6 @@ components:
           type: array
           items:
             type: string
-    PostalCodeListCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          examples:
-          - Postal Code List Name
-        description:
-          type: string
-          examples:
-          - Postal Code List Description
-        active:
-          type: boolean
-          examples:
-          - true
-      required:
-      - name
     PostalCodeListUpdateRequest:
       type: object
       properties:
@@ -402,6 +385,23 @@ components:
           - remove
           examples:
           - append
+    PostalCodeListCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - Postal Code List Name
+        description:
+          type: string
+          examples:
+          - Postal Code List Description
+        active:
+          type: boolean
+          examples:
+          - true
+      required:
+      - name
     PostalCodeListErrorResponse:
       type: object
       properties:

@@ -186,11 +186,6 @@ components:
         custom_response: '1'
         active: true
         note: Supply Router note
-    supply_router_update_simple:
-      summary: Simple
-      value:
-        name: Supply Router Name
-        active: true
     supply_router_create_full:
       summary: Full
       value:
@@ -316,6 +311,11 @@ components:
         custom_response: '1'
         active: true
         note: Supply Router note
+    supply_router_update_simple:
+      summary: Simple
+      value:
+        name: Supply Router Name
+        active: true
     supply_router_create_simple:
       summary: Simple
       value:

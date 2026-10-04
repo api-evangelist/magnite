@@ -111,6 +111,11 @@ components:
         object_ids:
         - 1
         is_active: true
+    account_partner_segment_create_full:
+      summary: Create with all fields
+      value:
+        partner_segment_id: 1
+        is_active: true
     account_partner_segment_bulk_update_multiple:
       summary: Bulk update multiple segments
       value:
@@ -122,11 +127,6 @@ components:
       summary: Update active status only
       value:
         is_active: false
-    account_partner_segment_create_full:
-      summary: Create with all fields
-      value:
-        partner_segment_id: 1
-        is_active: true
     account_partner_segment_update_full:
       summary: Update all mutable fields
       value:

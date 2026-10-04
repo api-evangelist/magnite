@@ -343,6 +343,66 @@ paths:
       - Creatives
       operationId: creatives_bulk_update_many_post
 components:
+  schemas:
+    OS:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/OS
+      - $ref: '#/components/schemas/ObjectIds'
+    ObjectIds:
+      type: object
+      properties:
+        object_ids:
+          type: array
+          items:
+            type: number
+          description: Array of creative IDs to update
+      required:
+      - object_ids
+    Browser:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Browser
+      - $ref: '#/components/schemas/ObjectIds'
+    Country:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/Country
+      - $ref: '#/components/schemas/ObjectIds'
+    MetroArea:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/MetroArea
+      - $ref: '#/components/schemas/ObjectIds'
+    Brand:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Brand
+      - $ref: '#/components/schemas/ObjectIds'
+    PostalCode:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/PostalCode
+      - $ref: '#/components/schemas/ObjectIds'
+    Status:
+      type: object
+      required:
+      - object_ids
+      properties:
+        is_active:
+          type: boolean
+          description: Indicates whether to activate (true) or deactivate (false) the creatives
+        object_ids:
+          type: array
+          items:
+            type: number
+          description: Array of creative IDs to update
+    City:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/City
+      - $ref: '#/components/schemas/ObjectIds'
+    Device:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Device
+      - $ref: '#/components/schemas/ObjectIds'
+    Region:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/Region
+      - $ref: '#/components/schemas/ObjectIds'
   examples:
     creative_bulk_update_many_multiple:
       summary: Multiple
@@ -359,66 +419,6 @@ components:
       - id: 1
         name: Creative Name
         is_active: true
-  schemas:
-    Region:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/Region
-      - $ref: '#/components/schemas/ObjectIds'
-    MetroArea:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/MetroArea
-      - $ref: '#/components/schemas/ObjectIds'
-    Browser:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Browser
-      - $ref: '#/components/schemas/ObjectIds'
-    ObjectIds:
-      type: object
-      properties:
-        object_ids:
-          type: array
-          items:
-            type: number
-          description: Array of creative IDs to update
-      required:
-      - object_ids
-    Device:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Device
-      - $ref: '#/components/schemas/ObjectIds'
-    Brand:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Brand
-      - $ref: '#/components/schemas/ObjectIds'
-    City:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/City
-      - $ref: '#/components/schemas/ObjectIds'
-    Status:
-      type: object
-      required:
-      - object_ids
-      properties:
-        is_active:
-          type: boolean
-          description: Indicates whether to activate (true) or deactivate (false) the creatives
-        object_ids:
-          type: array
-          items:
-            type: number
-          description: Array of creative IDs to update
-    OS:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/OS
-      - $ref: '#/components/schemas/ObjectIds'
-    Country:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/Country
-      - $ref: '#/components/schemas/ObjectIds'
-    PostalCode:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/PostalCode
-      - $ref: '#/components/schemas/ObjectIds'
   parameters:
     additionalDataParam:
       name: additional_data

@@ -979,83 +979,135 @@ paths:
       operationId: domain_lists_id_resource_type_bulk_update_same_attributes_post
 components:
   examples:
-    domain_list_update_full:
-      summary: Full
-      value:
-        name: Domain List Name
-        description: Domain List Description
-        active: true
-    domain_list_update_simple:
-      summary: Simple
-      value:
-        name: Domain List Name
     domain_list_domains_bulk_replace_multiple:
       summary: Multiple
       value:
         names:
         - replacement1.com
         - replacement2.com
+    domain_list_domains_bulk_create_single:
+      summary: Single
+      value:
+        names:
+        - example.com
+    domain_list_update_simple:
+      summary: Simple
+      value:
+        name: Domain List Name
     domain_list_domains_bulk_create_multiple:
       summary: Multiple
       value:
         names:
         - cnn.com
         - abc.com
+    domain_list_update_full:
+      summary: Full
+      value:
+        name: Domain List Name
+        description: Domain List Description
+        active: true
+    domain_list_domains_bulk_replace_single:
+      summary: Single
+      value:
+        names:
+        - replacement.com
+    domain_list_create_simple:
+      summary: Simple
+      value:
+        name: Domain List Name
     domain_list_create_full:
       summary: Full
       value:
         name: Domain List Name
         description: Domain List Description
         active: true
-    domain_list_domains_bulk_create_single:
-      summary: Single
-      value:
-        names:
-        - example.com
-    domain_list_create_simple:
-      summary: Simple
-      value:
-        name: Domain List Name
-    domain_list_domains_bulk_replace_single:
-      summary: Single
-      value:
-        names:
-        - replacement.com
-    domain_list_resource_bulk_delete_single:
-      summary: Single
-      value:
-        object_ids:
-        - 1
-    domain_list_resource_add_single:
-      summary: Single
-      value:
-        object_ids:
-        - 1
-        is_allowlist: true
-    domain_list_resource_bulk_delete_multiple:
-      summary: Multiple
-      value:
-        object_ids:
-        - 1
-        - 2
-    domain_list_resource_bulk_update_single:
-      summary: Single
-      value:
-        object_ids:
-        - 1
-        is_allowlist: true
-    domain_list_create_full_2:
-      summary: Full
-      value:
-        name: Domain List Name
-        description: Domain List Description
-        is_active: true
     domain_list_bulk_update_simple:
       summary: Simple
       value:
         is_active: true
         object_ids:
         - 1
+    domain_list_domains_bulk_create_single_2:
+      summary: Single
+      value:
+        domains:
+        - example.com
+    domain_list_resource_add_single:
+      summary: Single
+      value:
+        object_ids:
+        - 1
+        is_allowlist: true
+    domain_list_duplicate_enabled_demand_partners_expansion:
+      summary: Demand partner expansion enabled
+      value:
+        name: Domain List Name (copy)
+        description: Domain List Description
+        is_active: true
+        demand_partner_permission_ids:
+        - 1
+        - 2
+    domain_list_resource_bulk_delete_single:
+      summary: Single
+      value:
+        object_ids:
+        - 1
+    domain_list_resource_bulk_update_single:
+      summary: Single
+      value:
+        object_ids:
+        - 1
+        is_allowlist: true
+    domain_list_resource_bulk_update_multiple:
+      summary: Multiple
+      value:
+        object_ids:
+        - 1
+        - 2
+        is_allowlist: false
+    domain_list_update_full_2:
+      summary: Full
+      value:
+        name: Domain List Name
+        description: Domain List Description
+        is_active: true
+    domain_list_create_another_account:
+      summary: For another account (super admin only)
+      description: 'Super admins may create a domain list in another account by supplying account_id. Other users may only create in their own account; a foreign account_id is rejected with 401.
+
+        '
+      value:
+        name: Domain List Name
+        description: Domain List Description
+        is_active: true
+        account_id: 2
+    domain_list_duplicate_disabled_demand_partners_expansion:
+      summary: Demand partner expansion disabled
+      value:
+        name: Domain List Name (copy)
+        description: Domain List Description
+        is_active: true
+    domain_list_domains_bulk_replace_single_2:
+      summary: Single
+      value:
+        domains:
+        - example.com
+    domain_list_create_full_2:
+      summary: Full
+      value:
+        name: Domain List Name
+        description: Domain List Description
+        is_active: true
+    domain_list_duplicate_another_account:
+      summary: For another account (super admin only)
+      description: 'Super admins may create the duplicate in another account by supplying account_id. Other users may only duplicate into their own account; a foreign account_id is rejected with 401.
+
+        '
+      value:
+        name: Domain List Name (copy)
+        description: Domain List Description
+        is_active: true
+        account_id: 2
     domain_list_domains_bulk_replace_multiple_2:
       summary: Multiple
       value:
@@ -1069,12 +1121,20 @@ components:
         - aloha.com
         - shalom.com
         - ciao.com
-    domain_list_duplicate_disabled_demand_partners_expansion:
-      summary: Demand partner expansion disabled
+    domain_list_bulk_update_full:
+      summary: Full
       value:
-        name: Domain List Name (copy)
-        description: Domain List Description
         is_active: true
+        object_ids:
+        - 1
+        - 2
+    domain_list_resource_add_multiple:
+      summary: Multiple
+      value:
+        object_ids:
+        - 1
+        - 2
+        is_allowlist: true
     domain_list_create_enabled_demand_partners_expansion:
       summary: Demand partner expansion enabled
       value:
@@ -1084,84 +1144,13 @@ components:
         demand_partner_permission_ids:
         - 1
         - 2
-    domain_list_update_full_2:
-      summary: Full
-      value:
-        name: Domain List Name
-        description: Domain List Description
-        is_active: true
-    domain_list_resource_add_multiple:
+    domain_list_resource_bulk_delete_multiple:
       summary: Multiple
       value:
         object_ids:
         - 1
         - 2
-        is_allowlist: true
-    domain_list_duplicate_another_account:
-      summary: For another account (super admin only)
-      description: 'Super admins may create the duplicate in another account by supplying account_id. Other users may only duplicate into their own account; a foreign account_id is rejected with 401.
-
-        '
-      value:
-        name: Domain List Name (copy)
-        description: Domain List Description
-        is_active: true
-        account_id: 2
-    domain_list_create_another_account:
-      summary: For another account (super admin only)
-      description: 'Super admins may create a domain list in another account by supplying account_id. Other users may only create in their own account; a foreign account_id is rejected with 401.
-
-        '
-      value:
-        name: Domain List Name
-        description: Domain List Description
-        is_active: true
-        account_id: 2
-    domain_list_duplicate_enabled_demand_partners_expansion:
-      summary: Demand partner expansion enabled
-      value:
-        name: Domain List Name (copy)
-        description: Domain List Description
-        is_active: true
-        demand_partner_permission_ids:
-        - 1
-        - 2
-    domain_list_resource_bulk_update_multiple:
-      summary: Multiple
-      value:
-        object_ids:
-        - 1
-        - 2
-        is_allowlist: false
-    domain_list_domains_bulk_create_single_2:
-      summary: Single
-      value:
-        domains:
-        - example.com
-    domain_list_bulk_update_full:
-      summary: Full
-      value:
-        is_active: true
-        object_ids:
-        - 1
-        - 2
-    domain_list_domains_bulk_replace_single_2:
-      summary: Single
-      value:
-        domains:
-        - example.com
   schemas:
-    DomainListDuplicateEnabledDemandPartnersExpansion:
-      allOf:
-      - $ref: '#/components/schemas/DomainListDuplicateBase'
-      type: object
-      required:
-      - demand_partner_permission_ids
-      properties:
-        demand_partner_permission_ids:
-          type: array
-          items:
-            type: integer
     TargetingResourceBatchUpdateRequest:
       allOf:
       - $ref: '#/components/schemas/TargetingResourceBatchRequest'
@@ -1171,22 +1160,10 @@ components:
       properties:
         is_allowlist:
           type: boolean
-    TargetingResourceBatchRequest:
-      type: object
-      required:
-      - object_ids
-      properties:
-        object_ids:
-          type: array
-          items:
-            type: integer
     DomainListDuplicateRequest:
       oneOf:
       - $ref: '#/components/schemas/DomainListDuplicateEnabledDemandPartnersExpansion'
       - $ref: '#/components/schemas/DomainListDuplicateDisabledDemandPartnersExpansion'
-    DomainListDuplicateDisabledDemandPartnersExpansion:
-      allOf:
-      - $ref: '#/components/schemas/DomainListDuplicateBase'
     DomainListDuplicateBase:
       type: object
       required:
@@ -1203,6 +1180,29 @@ components:
           description: 'Target account for the duplicate. Only honored for super admins (and equivalent all-accounts users); other users may only create in their own account and a foreign account_id is rejected. Defaults to the requesting user''s account when omitted.
 
             '
+    DomainListDuplicateDisabledDemandPartnersExpansion:
+      allOf:
+      - $ref: '#/components/schemas/DomainListDuplicateBase'
+    TargetingResourceBatchRequest:
+      type: object
+      required:
+      - object_ids
+      properties:
+        object_ids:
+          type: array
+          items:
+            type: integer
+    DomainListDuplicateEnabledDemandPartnersExpansion:
+      allOf:
+      - $ref: '#/components/schemas/DomainListDuplicateBase'
+      type: object
+      required:
+      - demand_partner_permission_ids
+      properties:
+        demand_partner_permission_ids:
+          type: array
+          items:
+            type: integer
   responses:
     TargetingResourceBatchResponse:
       description: Successful response for bulk action
