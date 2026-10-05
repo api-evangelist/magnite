@@ -1,0 +1,12 @@
+{
+ "url": "https://api.springserve.com/api-docs/swagger/v1/swagger.yaml",
+ "requested_url": "https://api.springserve.com/api-docs/swagger/v1/swagger.yaml",
+ "status": 200,
+ "content_type": "text/plain",
+ "bytes": 603948,
+ "sha256": "41d6c0703ff663310e402d1e4ff3db6d3a85de96a608807610918093baf42233",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.936), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
