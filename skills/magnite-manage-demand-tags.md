@@ -3,7 +3,7 @@ name: Create and maintain SpringServe demand tags
 description: List, create, duplicate, update and bulk-edit the demand tags that connect buyers to a publisher's inventory in SpringServe — the core write surface of the ad server, with no idempotency safety net.
 api: openapi/magnite-springserve-v1-openapi.yml
 base_url: https://console.springserve.com
-operations: [demand_tags_get, demand_tags_new_get, demand_tags_post, demand_tags_id_get, demand_tags_id_patch, demand_tags_id_delete, demand_tags_id_duplicate_get, demand_tags_bulk_update_same_attributes_post, demand_tags_bulk_update_many_post, demand_tags_id_creatives_summary_get, demand_tags_macro_suggester_post, demand_tags_permissions_get, demand_tags_download_get]
+operations: [getApiV1DemandTags, demand_tags_new_get, postApiV1DemandTags, getApiV1DemandTagsById, demand_tags_id_patch, deleteApiV1DemandTagsById, getApiV1DemandTagsByIdDuplicate, demand_tags_bulk_update_same_attributes_post, demand_tags_bulk_update_many_post, demand_tags_id_creatives_summary_get, demand_tags_macro_suggester_post, demand_tags_permissions_get, demand_tags_download_get]
 ---
 
 # Create and maintain demand tags

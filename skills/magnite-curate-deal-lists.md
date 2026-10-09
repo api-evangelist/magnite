@@ -3,7 +3,7 @@ name: Curate SpringServe deal lists and marketplaces
 description: Build and maintain the deal lists and curated marketplaces that package inventory for buyers in SpringServe, using the bulk deal operations rather than one call per deal.
 api: openapi/magnite-springserve-v1-openapi.yml
 base_url: https://console.springserve.com
-operations: [deal_lists_get, deal_lists_post, deal_lists_deal_list_id_get, deal_lists_deal_list_id_patch, deal_lists_deal_list_id_delete, deal_lists_deal_list_id_deals_get, deal_lists_deal_list_id_deals_bulk_create_post, deal_lists_deal_list_id_deals_bulk_replace_post, deal_lists_deal_list_id_deals_bulk_delete_delete, deal_lists_bulk_update_same_attributes_post, deal_lists_permissions_get, curated_marketplaces_get, curated_marketplaces_post, curated_marketplaces_id_get, curated_marketplaces_id_patch, curated_marketplaces_id_delete, curated_marketplaces_global_get]
+operations: [getApiV1DealLists, postApiV1DealLists, deal_lists_deal_list_id_get, deal_lists_deal_list_id_patch, deal_lists_deal_list_id_delete, deal_lists_deal_list_id_deals_get, deal_lists_deal_list_id_deals_bulk_create_post, deal_lists_deal_list_id_deals_bulk_replace_post, deal_lists_deal_list_id_deals_bulk_delete_delete, deal_lists_bulk_update_same_attributes_post, deal_lists_permissions_get, curated_marketplaces_get, curated_marketplaces_post, curated_marketplaces_id_get, curated_marketplaces_id_patch, curated_marketplaces_id_delete, curated_marketplaces_global_get]
 ---
 
 # Curate deal lists and marketplaces

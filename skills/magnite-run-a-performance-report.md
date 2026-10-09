@@ -3,7 +3,7 @@ name: Run a SpringServe performance report
 description: Run an ad-serving performance report against SpringServe, synchronously for small pulls or asynchronously for large ones, then page or download the results — while staying inside the tightest rate limit in the API.
 api: openapi/magnite-springserve-v1-openapi.yml
 base_url: https://console.springserve.com
-operations: [reports_post, reports_id_get, reports_download_id_get, reports_templates_get, reports_templates_post, reports_templates_id_get, scheduled_reports_get, scheduled_reports_post]
+operations: [postApiV1Reports, reports_id_get, reports_download_id_get, reports_templates_get, reports_templates_post, reports_templates_id_get, scheduled_reports_get, scheduled_reports_post]
 ---
 
 # Run a performance report

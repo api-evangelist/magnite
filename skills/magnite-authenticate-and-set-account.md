@@ -3,7 +3,7 @@ name: Authenticate to SpringServe and select the working account
 description: Mint a SpringServe API token, confirm the session, and set the active account before doing anything else. Every other SpringServe skill depends on this one, because the API resolves requests against server-side active-account state rather than an account parameter.
 api: openapi/magnite-springserve-v1-openapi.yml
 base_url: https://console.springserve.com
-operations: [auth_post, session_get, accounts_current_get, accounts_displayable_get, accounts_id_set_current_post, accounts_permissions_get]
+operations: [postApiV1Auth, session_get, getApiV1AccountsCurrent, accounts_displayable_get, postApiV1AccountsByIdSetCurrent, accounts_permissions_get]
 ---
 
 # Authenticate and select the working account
