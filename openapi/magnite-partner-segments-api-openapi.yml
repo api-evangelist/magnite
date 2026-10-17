@@ -333,10 +333,6 @@ paths:
       operationId: partner_segments_id_permissions_get
 components:
   examples:
-    partner_segment_update_full:
-      summary: Full
-      value:
-        active: false
     partner_segment_bulk_create_multiple:
       summary: Multiple
       value:
@@ -361,20 +357,16 @@ components:
           political: false
           adv_id: 1
           enabled: false
-    partner_segment_bulk_create_single:
-      summary: Single
-      value:
-        partner_segments:
-        - code: EXAMPLE_PARTNER_SEGMENT_1
-          vendor_id: 1
-          description: Example Partner Segment
-          cpm: 1.11
     partner_segment_update_simple:
       summary: Simple
       value:
         active: true
-    partner_segment_bulk_create_single_2:
-      summary: Create a single Partner Segment
+    partner_segment_update_full:
+      summary: Full
+      value:
+        active: false
+    partner_segment_bulk_create_single:
+      summary: Single
       value:
         partner_segments:
         - code: EXAMPLE_PARTNER_SEGMENT_1
@@ -409,11 +401,29 @@ components:
           political: false
           adv_id: 1
           enabled: false
+    partner_segment_bulk_create_single_2:
+      summary: Create a single Partner Segment
+      value:
+        partner_segments:
+        - code: EXAMPLE_PARTNER_SEGMENT_1
+          vendor_id: 1
+          description: Example Partner Segment
+          cpm: 1.11
     partner_segment_update_simple_2:
       summary: Activate a Partner Segment
       value:
         is_active: true
   schemas:
+    PartnerSegmentIndexResponse:
+      allOf:
+      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              allOf:
+              - $ref: '#/components/schemas/PartnerSegment'
     PartnerSegment:
       type: object
       properties:
@@ -455,16 +465,6 @@ components:
               type: number
             is_active:
               type: boolean
-    PartnerSegmentIndexResponse:
-      allOf:
-      - $ref: ref/params.yaml#/components/schemas/ParamsResponse
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              allOf:
-              - $ref: '#/components/schemas/PartnerSegment'
   parameters:
     additionalDataPartnerSegmentParam:
       name: additional_data

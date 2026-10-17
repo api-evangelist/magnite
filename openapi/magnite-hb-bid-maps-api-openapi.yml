@@ -309,10 +309,24 @@ paths:
       operationId: hb_bid_maps_id_permissions_get
 components:
   examples:
+    hb_bid_map_create_simple:
+      summary: Simple
+      value:
+        name: HB Bid Map Name
+        bid_platform: amazon
+        hb_bid_map_type: inventory_split
     hb_bid_map_update_simple:
       summary: Simple
       value:
         name: HB Bid Map Name
+    hb_bid_map_update_full:
+      summary: Full
+      value:
+        name: HB Bid Map Name
+        description: Updated description
+        hb_bid_map_entries:
+        - parameter_value: ott3_4035_30
+          bid_floor: 1.11
     hb_bid_map_create_full:
       summary: Full
       value:
@@ -325,20 +339,6 @@ components:
           bid_floor: 1.11
         - parameter_value: ott2_4034_60
           bid_floor: 2.22
-    hb_bid_map_update_full:
-      summary: Full
-      value:
-        name: HB Bid Map Name
-        description: Updated description
-        hb_bid_map_entries:
-        - parameter_value: ott3_4035_30
-          bid_floor: 1.11
-    hb_bid_map_create_simple:
-      summary: Simple
-      value:
-        name: HB Bid Map Name
-        bid_platform: amazon
-        hb_bid_map_type: inventory_split
     hb_bid_map_update_full_2:
       summary: Full
       value:
@@ -372,6 +372,13 @@ components:
           default: inventory_split
           examples:
           - paid
+    HbBidMapEntryArray:
+      type: object
+      properties:
+        hb_bid_map_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/HbBidMapEntry'
     HbBidMapsIndexResponse:
       allOf:
       - $ref: ref/params.yaml#/components/schemas/ParamsResponse
@@ -383,32 +390,6 @@ components:
               allOf:
               - $ref: '#/components/schemas/HbBidMap'
               - $ref: '#/components/schemas/HbBidMapResponseFields'
-    HbBidMapEntry:
-      type: object
-      properties:
-        parameter_value:
-          type: string
-          examples:
-          - ott1_4033_30
-        bid_floor:
-          type: number
-          format: float
-          examples:
-          - 15.0
-        id:
-          type: integer
-          examples:
-          - 1
-      required:
-      - parameter_value
-      - bid_floor
-    HbBidMapEntryArray:
-      type: object
-      properties:
-        hb_bid_map_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/HbBidMapEntry'
     HbBidMapCreateRequest:
       allOf:
       - $ref: '#/components/schemas/HbBidMap'
@@ -446,6 +427,25 @@ components:
             - remove
             - replace
             default: append
+    HbBidMapEntry:
+      type: object
+      properties:
+        parameter_value:
+          type: string
+          examples:
+          - ott1_4033_30
+        bid_floor:
+          type: number
+          format: float
+          examples:
+          - 15.0
+        id:
+          type: integer
+          examples:
+          - 1
+      required:
+      - parameter_value
+      - bid_floor
   securitySchemes:
     api_key:
       type: apiKey

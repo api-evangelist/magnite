@@ -121,18 +121,6 @@ paths:
       operationId: filepath_creatives_id_delete
 components:
   examples:
-    filepath_creative_update_simple:
-      summary: Simple
-      value:
-        name: Filepath Creative Name
-        is_active: true
-    filepath_creative_create_simple:
-      summary: Simple
-      value:
-        name: Filepath Creative Name
-        demand_partner_id: 1
-        filepath_value: /path/to/creative.mp4
-        duration_seconds: 1
     filepath_creative_update_full:
       summary: Full
       value:
@@ -202,6 +190,18 @@ components:
         - pixel_type: AdImpression
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
+    filepath_creative_create_simple:
+      summary: Simple
+      value:
+        name: Filepath Creative Name
+        demand_partner_id: 1
+        filepath_value: /path/to/creative.mp4
+        duration_seconds: 1
+    filepath_creative_update_simple:
+      summary: Simple
+      value:
+        name: Filepath Creative Name
+        is_active: true
     filepath_creative_create_full:
       summary: Full
       value:
@@ -273,6 +273,16 @@ components:
           pixel_url: https://pixel.example.com/imp
           pixel_format: image
   schemas:
+    FilepathCreativeCreateData:
+      allOf:
+      - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
+      - type: object
+        required:
+        - demand_partner_id
+        - duration_seconds
+        properties:
+          demand_partner_id:
+            type: number
     FilepathCreativeIndexResponse:
       allOf:
       - $ref: ref/params.yaml#/components/schemas/ParamsResponse
@@ -407,16 +417,6 @@ components:
       - $ref: ref/concerns/targeted_macro.yaml#/components/schemas/TargetedMacro
       - $ref: ref/concerns/user_agent.yaml#/components/schemas/UserAgent
       - $ref: ref/concerns/flight_dates.yaml#/components/schemas/FlightDates
-    FilepathCreativeCreateData:
-      allOf:
-      - $ref: '#/components/schemas/FilepathCreativeBaseProperties'
-      - type: object
-        required:
-        - demand_partner_id
-        - duration_seconds
-        properties:
-          demand_partner_id:
-            type: number
   securitySchemes:
     api_key:
       type: apiKey

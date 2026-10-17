@@ -365,18 +365,6 @@ paths:
       operationId: ip_lists_ip_list_id_ips_file_bulk_replace_post
 components:
   examples:
-    ip_list_update_full:
-      summary: Full
-      value:
-        name: IP List Name
-        description: IP list description
-        active: true
-    ip_list_create_full:
-      summary: Full
-      value:
-        name: IP List Name
-        description: IP list description
-        active: true
     ip_list_ips_bulk_create_single:
       summary: Single
       value:
@@ -386,6 +374,23 @@ components:
       summary: Simple
       value:
         name: IP List Name
+    ip_list_create_full:
+      summary: Full
+      value:
+        name: IP List Name
+        description: IP list description
+        active: true
+    ip_list_ips_bulk_replace_single:
+      summary: Single
+      value:
+        ips:
+        - 1.1.11.1
+    ip_list_update_full:
+      summary: Full
+      value:
+        name: IP List Name
+        description: IP list description
+        active: true
     ip_list_ips_bulk_replace_multiple:
       summary: Multiple
       value:
@@ -404,11 +409,6 @@ components:
       summary: Simple
       value:
         name: IP List Name
-    ip_list_ips_bulk_replace_single:
-      summary: Single
-      value:
-        ips:
-        - 1.1.11.1
   securitySchemes:
     api_key:
       type: apiKey

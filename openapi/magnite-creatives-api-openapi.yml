@@ -344,10 +344,6 @@ paths:
       operationId: creatives_bulk_update_many_post
 components:
   schemas:
-    OS:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/OS
-      - $ref: '#/components/schemas/ObjectIds'
     ObjectIds:
       type: object
       properties:
@@ -358,25 +354,17 @@ components:
           description: Array of creative IDs to update
       required:
       - object_ids
-    Browser:
-      allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Browser
-      - $ref: '#/components/schemas/ObjectIds'
-    Country:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/Country
-      - $ref: '#/components/schemas/ObjectIds'
     MetroArea:
       allOf:
       - $ref: ref/geo_targeting.yaml#/components/schemas/MetroArea
       - $ref: '#/components/schemas/ObjectIds'
-    Brand:
+    OS:
       allOf:
-      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Brand
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/OS
       - $ref: '#/components/schemas/ObjectIds'
-    PostalCode:
+    Region:
       allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/PostalCode
+      - $ref: ref/geo_targeting.yaml#/components/schemas/Region
       - $ref: '#/components/schemas/ObjectIds'
     Status:
       type: object
@@ -391,19 +379,45 @@ components:
           items:
             type: number
           description: Array of creative IDs to update
+    Country:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/Country
+      - $ref: '#/components/schemas/ObjectIds'
     City:
       allOf:
       - $ref: ref/geo_targeting.yaml#/components/schemas/City
+      - $ref: '#/components/schemas/ObjectIds'
+    Brand:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Brand
+      - $ref: '#/components/schemas/ObjectIds'
+    Browser:
+      allOf:
+      - $ref: ref/user_agent_targeting.yaml#/components/schemas/Browser
+      - $ref: '#/components/schemas/ObjectIds'
+    PostalCode:
+      allOf:
+      - $ref: ref/geo_targeting.yaml#/components/schemas/PostalCode
       - $ref: '#/components/schemas/ObjectIds'
     Device:
       allOf:
       - $ref: ref/user_agent_targeting.yaml#/components/schemas/Device
       - $ref: '#/components/schemas/ObjectIds'
-    Region:
-      allOf:
-      - $ref: ref/geo_targeting.yaml#/components/schemas/Region
-      - $ref: '#/components/schemas/ObjectIds'
+  parameters:
+    additionalDataParam:
+      name: additional_data
+      description: "Include additional data from non-model sources in the response. \nSupported values: 'quickstats', 'budget_data'. \nMultiple values can be specified as comma-separated (e.g., 'quickstats,budget_data').\n"
+      in: query
+      schema:
+        type: string
+      example: quickstats
   examples:
+    creative_bulk_update_many_single:
+      summary: Single
+      value:
+      - id: 1
+        name: Creative Name
+        is_active: true
     creative_bulk_update_many_multiple:
       summary: Multiple
       value:
@@ -413,20 +427,6 @@ components:
       - id: 2
         name: Creative Name
         is_active: false
-    creative_bulk_update_many_single:
-      summary: Single
-      value:
-      - id: 1
-        name: Creative Name
-        is_active: true
-  parameters:
-    additionalDataParam:
-      name: additional_data
-      description: "Include additional data from non-model sources in the response. \nSupported values: 'quickstats', 'budget_data'. \nMultiple values can be specified as comma-separated (e.g., 'quickstats,budget_data').\n"
-      in: query
-      schema:
-        type: string
-      example: quickstats
   securitySchemes:
     api_key:
       type: apiKey
