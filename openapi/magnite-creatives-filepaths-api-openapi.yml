@@ -428,3 +428,9 @@ components:
       scheme: bearer
       bearerFormat: JWT
       description: SpringServe authorization bearer token based authentication.  This key is included in the response from the /api/v0/auth and /api/v1/auth endpoints.  This key will be automatically set if you run the example for /api/v0/auth or /api/v1/auth
+x-provenance:
+  method: harvested
+  publisher: Magnite
+  source: https://api.springserve.com/api-docs/swagger/v1/swagger.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
